@@ -1,10 +1,11 @@
-package lecture;
+package lecture.Function;
 
 public class Function {
     public static void main(String[] args) {
         /*
         In general , a method is a way to perform some task.
         Similarly , the method in java is a collection of instructions that performs specific task .
+        Method are used to perform certain actions , and they are also known as functions .
 
          */
 
