@@ -28,7 +28,7 @@ Sample Output 3 :
 -1
 
  */
-package assignment.function;
+package assignment.function.basic;
 
 import java.util.Scanner;
 
