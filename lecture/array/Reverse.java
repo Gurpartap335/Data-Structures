@@ -29,8 +29,6 @@ public class Reverse {
             swap(arr,start,end);
                 start++;
                 end--;
-
-
         }
     }
 

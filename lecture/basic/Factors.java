@@ -9,8 +9,8 @@ public class Factors {
 
         System.out.println("enter a number : ");
         int n = s.nextInt();
-        int i = 2;
-        while (i < n) {
+        int i = 1;
+        while (i <= n) {
             if (n % i == 0) {
                 System.out.println(i);
             }
