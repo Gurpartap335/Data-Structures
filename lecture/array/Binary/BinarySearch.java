@@ -33,16 +33,18 @@ public class BinarySearch {
         int end = arr.length - 1;
 
         while (start <= end) {
-            int mid = start + (end - start) / 2 ;
+            int mid = start + (end - start)/2;
 
-            if (target < arr[mid]) { // if target is less middle element change end .
-                end = mid -1;
+            if (arr[mid] == target) {
+                return mid;
             }
-            else if(target > arr[mid]) { // if target is greater than mid element change start .
+
+            else if(target > arr[target]) { // if target value is greater than arr mid value then shift start
                 start = mid + 1;
             }
-            else {
-                return mid;
+
+            else { // if target value is less than mid value then shfit end .
+                end = mid - 1;
             }
         }
         return -1;
@@ -50,7 +52,7 @@ public class BinarySearch {
 
     /*
     Better way to find mid (element)
-    m = (s + e) /2  (s + e) this may exceed the int range
+    m = (s + e) /2;  (s + e) this may exceed the int range
 
     m = s + (e - s) / 2
      */
