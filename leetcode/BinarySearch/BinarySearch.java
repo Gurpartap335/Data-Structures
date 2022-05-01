@@ -18,7 +18,9 @@ public class BinarySearch {
 
         System.out.println(Arrays.toString(nums));
 
-        System.out.println(binarySearch(nums,4));
+        System.out.println("Enter target element : ");
+        int t = s.nextInt();
+        System.out.println(binarySearch(nums,t));
 
     }
 
