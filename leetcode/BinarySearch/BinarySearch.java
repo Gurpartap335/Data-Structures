@@ -28,7 +28,8 @@ public class BinarySearch {
         int low = 0;
         int end = arr.length - 1;
 
-        while (low <= end) {
+        while (low <= end) { // it is very important to put <= and not just < otherwise your program will give wrong answer
+            //  if the target happens to be the last element in the search space
             int mid = end + (low - end)/2;
             if (arr[mid] == target) {
                 return mid;
@@ -47,4 +48,5 @@ public class BinarySearch {
 }
 /*
 sorted array
+
  */
