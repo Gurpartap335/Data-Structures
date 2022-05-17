@@ -35,7 +35,7 @@ public class BinarySearch {
                 return mid;
             }
 
-            else if (arr[mid] < target) { // if target is greater than mid element then low = mid d+ 1;
+            else if (arr[mid] < target) { // if target is greater than mid element then low = mid + 1;
                 low = mid + 1;
             }
             else { // if arr[mid] element is greater than target then end = mid - 1;
@@ -48,5 +48,12 @@ public class BinarySearch {
 }
 /*
 sorted array
+
+Binary search is all about
+finding minimum value in the search space for which certain condition satisfies.
+
+search space and condition to satisfy .
+This range of possible values is called Search space .
+
 
  */
