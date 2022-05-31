@@ -1,4 +1,4 @@
-package assignment.function.question;
+package assignment.question;
 
 import java.util.Scanner;
 

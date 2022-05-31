@@ -1,7 +1,7 @@
 /*
 Write a program to print the sum of two numbers enter by user by defining your own method.
  */
-package assignment.function.question;
+package assignment.question;
 
 import java.util.Scanner;
 

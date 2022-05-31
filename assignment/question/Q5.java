@@ -10,7 +10,7 @@ Marks        Grade
 41-50         D
 <= 40         E(Fail)
  */
-package assignment.function.question;
+package assignment.question;
 
 import java.sql.SQLOutput;
 import java.util.Scanner;

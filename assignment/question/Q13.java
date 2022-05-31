@@ -1,7 +1,7 @@
 /*
 Write a function that returns all prime numbers between two given numbers.
  */
-package assignment.function.question;
+package assignment.question;
 
 import java.util.Scanner;
 

@@ -21,10 +21,12 @@ public class SelectionSort {
 
     static void selection(int[] arr) {
 
-        for (int i = 0; i < arr.length - 1; i++) { // we need to do n - 2 passes // no need to reverse last element with first element . array is already sorted.
+       // we need to do n - 2 passes // no need to reverse last element with first element . array is already sorted.
+        for (int i = 0; i < arr.length - 1; i++) {
 
             // Find the minimum element in unsorted array.
             int iMin = i;
+            // j = i + 1 no need to find minimum after we swap element their.
             for (int j = i+1; j < arr.length; j++) {
                 if(arr[j] < arr[iMin])
                     iMin = j;// update the index of minimum element.
@@ -65,6 +67,12 @@ Classification:
 Selection Sort
 The selection sort algorithm sorts an array by repeatedly finding the minimum element from unsorted
 part and putting it at the beginning.
+
+Initialize minimum value(iMin) to location 0.
+traverse tha array to find the minimum element in the array.
+while traversing if any element smaller than iMin is found then swap both the values.
+- then increment iMin to point to next element
+repeat until array is sorted
 
 Time Complexity : O(n^2).
  */

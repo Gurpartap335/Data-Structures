@@ -3,7 +3,7 @@ The k-digit number N is an Armstrong number if and only if the k-th power of eac
 
 Given a positive integer N, return true if and only if it is an Armstrong number.
  */
-package assignment.function.basic;
+package assignment.basic;
 
 import java.util.Scanner;
 
