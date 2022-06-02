@@ -29,6 +29,13 @@ public class Fibonacci {
 }
 /*
 Each number is the sum of the two preceding number ones starting from 0 and 1.
-0 1 1 2
-0 1 2 3
+
+0 1 2 3 4 5 6
+0 1 1 2 3 5 8
+
+why return a ?
+i : 0           i : 1   i = 2   i = 3
+a = 0 (0 : 0)   a = 1   a = 1   a = 2
+b = 1           b = 1   b = 2
+c = 1           c = 2   c = 3
  */
