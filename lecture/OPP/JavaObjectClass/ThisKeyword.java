@@ -13,7 +13,7 @@ public class ThisKeyword {
 In Java,this is a reference variable that refers to the current object.
  */
 
-// this; to refer current class instance variable
+// this: to refer current class instance variable
 
 class Student{
     int rollNo;
