@@ -33,6 +33,9 @@ public class SelectionSort {
             }
 
             // swap the found minimum element with the first element
+            if (iMin == i){
+                continue;
+            }
             int temp = arr[i];
             arr[i] = arr[iMin];
             arr[iMin] = temp;
