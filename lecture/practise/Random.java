@@ -1,5 +1,7 @@
 package lecture.practise;
 
+import java.lang.Math;
+
 public class Random {
     public static void main(String[] args){
 //        String name = "Hello";
@@ -31,12 +33,22 @@ public class Random {
 //        System.out.println(myInt.compareTo(43));
 //        System.out.println(myInt.toString());
 
-        String m = myInt.toString();
-        System.out.println(m);
+//        String m = myInt.toString();
+//        System.out.println(m);
+//
+//        System.out.println(Integer.MIN_VALUE + " " + Integer.MAX_VALUE);
 
-        System.out.println(Integer.MIN_VALUE + " " + Integer.MAX_VALUE);
+
+//        int n = 8, i;
+//        for (i = 2; i <= n; i = (int) Math.pow(i,2)) {
+//            System.out.println("Hello World !!!\n");
+//        }
+
+
+
 
     }
+
 
 
 

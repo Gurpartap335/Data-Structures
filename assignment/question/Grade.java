@@ -15,7 +15,7 @@ package assignment.question;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
-public class Q5 {
+public class Grade {
     public static void main(String[] args) {
         grade();
 
@@ -31,7 +31,7 @@ public class Q5 {
         System.out.println("Enter marks of " + n + " Subject");
         for (int i = 0; i < n; i++) {
             int mark = s.nextInt();
-            if (mark > 100) {
+            if (mark > 100 || mark < -1) {
                 System.out.println("Each subject is of 100 marks + Invalid input");
                 System.out.println("Enter again");
                 mark = s.nextInt();
@@ -41,6 +41,7 @@ public class Q5 {
 
         System.out.println("Total marks : " + totalMarks);
         percentage = (totalMarks / (n * 100)) * 100;
+        System.out.println(percentage);
 
         switch ((int)percentage/10) {
             case 9:

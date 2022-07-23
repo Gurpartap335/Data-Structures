@@ -18,5 +18,5 @@ public class KeepTakingNumberUntilX {
 }
 /*
 keep taking numbers as inputs till the user enter x
-after that print sum of all .
+after that print sum of all.
  */

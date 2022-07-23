@@ -33,7 +33,7 @@ public class Q4 {
         System.out.println("Enter second number : ");
         int b = s.nextInt();
 
-        System.out.println("Sum of two numbers : " + a + b);
+        System.out.println("Sum of two numbers : " + (a + b));
     }
 
     static void product () {
