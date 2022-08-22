@@ -1,9 +1,14 @@
+/*
+https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/
+ */
 package leetcode.array;
 
 import java.util.*;
+import java.util.List;
 
 public class KidsWithTheGreatestNumberOfCandies {
     public static void main(String[] args) {
+
         Scanner s = new Scanner(System.in);
         System.out.println("Enter size of array : ");
         int size = s.nextInt();
@@ -16,26 +21,34 @@ public class KidsWithTheGreatestNumberOfCandies {
 
         System.out.println(Arrays.toString(nums));
 
-        System.out.println("Enter extra candies");
+        System.out.println("Enter extra candies : ");
         int n = s.nextInt();
-        System.out.println(Arrays.toString(kidsWithGreaterCandies(nums,n)));
+//        System.out.println(Arrays.toString(kidsWithGreaterCandies(nums,n)));
+
+//        kidsWithGreaterCandies(nums,n);
+        System.out.println(kidsWithGreaterCandies(nums,n));
 
 //        List<Boolean> b = kidsWithGreaterCandies(nums,n);
 //        System.out.println(Arrays.toString(b));
     }
 
-    static boolean[] kidsWithGreaterCandies(int[] candies , int extraCandies) {
+    static List<Boolean> kidsWithGreaterCandies(int[] candies , int extraCandies) {
         int maxi = 0;
         for (int i = 0;i < candies.length;i++) {
             maxi = Math.max(candies[i],maxi);
         }
 
-        boolean[] res = new boolean[candies.length];
-        for (int i = 0;i < candies.length;i++) {
-            if (candies[i] + extraCandies >= maxi)
-                res[i] = true;
-            else
-                res[i] = false;
+//        boolean[] res = new boolean[candies.length];
+//        for (int i = 0;i < candies.length;i++) {
+//            if (candies[i] + extraCandies >= maxi)
+//                res[i] = true;
+//            else
+//                res[i] = false;
+//        }
+
+        List<Boolean> res = new ArrayList<>();
+        for (int i = 0; i < candies.length; i++) {
+            res.add(candies[i] + extraCandies >= maxi);
         }
         return res;
     }
