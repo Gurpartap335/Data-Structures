@@ -32,8 +32,8 @@ public class KidsWithTheGreatestNumberOfCandies {
 //        System.out.println(Arrays.toString(b));
     }
 
-    static List<Boolean> kidsWithGreaterCandies(int[] candies , int extraCandies) {
-        int maxi = 0;
+    static List<Boolean> kidsWithGreaterCandies(int[] candies, int extraCandies) {
+        int maxi = Integer.MIN_VALUE;
         for (int i = 0;i < candies.length;i++) {
             maxi = Math.max(candies[i],maxi);
         }

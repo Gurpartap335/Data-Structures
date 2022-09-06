@@ -26,7 +26,7 @@ public class BinarySearch {
 
     static int binarySearch(int[] arr , int target) {
         int low = 0;
-        int end = arr.length - 1;
+        int end = arr.length - 1; // low and end will work like boundary.
 
         while (low <= end) { // it is very important to put <= and not just < otherwise your program will give wrong answer
             //  if the target happens to be the last element in the search space
@@ -54,6 +54,5 @@ finding minimum value in the search space for which certain condition satisfies.
 
 search space and condition to satisfy .
 This range of possible values is called Search space .
-
 
  */

@@ -26,7 +26,7 @@ public class OrderAgnosticsBS {
         int end = arr.length - 1;
         
         // find whether the array is sorted in ascending or descending
-        boolean isAsc = arr[start] < arr[end];
+        boolean isAsc = arr[start] < arr[end]; // if last element is greater than first element than array is sorted in ascending order.
 //        if (arr[start] < arr[end])
 //            isAsc = true;
 //        else
@@ -39,6 +39,7 @@ public class OrderAgnosticsBS {
                 return mid;
             }
 
+            // if in ascending order than execute this.
             if (isAsc) {
                 if (x < arr[mid]) {
                     end = mid -1;

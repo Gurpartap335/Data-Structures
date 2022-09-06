@@ -32,12 +32,12 @@ public class SearchIn2D {
 
 //        System.out.println();
 //
-//        for (int i = 0; i < arr.length; i++) {
-//            System.out.println(Arrays.toString(arr[i]));
-//        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(Arrays.toString(arr[i]));
+        }
 
-//        int[] ans = search(arr,45);
-//        System.out.println(Arrays.toString(ans));
+        int[] ans = search(arr,45);
+        System.out.println(Arrays.toString(ans));
 
         System.out.println("Maximum value " + max(arr));
 //        System.out.println("Minimum value " + min(arr));

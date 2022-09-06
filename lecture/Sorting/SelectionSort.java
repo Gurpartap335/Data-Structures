@@ -15,16 +15,15 @@ public class SelectionSort {
         }
 
         System.out.println(Arrays.toString(arr));
-        selection(arr);
+        selection3(arr);
         System.out.println(Arrays.toString(arr));
     }
 
     static void selection(int[] arr) {
 
-       // we need to do n - 2 passes // no need to reverse last element with first element . array is already sorted.
         for (int i = 0; i < arr.length - 1; i++) {
 
-            // Find the minimum element in unsorted array.
+            // Find the minimum element in index in unsorted array.
             int iMin = i;
             // j = i + 1 no need to find minimum after we swap element their.
             for (int j = i+1; j < arr.length; j++) {
@@ -32,21 +31,39 @@ public class SelectionSort {
                     iMin = j;// update the index of minimum element.
             }
 
+//            // if minimum element index is similar to first element no need to swap.
+//            if (iMin == i){
+//                continue;
+//            }
             // swap the found minimum element with the first element
-            if (iMin == i){
-                continue;
-            }
             int temp = arr[i];
             arr[i] = arr[iMin];
             arr[iMin] = temp;
         }
     }
+
+
+    // descending order
+    static void selection3(int[] arr) {
+
+        for (int i = 0; i < arr.length - 1; i++) {
+
+            int iMax = i;
+
+            for (int j = i+1; j < arr.length; j++) {
+                if(arr[iMax] < arr[j])
+                    iMax = j;
+            }
+
+            int temp = arr[i];
+            arr[i] = arr[iMax];
+            arr[iMax] = temp;
+        }
+    }
 }
 /*
-Sorting is arranging the elements in a list or collection in increasing or
-decreasing order of a some property
-A sorted list is the permutation of the original list, when we sort a list, we just rearrange
-the elements.
+Sorting is arranging the elements in a list or collection in increasing or decreasing order of a some property
+A sorted list is the permutation of the original list, when we sort a list, we just rearrange the elements.
 
 Sorting Algorithms :
 Bubble sort
@@ -78,4 +95,8 @@ while traversing if any element smaller than iMin is found then swap both the va
 repeat until array is sorted
 
 Time Complexity : O(n^2).
+ */
+
+/*
+read github code.
  */

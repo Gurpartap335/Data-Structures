@@ -8,8 +8,8 @@ public class Inheritance {
 
         // simple inheritance
         Dog d = new Dog();
-        d.eat();
-        d.bark();
+//        d.eat();
+//        d.bark();
 
         // multilevel inheritance
         BabyDog d1 = new BabyDog();

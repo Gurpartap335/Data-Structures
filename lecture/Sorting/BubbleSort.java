@@ -16,7 +16,7 @@ public class BubbleSort {
 
         System.out.println(Arrays.toString(arr));
 //        bubble(arr);
-        bubbleSort(arr);
+        bubble(arr);
         System.out.println(Arrays.toString(arr));
 
     }
@@ -55,7 +55,7 @@ public class BubbleSort {
             // run the steps n-1 times
             swapped = false;
             for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
+                if (arr[j] < arr[j + 1]) {
                     // swap arr[j+1] and arr[j]
                     int temp = arr[j];
                     arr[j] = arr[j+1];
@@ -71,11 +71,12 @@ public class BubbleSort {
         }
     }
 
+    // if descending order just change the symbol.
     static void bubble2 (int[] arr) {
 
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
-                if (arr[j] > arr[j+1]) {
+                if (arr[j] < arr[j+1]) {
                     // swap arr[j+1] and arr[j]
                     int temp = arr[j];
                     arr[j] = arr[j+1];
@@ -88,6 +89,10 @@ public class BubbleSort {
     THE above function always runs O(n^2) time even if the array is sorted.
     It can be optimized by stopping the algorithm if the inner loop did not cause any swap.
      */
+
+
+    // not improved
+
 }
 /*
 Bubble Sort aka sinking sort/ exchange sort
@@ -109,4 +114,14 @@ other unsorted.
 Worst and Average case time complexity O(N^2)
 Best case Time complexity: O(N) .
 Auxiliary sorted O(1)
+ */
+
+/*
+Number of swaps :
+In ascending order:
+largest element moves to the right.
+so swapping is done when a smaller element is found on the right side.
+count number of elements smaller that it.
+
+https://stackoverflow.com/questions/20035505/bubble-sort-number-of-swaps
  */

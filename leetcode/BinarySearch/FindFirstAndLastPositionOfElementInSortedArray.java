@@ -65,8 +65,76 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         return id;
     }
 
+}
 
 
+class FindFirstAndLast{
+    public static void main(String[] args) {
+        int[] nums = {5, 7, 7, 7, 8, 8, 10};
+
+
+    }
+
+    static int search(int[] nums, int target, boolean firstOccurence) {
+        int ans = -1;
+        int start = 0;
+        int end = nums.length - 1;
+
+        while (start <= end) {
+            int mid = start + (end - start)/2;
+            if (target < nums[mid]) {
+                end = mid - 1;
+            } else if (target > nums[mid]) {
+                start = mid + 1;
+            } else {
+                ans = mid;
+                if (firstOccurence) {
+                    end = mid - 1;
+                } else {
+                    start = mid + 1;
+                }
+            }
+        }
+
+        return ans;
+    }
+    // debug
+}
+
+
+
+
+class first{
+    public static void main(String[] args) {
+        int[] arr = {5, 7, 7, 7, 8, 8, 10};
+
+        int ans = fAndLast(arr, 7, false);
+        System.out.println(ans);
+    }
+
+    private static int fAndLast(int[] arr, int t, boolean firstOccurence) {
+        int ans = -1; // -1 element did not exit.
+        int s = 0;
+        int e = arr.length - 1;
+        while (s <= e) {
+            int mid = s + e >>> 1;
+
+            if (arr[mid] < t) {
+                s = mid + 1;
+            } else if (arr[mid] > t) {
+                e = mid - 1;
+            } else {
+                ans = mid; // we only enter this condition we find the element. return mid as index.
+                // we are returning mid as index for both first and last occurrence.
+                if (firstOccurence) {
+                    e = mid - 1;
+                } else {
+                    s = mid + 1;
+                }
+            }
+        }
+        return ans;
+    }
 
 
 }
