@@ -42,6 +42,7 @@ public class FindSmallestLetterGreaterThanTarget {
             }
         }
 
-        return letters[low % letters.length]; // if 5 % 5 = 0 when low and letters.length is same .
+        return letters[low % letters.length]; // if 5 % 5 = 0 when low and letters.length is same.
+        // letters.length because we getting out of bound(s = mid + 1) and letters wrap around.
     }
 }
