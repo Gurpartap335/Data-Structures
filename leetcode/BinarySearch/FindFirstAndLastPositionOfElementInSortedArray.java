@@ -31,6 +31,7 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
         return result;
     }
 
+    // another approach did not remember probably copied form leetcode discussions.
     static int findFirst(int[] nums, int target) {
         int id = -1;
         int start = 0;
@@ -68,48 +69,18 @@ public class FindFirstAndLastPositionOfElementInSortedArray {
 }
 
 
-class FindFirstAndLast{
+class FirstAndLastPositionOfElement{
     public static void main(String[] args) {
-        int[] nums = {5, 7, 7, 7, 8, 8, 10};
+
+        Scanner s = new Scanner(System.in);
+        int[] arr = {5, 7, 7, 8, 8, 10};
+        int t = s.nextInt();
 
 
-    }
-
-    static int search(int[] nums, int target, boolean firstOccurence) {
-        int ans = -1;
-        int start = 0;
-        int end = nums.length - 1;
-
-        while (start <= end) {
-            int mid = start + (end - start)/2;
-            if (target < nums[mid]) {
-                end = mid - 1;
-            } else if (target > nums[mid]) {
-                start = mid + 1;
-            } else {
-                ans = mid;
-                if (firstOccurence) {
-                    end = mid - 1;
-                } else {
-                    start = mid + 1;
-                }
-            }
-        }
-
-        return ans;
-    }
-    // debug
-}
-
-
-
-
-class first{
-    public static void main(String[] args) {
-        int[] arr = {5, 7, 7, 7, 8, 8, 10};
-
-        int ans = fAndLast(arr, 7, false);
-        System.out.println(ans);
+        int[] ans = new int[2];
+        ans[0] = fAndLast(arr, t, true);
+        ans[1] = fAndLast(arr,t,false);
+        System.out.println(Arrays.toString(ans));
     }
 
     private static int fAndLast(int[] arr, int t, boolean firstOccurence) {
@@ -138,3 +109,11 @@ class first{
 
 
 }
+
+/*
+Dry run this code.
+
+First occurrence -> goes to the left part e = m - 1.
+Last Occurrence -> goes to right part s = m + 1.
+Pattern where you want to search left half or right half.
+ */
