@@ -69,7 +69,7 @@ public class FindInAMountainArray {
         return -1;
     }
 
-    // reverse binary search.
+    // binary search if array is in des. order.
     public static int binarySearch2(int[] arr, int target, int start, int end) {
 
         while (start <= end) {
