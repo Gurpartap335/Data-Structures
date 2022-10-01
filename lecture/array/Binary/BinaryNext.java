@@ -17,7 +17,8 @@ public class BinaryNext {
 //            nums[i] = s.nextInt();
 //        }
 
-        int[] nums = {-1, 0, 3, 5, 9, 12};
+        // this algorithm is also working for array if it have duplicate elements.
+        int[] nums = {-1, -1, 0, 3, 3, 5, 5, 5, 9, 9, 12, 12};
 
         System.out.println(Arrays.toString(nums));
 
@@ -25,7 +26,8 @@ public class BinaryNext {
 
         System.out.println("Enter target element : ");
         int t = s.nextInt();
-        System.out.println(nextLargest(nums,t));
+        System.out.println("Smallest: " + nextSmallest(nums,t));
+        System.out.println("Largest: " + nextLargest(nums,t));
 
 
     }
@@ -36,21 +38,17 @@ public class BinaryNext {
     // why i choose end?
     // end is smaller than start. always points towards smaller element
     static int nextSmallest(int[] arr, int t) {
+
+        if (t == arr[0] || t < arr[0]) {
+            System.out.println("No more next-smallest element to target bcz target is at index 0");
+            return -11111;
+        }
+
         int start = 0;
         int end = arr.length - 1;
 
         while (start <= end) {
             int mid = start + ((end - start)/2);
-
-            // edge case
-//            if (t < arr[0]) {
-//                return -11111;
-//            }
-
-            if (t == arr[0] || t < arr[0]) {
-                System.out.println("No more next-smallest element to target bcz target is at index 0");
-                return -11111;
-            }
 
             if (arr[mid] >= t) {
                 end = mid - 1;
@@ -63,19 +61,17 @@ public class BinaryNext {
 
     // this method return next-largest element in the array relative to the target even if target is absent.
     static int nextLargest(int[] arr, int t) {
+
+        if (t == arr[arr.length - 1] || t > arr[arr.length - 1]) {
+            System.out.println("Array out of bound");
+            return -1111;
+        }
+
         int start = 0;
         int end = arr.length - 1;
 
         while (start <= end) {
             int mid = start + ((end - start)/2);
-
-//            if (t > arr[arr.length - 1]) {
-//                return -11111;
-//            }
-            if (t == arr[arr.length - 1] || t > arr[arr.length - 1]) {
-                System.out.println("Array out of bound");
-                return -11111;
-            }
 
             if (arr[mid] <= t) {
                 start = mid + 1;
@@ -83,27 +79,6 @@ public class BinaryNext {
                 end = mid - 1;
             }
         }
-        return arr[start];
+        return arr[start]; // start always point towards larger index.
     }
 }
-
-
-// next smallest to the target.
-//    static int nextSmallest(int[] arr, int t) {
-//        int start = 0;
-//        int end = arr.length - 1;
-//        int mid = 0;
-//
-//        while (start <= end) {
-//            mid = start + ((end - start)/2);
-//
-//            if (mid == 0) {
-//                System.out.println("No smaller element than " + arr[mid] + "is at index 0");
-//            }
-//
-//            if (t == arr[mid]) {
-//                return arr[mid - 1];
-//            }
-//
-//            else if (t > arr[mid]) {
-//
