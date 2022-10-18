@@ -1,5 +1,6 @@
 package lecture.array.Binary;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -89,3 +90,9 @@ public class FindInAMountainArray {
         return -1;
     }
 }
+
+/*
+Find peak element index.
+Search in ascending array 0,peak element index
+Search in descending array peak element index, arr.length - 1
+ */

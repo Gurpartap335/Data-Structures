@@ -15,8 +15,8 @@ public class BubbleSort {
         }
 
         System.out.println(Arrays.toString(arr));
+        bubbleSort(arr);
 //        bubble(arr);
-        bubble(arr);
         System.out.println(Arrays.toString(arr));
 
     }
@@ -29,7 +29,7 @@ public class BubbleSort {
         for (i = 0; i < n - 1; i++)
         {
             swapped = false;
-            for (j = 0; j < n - i - 1; j++)
+            for (j = 0; j < n - i - 1; j++) //
             {
                 if (arr[j] > arr[j + 1])
                 {
@@ -42,12 +42,13 @@ public class BubbleSort {
             }
 
             // IF no two elements were
-            // swapped by inner loop, then break
+            // swapped by inner loop, then break it means array is already sorted.
             if (!swapped)
                 break;
         }
     }
 
+    // descending order
     static void bubble(int[] arr) {
        int n = arr.length;
         boolean swapped;
@@ -58,16 +59,17 @@ public class BubbleSort {
                 if (arr[j] < arr[j + 1]) {
                     // swap arr[j+1] and arr[j]
                     int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                     swapped = true;
                 }
-
-                // if you did not swap for a particular value of i, it means the array is sorted
-                if (!swapped) { // if no two elements were swapped by inner loop , then break.
-                    break;
-                }
             }
+
+            // if you did not swap for a particular value of i, it means the array is sorted
+            if (!swapped) { // if no two elements were swapped by inner loop , then break.
+                break;
+            }
+
         }
     }
 
@@ -98,7 +100,7 @@ public class BubbleSort {
 Bubble Sort aka sinking sort/ exchange sort
 
 why ?
-With the first pass through the array the largest element come to end .
+With the first pass through the array the largest element come to end.
 
 Bubble sort is the simplest sorting algorithm that works by repeatedly swapping the
 adjacent elements if they are in the wrong order.
@@ -110,6 +112,8 @@ where n is a number of elements present in the array.
 Two parts of array
 one sorted
 other unsorted.
+
+It only takes one iteration to detect that a collection is already sorted.
 
 Worst and Average case time complexity O(N^2)
 Best case Time complexity: O(N) .

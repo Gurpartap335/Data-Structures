@@ -1,9 +1,9 @@
-package lecture.Sorting;
+package lecture.Sorting.cyclic;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class CycleSort {
+public class  CycleSort {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.println("Enter size of array : ");
@@ -23,9 +23,9 @@ public class CycleSort {
 
         int i = 0;
         while (i < arr.length) {
-            // correct stores the correct index of arr[i]  store the correct index of the element.
+            // so correct variable stores the correct index of arr[i] element.
             int correct = arr[i] - 1;
-            if (arr[i] != arr[correct]) { // if arr[element] = arr[element - 1] then i++;
+            if (arr[i] != arr[correct]) { // i value only incremented when arr[i] == arr[correct] means element is at its correct position.
                 swap(arr,i,correct);
             }
             else i++;
