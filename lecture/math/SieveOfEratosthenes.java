@@ -9,12 +9,11 @@ public class SieveOfEratosthenes {
         int n = s.nextInt();
         boolean[] primes = new boolean[n+1];
 
-        System.out.println(Arrays.toString(primes));
         sieve(n, primes);
-        System.out.println(Arrays.toString(primes));
-
     }
 
+    // TC O(n * log(log n))
+    // Auxiliary Space O(n)
     static void sieve(int n, boolean[] primes) {
         for (int i = 2; i * i <= n; i++) {
             if (!primes[i]) {
@@ -35,4 +34,9 @@ public class SieveOfEratosthenes {
 /**
  * No need to check for numbers which are divisible by prime numbers which comes
  * under sqrt(n)(n: upto which we have to print prime numbers)
+ * or
+ * remove all the composite numbers between 1 to n using multiples.
+ *
+ * O(n * log(log n))
+ * Harmonic Progression
  */

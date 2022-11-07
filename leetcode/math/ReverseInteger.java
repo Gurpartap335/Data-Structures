@@ -4,7 +4,7 @@ package leetcode.math;
 
 public class ReverseInteger {
     public static void main(String[] args) {
-        System.out.println(reverse2(-1234));
+//        System.out.println(reverse2(-1234));
 //        System.out.println(reverse(1534236469));
     }
 
