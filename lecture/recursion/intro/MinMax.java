@@ -1,4 +1,4 @@
-package lecture.recursion;
+package lecture.recursion.intro;
 
 public class MinMax {
     public static void main(String[] args) {

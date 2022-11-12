@@ -1,4 +1,4 @@
-package lecture.recursion;
+package lecture.recursion.intro;
 
 import java.util.Scanner;
 
@@ -45,7 +45,7 @@ public class Intro {
         print5(5);
     }
 
-    static void print5(int n){
+    static void print5(int n) {
         System.out.println(n);
     }
 
@@ -53,11 +53,26 @@ public class Intro {
 }
 
 /*
- while the function is not finished executing it will remain in stack.
+while the function is not finished executing it will remain in stack.
 
 when a function finishing executing it is removed from stack and the flow of
 program is restored to where that function is called.
 
 break down it in smaller problems.
 
+Why recursion?
+It helps us in solving bigger/complex problems in a simple way.
+you can convert recursion solution into iteration(loops) and vice versa.
+Space complexity is not constant because of recursive calls.
+
+Recursion Tree
+
+Recurrence relation
+Ex: fibo(n) = fibo(n - 1) + fibo(n - 2)
+
+tail recursion
+
+Recursion uses more memory, because the recursive function adds to the stack with
+each recursive call, keeps the values there until the call is finished.
+LIFO Last In Fast Out.
  */

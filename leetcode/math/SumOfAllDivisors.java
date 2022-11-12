@@ -4,6 +4,8 @@ package leetcode.math;
 
 public class SumOfAllDivisors {
     public static void main(String[] args) {
+        System.out.println(sumOfDivisors2(3));
+        System.out.println(6);
         System.out.println(sumOfDivisors(4));
         System.out.println(sumOfDivisors(5));
     }
