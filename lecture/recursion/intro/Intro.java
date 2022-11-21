@@ -17,9 +17,9 @@ public class Intro {
         }
         else {
             System.out.println(test);
+            // this is called tail recursion
+            // this is the last function call.
             printFun(test - 1);
-            System.out.println(test);
-            return;
         }
     }
 
@@ -53,13 +53,6 @@ public class Intro {
 }
 
 /*
-while the function is not finished executing it will remain in stack.
-
-when a function finishing executing it is removed from stack and the flow of
-program is restored to where that function is called.
-
-break down it in smaller problems.
-
 Why recursion?
 It helps us in solving bigger/complex problems in a simple way.
 you can convert recursion solution into iteration(loops) and vice versa.
@@ -67,6 +60,7 @@ Space complexity is not constant because of recursive calls.
 
 Recursion Tree
 
+when you write recursion in formula it is called
 Recurrence relation
 Ex: fibo(n) = fibo(n - 1) + fibo(n - 2)
 
@@ -75,4 +69,16 @@ tail recursion
 Recursion uses more memory, because the recursive function adds to the stack with
 each recursive call, keeps the values there until the call is finished.
 LIFO Last In Fast Out.
+
+Base Condition:
+Condition where our recursion will stop making new calls.
+
+1. identify if you can break down the problem into smaller problems.
+2. Write the recurrence relation if needed
+3. Draw the recursive tree
+4. About the tree
+See the flow of functions how they are getting in stack
+Identify and focus on left tree calls and right tree calls
+Draw the tree and pointer again and again
+Use a debugger
  */

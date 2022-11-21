@@ -12,11 +12,12 @@ public class Fibonacci {
         if (n < 2){
             return n;
         }
+        // not tail recursion
         return fibo(n-1) + fibo(n-2);
     }
 
     // iteration
-    static int fibonacci(int n) {
+    static int fiboI(int n) {
         if (n < 2) {
             return n;
         }

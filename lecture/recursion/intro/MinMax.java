@@ -2,8 +2,8 @@ package lecture.recursion.intro;
 
 public class MinMax {
     public static void main(String[] args) {
-//        int[] arr = {1,4,35,-5,-4,-8,6};
-        int[] arr = {4,-55,99,1};
+        int[] arr = {1, 4, 35, -5, -4, -8, 6};
+//        int[] arr = {4,-55,99,1};
         int n = arr.length;
 
         System.out.println(findMax(arr,n));

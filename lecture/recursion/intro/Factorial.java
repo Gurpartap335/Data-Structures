@@ -4,10 +4,8 @@ import java.util.Scanner;
 
 public class Factorial {
     public static void main(String[] args) {
-        System.out.println(fact2(9));
-        System.out.println(fact2(1));
-        System.out.println(fact2(0));
-        System.out.println(fact2(-12));
+        System.out.println(fact3(9));
+
     }
 
     // recursive
@@ -25,5 +23,17 @@ public class Factorial {
             ans *= i;
         }
         return ans;
+    }
+
+    // A tail recursive function to calculate factorial
+    static int factTR(int n, int a) {
+        if (n <= 0) {
+            return a;
+        }
+        return factTR(n - 1, n * a);
+    }
+
+    static int fact3(int n) {
+        return factTR(n, 1);
     }
 }
