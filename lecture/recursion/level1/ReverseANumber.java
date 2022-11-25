@@ -2,7 +2,10 @@ package lecture.recursion.level1;
 
 public class ReverseANumber {
     public static void main(String[] args) {
-        System.out.println(reverse2(1234));
+//        System.out.println(reverse2(1234));
+        int a = 123;
+        reverse(a);
+        System.out.println(a);
     }
 
     static int sum = 0 ;

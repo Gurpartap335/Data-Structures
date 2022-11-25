@@ -1,13 +1,14 @@
 package lecture.recursion.intro;
 
+// https://www.enjoyalgorithms.com/blog/find-the-minimum-and-maximum-value-in-an-array
+
 public class MinMax {
     public static void main(String[] args) {
         int[] arr = {1, 4, 35, -5, -4, -8, 6};
-//        int[] arr = {4,-55,99,1};
         int n = arr.length;
 
-        System.out.println(findMax(arr,n));
-//        System.out.println(findMin(arr,n));
+//        System.out.println(findMax(arr,n));
+        System.out.println(findMin(arr,n));
     }
 
     // recursive program to find minimum and maximum elements of array.
