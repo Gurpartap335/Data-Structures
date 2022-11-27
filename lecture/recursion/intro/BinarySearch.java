@@ -2,8 +2,8 @@ package lecture.recursion.intro;
 
 public class BinarySearch {
     public static void main(String[] args) {
-        int[] arr = {2, 4, 9, 11, 13, 19, 20, 23, 24};
-        System.out.println(binarySearch(arr, 2, 0, arr.length - 1));
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        System.out.println(binarySearch(arr, 7, 0, arr.length - 1));
     }
 
     /**

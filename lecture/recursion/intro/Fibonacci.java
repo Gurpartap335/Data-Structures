@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Fibonacci {
     public static void main(String[] args) {
-        System.out.println(fibo(4));
+        System.out.println(fibo(3));
     }
 
     // recursive
@@ -34,5 +34,5 @@ public class Fibonacci {
     }
 }
 
-// 0 0 1 1 2 3 5 8
+// 0 1 1 2 3 5 8 13
 // 0 1 2 3 4 5 6 7
