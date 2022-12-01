@@ -15,32 +15,27 @@ public class BubbleSort {
         }
 
         System.out.println(Arrays.toString(arr));
+//        bubbleR(arr, arr.length - 1, 0);
         bubbleSort(arr);
-//        bubble(arr);
         System.out.println(Arrays.toString(arr));
 
     }
 
-    static void bubbleSort(int arr[])
-    {
+    static void bubbleSort(int arr[]) {
         int n = arr.length;
-        int i, j, temp;
         boolean swapped;
-        for (i = 0; i < n - 1; i++)
+        for (int i = 0; i < n - 1; i++)
         {
             swapped = false;
-            for (j = 0; j < n - i - 1; j++) //
-            {
+            for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1])
                 {
-                    // swap arr[j] and arr[j+1]
-                    temp = arr[j];
+                    int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
                     swapped = true;
                 }
             }
-
             // IF no two elements were
             // swapped by inner loop, then break it means array is already sorted.
             if (!swapped)
@@ -92,22 +87,38 @@ public class BubbleSort {
     It can be optimized by stopping the algorithm if the inner loop did not cause any swap.
      */
 
-
-    // not improved
+    // recursive
+    static void bubbleR(int[] arr, int r, int c) {
+        if (r == 0) {
+            return;
+        }
+        if (r > c) {
+            if (arr[c] > arr[c + 1]) {
+                int temp = arr[c];
+                arr[c] = arr[c + 1];
+                arr[c + 1] = temp;
+            }
+            bubbleR(arr, r, c + 1);
+        }
+        else {
+            bubbleR(arr, r - 1, 0);
+        }
+    }
 
 }
 /*
 Bubble Sort aka sinking sort/ exchange sort
 
-why ?
+why?
 With the first pass through the array the largest element come to end.
 
-Bubble sort is the simplest sorting algorithm that works by repeatedly swapping the
-adjacent elements if they are in the wrong order.
-- This algorithm is suitable for large data sets as its average and worst case time complexity is quite high.
+Bubble sort is the simplest sorting algorithm that works by repeatedly swapping
+the adjacent elements if they are in the wrong order.
+- This algorithm is not suitable for large data sets as its average and worst case
+time complexity is quite high.
 
-In the worst case, the total number of iterations or passes required to sort a given array is (n - 1).
-where n is a number of elements present in the array.
+In the worst case, the total number of iterations or passes required to sort
+a given array is (n - 1). where n is a number of elements present in the array.
 
 Two parts of array
 one sorted
@@ -116,7 +127,7 @@ other unsorted.
 It only takes one iteration to detect that a collection is already sorted.
 
 Worst and Average case time complexity O(N^2)
-Best case Time complexity: O(N) .
+Best case Time complexity: O(N)
 Auxiliary sorted O(1)
  */
 
