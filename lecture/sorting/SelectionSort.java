@@ -15,25 +15,21 @@ public class SelectionSort {
         }
 
         System.out.println(Arrays.toString(arr));
-        selectionR(arr, arr.length, 0, 0);
+        selection(arr);
         System.out.println(Arrays.toString(arr));
     }
 
     static void selection(int[] arr) {
 
         for (int i = 0; i < arr.length - 1; i++) {
-
-            // Find the minimum element's index in unsorted array.
             int iMin = i;
             // j = i + 1 as we only need to go through unsorted array.
             for (int j = i + 1; j < arr.length; j++) {
                 if(arr[j] < arr[iMin])
-                    iMin = j;// update the index of minimum element.
+                    iMin = j;
             }
 
-            // if minimum element index is not similar to first element then swap.
-            if (iMin != i) {
-                // swap the found minimum element with the first element
+            if (iMin != i) { // if minimum element index and i are same then skip.
                 int temp = arr[i];
                 arr[i] = arr[iMin];
                 arr[iMin] = temp;
@@ -114,6 +110,10 @@ iMin variable which stores the index of minimum element in list.
 Then we declare another for loop in which we compare it with every element
 find the minimum element in list.
 Then we swap the iMin value to the first element in array.
+
+First we let first element is minimum element if sorting in asc order then
+we compare it with unsorted array and find minimum element then swap it with
+beginning element(put it in sorted array). we repeat this until we sort the array.
 
 Time complexity for selection is similar in three cases best average worst is O(n^2).
  */

@@ -15,7 +15,9 @@ public class InsertionSort {
         }
 
         System.out.println(Arrays.toString(arr));
-        insertionSort(arr);
+        sort(arr);
+        System.out.println(Arrays.toString(arr));
+        sortD(arr);
         System.out.println(Arrays.toString(arr));
 
     }
@@ -23,15 +25,23 @@ public class InsertionSort {
 
     // kunal code
     static void sort(int[] arr) {
-
         for (int i = 0; i < arr.length - 1; i++) {
-
              for (int j = i + 1; j > 0; j--) {
-                if (arr[j] < arr[j-1]) {
-                    swap(arr,arr[j],arr[j - 1]);
-//                    int temp = arr[j];
-//                    arr[j] = arr[j-1];
-//                    arr[j-1] = temp;
+                if (arr[j] < arr[j - 1]) {
+                    swap(arr, j, j - 1);
+                } else {
+                    break;
+                }
+            }
+        }
+    }
+
+    // descending
+    static void sortD(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j > 0; j--) {
+                if (arr[j] > arr[j - 1]) {
+                    swap(arr, j, j - 1);
                 } else {
                     break;
                 }
@@ -45,20 +55,9 @@ public class InsertionSort {
         arr[index2] = temp;
     }
 
-    static void insertionSort(int[] arr) {
-        for (int i = 1; i < arr.length; i++) {
-            int key = arr[i];
-            int j = i;
-
-            while (j > 0 && arr[j - 1] > key) {
-                arr[j] = arr[j - 1];
-                j = j - 1;
-            }
-
-            arr[j] = key;
-        }
-    }
 }
 /*
+O(n^2) comparisons and swaps
 
+Best O(n) O(1) swaps if array is already sorted.
  */
