@@ -16,33 +16,22 @@ public class ContainsDuplicate {
             arr[i] = in.nextInt();
         }
 
-        System.out.println(containsDuplicate(arr));
+        System.out.println(containsDuplicate2(arr));
 
     }
 
-    /**
-     * Using Map data structure.
-     * @param arr
-     * @return true if array contains duplicate else false.
-     */
-    public static boolean containsDuplicate(int[] arr) {
-
+    public static boolean containsDuplicateMap(int[] arr) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < arr.length; i++) {
-            if (map.containsKey(arr[i])) {
+        for (int j : arr) {
+            if (map.containsKey(j)) {
                 return true;
             } else {
-                map.put(arr[i], 1);
+                map.put(j, 1);
             }
         }
         return false;
     }
 
-    /**
-     * Finding array contains duplicate elements using Set data structure.
-     * @param arr
-     * @return true if duplicate element exits else false.
-     */
     public static boolean containsDuplicateSet(int[] arr) {
         Set<Integer> set = new HashSet<>();
         for (int i : arr) {
@@ -53,6 +42,32 @@ public class ContainsDuplicate {
         return false;
     }
 
+    //using nested for loop
+    // Gives Time Limit Exceeded runs too slow but works
+    public static boolean containsDuplicate(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // using sorting
+    public static boolean containsDuplicate2(int[] arr) {
+        Arrays.sort(arr);
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] == arr[i + 1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
 }
 
 /*
@@ -60,7 +75,7 @@ We have integer array nums if array contains duplicate elements return true else
 return false.
 
 - we can solve this using nested for loop. O(n^2)
-- sort the array the for loop O(n log n) + O(n)
+- sort the array  + for loop ->  O(n log(n)) + O(n)
 - Hashing (Map and Set)
  */
 
