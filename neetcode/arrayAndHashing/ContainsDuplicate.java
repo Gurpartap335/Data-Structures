@@ -76,7 +76,16 @@ return false.
 
 - we can solve this using nested for loop. O(n^2)
 - sort the array  + for loop ->  O(n log(n)) + O(n)
-- Hashing (Map and Set)
+- Hash table Time complexity : O(n) Memory: O(n) n : size of array
+ */
+
+/**
+ * Set and Map are abstract data type.
+ * A Hashset is an implementation of a set - collection of unique keys.
+ * HashMap and hashtable are both implementation of a map - a collection of
+ * key value pairs where keys are unique.
+ * Hashtable is thread safe but hashmap is not.
+ * Hashtable does not allow a null key, but hashmap does.
  */
 
 
