@@ -26,6 +26,7 @@ public class TwoSum {
     }
 
     // brute force approach. Two nested loops
+    // TC : O(n^2)
     static int[] twoSum(int[] nums, int target) {
         int[] n = new int[2];
 
@@ -49,9 +50,9 @@ public class TwoSum {
 
         for (int i = 0; i < nums.length; i++) {
             if (ans.containsKey(target - nums[i])) {
-                return new int[] {ans.get(target - nums[i]), i}; // get method return the value to which specified key is mapped.(in this case its returning index of that element)
+                return new int[]{ans.get(target - nums[i]), i};
             }
-            ans.put(nums[i], i); // store nums array in HashMap object ans. key as nums element and  their index as value.
+            ans.put(nums[i], i);
         }
         return null;
     }
