@@ -9,7 +9,6 @@ package neetcode.twoPointers;
 public class ValidPalindrome {
     public static void main(String[] args) {
         System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
-
     }
 
     // Time Complexity: O(n) space complexity: O(1)
