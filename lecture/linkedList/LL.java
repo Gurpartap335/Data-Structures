@@ -88,13 +88,16 @@ public class LL {
     public void delete(int index) {
         if (index == 0) {
             deleteFirst();
+            return;
         }
 
         if (index == size - 1) {
             deleteLast();
+            return;
         }
         Node prev = get(index - 1);
         prev.next = prev.next.next;
+        size--;
     }
 
     public Node get(int index) {
