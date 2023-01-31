@@ -5,5 +5,9 @@ public class Singleton {
 
     }
 
-    private Singleton instance;
+    private static Singleton instance;
+
+    public static Singleton getInstance() {
+        return instance;
+    }
 }

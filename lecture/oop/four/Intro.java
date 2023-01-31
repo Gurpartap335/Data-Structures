@@ -8,6 +8,8 @@ public class Intro {
 }
 
 /**
+ * Hit and trial // experiment
+ *
  * An object is an entity that has states and behaviours.
  * State tells us how the object looks or what properties it has.
  * Behaviour tells us what the object does.
@@ -32,7 +34,8 @@ public class Intro {
  * Abstraction: process of selecting essential/relevant information
  * In java, we can achieve abstraction in two ways: abstract class and interface
  *
- * Polymorphism
+ * Polymorphism is the ability of an object to take on many forms.
+ * Poly : many || morphism : ways to represent
  *
  * In java, as a rule of thumb we make instance variables private and instance methods
  * public.

@@ -1,0 +1,10 @@
+Packages - User defined and in-built
+
+In-Built
+- lang (automatically imported)
+- io (input output)
+- util (data structures and collection frameworks)
+- applet (learn spring framework)
+- awt
+- net
+
