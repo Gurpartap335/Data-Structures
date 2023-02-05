@@ -1,6 +1,7 @@
 package lecture.oop.singleton;
 
 import lecture.oop.access.A;
+import lecture.oop.practise.YouCanAccessThisClassFromEveryPackage;
 
 public class Main {
     public static void main(String[] args) {

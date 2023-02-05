@@ -16,7 +16,7 @@ public class ContainsDuplicate {
             arr[i] = in.nextInt();
         }
 
-        System.out.println(containsDuplicate2(arr));
+        System.out.println(containsDuplicateSet(arr));
 
     }
 
@@ -87,5 +87,3 @@ return false.
  * Hashtable is thread safe but hashmap is not.
  * Hashtable does not allow a null key, but hashmap does.
  */
-
-

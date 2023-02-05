@@ -5,7 +5,8 @@ import java.util.*;
 // https://leetcode.com/problems/valid-anagram/
 public class ValidAnagram {
     public static void main(String[] args) {
-        System.out.println(isAnagram("anagram", "nagrama"));
+        System.out.println(isAnagram2("anagram", "nagrama"));
+        System.out.println(isAnagram2("aaaaaaabbbc", "aaaaaaabbbc"));
     }
 
 
@@ -49,6 +50,8 @@ public class ValidAnagram {
             map1.put(s2[i], map1.getOrDefault(s2[i], 0) + 1);
             map2.put(t2[i], map2.getOrDefault(t2[i], 0) + 1);
         }
+//        System.out.println(map1);
+//        System.out.println(map2);
         return map1.equals(map2); //for comparing two maps use equal method not ==
     }
 }

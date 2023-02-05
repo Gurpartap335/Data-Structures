@@ -65,3 +65,20 @@ class Student {
  * new : dynamic memory allocation
  * stack and heap memory
  * */
+
+// https://java2blog.com/reference-variable-java/#:~:text=If%20the%20type%20is%20an,because%20String%20is%20a%20class.
+
+// if the type is an object then the variable is reference variable.
+// if the variable holds primitive types then non-reference variable
+class ReferenceVariable {
+    public static void main(String[] args) {
+        String str = "Choujin X";
+        ReferenceVariable r = new ReferenceVariable();
+        System.out.println(r);
+        int a = 10; // non-reference variable
+
+        Object object = new Object();
+        System.out.println(object);
+    }
+
+}

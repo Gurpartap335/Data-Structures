@@ -60,7 +60,7 @@ public class TwoSum {
 }
 
 
-// HashTable is obsolete in Java 1.7 and it is recommended to use ConcurrentMap implementation.
+// HashTable is obsolete in Java 1.7 and, it is recommended to use ConcurrentMap implementation.
 // Hashtable is slower than Hashmap.
 // HashTable does not allow null keys or values.
 // HashMap allows one null key and any number of null values.
