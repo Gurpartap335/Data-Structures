@@ -2,7 +2,7 @@ package lecture.oop.genrics;
 
 import java.util.Arrays;
 
-public class CustomArrayListGenerics {
+public class CustomArrayListGenerics<T> {
 
     private Object[] arr;
 

@@ -5,16 +5,16 @@ import java.util.LinkedList;
 public class Main {
     public static void main(String[] args) {
         LL list = new LL();
-        list.insertFirst(5);
-        list.insertFirst(4);
-        list.insertFirst(3);
-        list.insertFirst(2);
-        list.insertLast(11);
-        list.insertLast(13);
+        list.insertFirst(12);
+        list.insertFirst(34);
+        list.insertFirst(23);
         list.display();
-        list.delete(3);
+        list.insert(1, 1);
         list.display();
-        System.out.println(list.find(11));
+//        System.out.println(list.find(344));
+//        System.out.println(list.find(12));
+        System.out.println(list.get(3));
+        System.out.println(list.getSize());
     }
 }
 

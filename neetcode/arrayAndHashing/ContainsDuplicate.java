@@ -87,3 +87,5 @@ return false.
  * Hashtable is thread safe but hashmap is not.
  * Hashtable does not allow a null key, but hashmap does.
  */
+
+//https://medium.com/swlh/hashmap-implementation-for-java-90a5f58d4a5b

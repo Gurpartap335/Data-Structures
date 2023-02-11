@@ -24,6 +24,7 @@ public class Intro {
  * class don't consume any memory.
  *
  * Encapsulation is process of wrapping code and data together into a single unit.
+ * encapsulation and data hiding are used interchangeably.
  *
  * Inheritance is a mechanism in which one object acquires all the states and
  * behaviour of a parent object.

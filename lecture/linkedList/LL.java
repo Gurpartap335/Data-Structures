@@ -6,7 +6,7 @@ public class LL {
     private Node tail;
     private int size;
     public LL() {
-        this.size = 0;
+        size = 0;
     }
 
     public int getSize() {
@@ -79,6 +79,7 @@ public class LL {
     public void deleteLast() {
         if (size <= 1) {
             deleteFirst();
+            return;
         }
         Node secondLast = get(size - 2);
         tail = secondLast;
@@ -107,7 +108,6 @@ public class LL {
         }
         return node;
     }
-
     public Node find(int value) {
         Node node = head;
         while (node != null) {
