@@ -50,5 +50,14 @@ public class CustomStack {
         return data[ptr];
     }
 
+    public void display() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty");
+        }
+        for (int i = 0; i < ptr + 1; i++) {
+            System.out.println(data[i]);
+        }
+    }
+
 
 }
