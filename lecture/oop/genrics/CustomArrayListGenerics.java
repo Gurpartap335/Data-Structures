@@ -1,6 +1,11 @@
 package lecture.oop.genrics;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+
+// docs
+// wildcards what type of objects you can provide
 
 public class CustomArrayListGenerics<T> {
 
@@ -22,13 +27,9 @@ public class CustomArrayListGenerics<T> {
     }
 
     public T remove() {
-        T removed = (T)(arr[--size]);
-        return removed;
+        return (T) arr[size--];
     }
 
-//    public T get(T index) {
-//        return (T)arr[index];
-//    }
     public void set(int index, Object num) {
         if (index > arr.length) {
             System.out.println("Array out of Bound");
@@ -81,6 +82,9 @@ public class CustomArrayListGenerics<T> {
         list.add(9);
         list.add(945);
         list.print();
+
+        ArrayList<Object> arrayList = new ArrayList<>(3);
+        LinkedList<Object> linkedList = new LinkedList<>(arrayList);
 
     }
 }

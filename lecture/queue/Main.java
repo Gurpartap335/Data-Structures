@@ -3,9 +3,15 @@ package lecture.queue;
 import java.util.*;
 
 /**
- * enqueue: adds an element to the end of the queue
- * dequeue: removes the first element at the front of the queue.
+ * Unlike stack, a queue is open at both its ends.One end is always used to insert
+ * data (enqueue) and other is used to remove data.(dequeue)
+ * enqueue(add): adds an element to the end of the queue
+ * dequeue(remove): removes the first element at the front of the queue.
  *
+ * deque(double-ended queue) : insertion and deletion can happen at the both end.
+ * queue: insertion happens at the end of the queue and deletion
+ * of element form the front.
+ * 
  * we can implement stack and queue with array and linked list.
  */
 public class Main {

@@ -1,7 +1,5 @@
 package lecture.linkedList;
 
-import java.util.LinkedList;
-
 // without tail pointer
 class SinglyLinkedList<E> {
     private Node head;
@@ -179,11 +177,24 @@ class SinglyLinkedList<E> {
         System.out.println("END");
     }
 
+    // https://leetcode.com/problems/remove-duplicates-from-sorted-list/
+    public void removeDuplicate(SinglyLinkedList list) {
+       Node node = head;
+       while (node.next != null) {
+           if (node.value == node.next.value) {
+               node.next = node.next.next; // we moved node.next value not node.
+               size--;
+           } else {
+               node = node.next;
+           }
+       }
+    }
+
 
     // nested or inner class
     // https://www.digitalocean.com/community/tutorials/java-inner-class
     // assert keyboard
-    private class Node {
+    public class Node {
         private Node next;
         private E value;
 
@@ -206,20 +217,105 @@ class SinglyLinkedList<E> {
         }
     }
 
+    public Node getHead() {
+        return head;
+    }
+
+    // Create and detect loop
+    public void createLoop(Node head, int k) {
+        if (head == null) {
+            return;
+        }
+
+        int count = 1;
+        Node temp = head;
+        while (count < k) {
+            temp = temp.next;
+            count++;
+        }
+
+        Node connectedPoint = temp;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        temp.next = connectedPoint;
+    }
+
+    public  boolean detectLoop(Node head) {
+        Node fast = head;
+        Node slow = head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // https://leetcode.com/problems/remove-linked-list-elements/
+//    public void removeElements(SinglyLinkedList<E> list, int value) {
+//        Node curr = head;
+//
+//        while (curr.next != null) {
+//            if (curr.next.value == value) {
+//                curr = curr.next.next;
+//            } else {
+//                curr.next = curr.next.next;
+//            }
+//        }
+//    }
+
+    // reverse Linked list
+    public void reverse(SinglyLinkedList list) {
+
+    }
+
+    // return list from the middle of the linked list
+    // https://leetcode.com/problems/middle-of-the-linked-list/
+    public E middleElement(SinglyLinkedList list) {
+        Node fast = list.head;
+        Node slow = list.head;
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow.value;
+    }
+
+    public SinglyLinkedList<E> middleList(SinglyLinkedList<E> list) {
+        Node fast = list.head;
+        Node slow = list.head;
+
+        SinglyLinkedList<E> ans = new SinglyLinkedList<E>();
+
+        while (fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        while (slow != null) {
+            ans.insertLast(slow.value);
+            slow = slow.next;
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
         SinglyLinkedList<Integer> list = new SinglyLinkedList<>();
 
         list.insertLast(1);
         list.insertLast(2);
         list.insertLast(3);
-        list.insertFirst(5);
+        list.insertLast(4);
+        list.insertLast(5);
+        list.insertLast(6);
         list.display();
-        list.add(4, 3);
-        list.display();
-        System.out.println(list.head);
-        System.out.println(list.search(3));
-        list.clear();
-        list.display();
+
     }
 }
 

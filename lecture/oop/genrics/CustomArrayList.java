@@ -20,15 +20,15 @@ public class CustomArrayList {
         arr[size++] = num;
     }
 
-    public int remove(int index) {
+    public int remove() {
         int removed = arr[--size];
         return removed;
     }
 
-    public int get(int index) {
+    public int get(int index) throws ArrayIndexOutOfBoundsException{
         if (index > arr.length) {
-            System.out.println("Array out of Bound");// or throw Exception
-            return -1;
+            System.out.println("Checking");
+            throw new ArrayIndexOutOfBoundsException("Array out of Bound");
         }
         return arr[index];
     }
@@ -41,7 +41,7 @@ public class CustomArrayList {
         arr[index] = num;
     }
 
-    public int size() {
+    public int getSize() {
         return size;
     }
     private void resize() {
@@ -49,7 +49,7 @@ public class CustomArrayList {
         for (int i = 0; i < arr.length; i++) {
             temp[i] = arr[i];
         }
-        arr = temp;
+        arr = temp; // assigned new array
     }
 
     private boolean isFull() {
@@ -72,25 +72,14 @@ public class CustomArrayList {
 
     public static void main(String[] args) {
         CustomArrayList list = new CustomArrayList();
-        System.out.println(list.size);
-        System.out.println(Arrays.toString(list.arr));
-        System.out.println(list.arr); // toString method only works when printing the object.
-        System.out.println(list);
-        System.out.println(DEFAULT_SIZE);
-
-        list.add(23);
-        list.add(2);
-        list.add(4);
+        list.add(34);
         list.add(12);
-        list.add(134);
-        System.out.println(list);
+        list.add(13);
         list.print();
-
-        System.out.println(list.get(3));
-        System.out.println(list.get(12));
-
-        list.add(7);
-        list.add(90);
-        list.print();
+        list.get(5);
     }
 }
+
+
+
+

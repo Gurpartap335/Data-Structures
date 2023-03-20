@@ -15,6 +15,8 @@ public class Intro {
  * They include a series of connected nodes.
  * Here, each node stores the data and the address of the next node.
  *
+ * what allows a linked list to have its memory scattered everywhere?
+ *
  * Head and Tail pointer
  * The Head pointer keeps track of the starting node of the linked list.
  * Tail pointer point to the end of the linked list.

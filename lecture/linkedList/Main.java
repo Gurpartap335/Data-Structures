@@ -8,13 +8,11 @@ public class Main {
         list.insertFirst(12);
         list.insertFirst(34);
         list.insertFirst(23);
+        list.insertLast2(233);
+        list.insertLast2(22);
+
         list.display();
-        list.insert(1, 1);
-        list.display();
-//        System.out.println(list.find(344));
-//        System.out.println(list.find(12));
-        System.out.println(list.get(3));
-        System.out.println(list.getSize());
+
     }
 }
 
