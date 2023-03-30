@@ -6,8 +6,8 @@ package lecture.recursion.intro;
 
 public class FunctionCall {
     public static void main(String[] args) {
-//        print(1);
-        random(1);
+        print(1);
+//        random(1);
     }
 
     // gives StackOverFlow error. when application recurses too deeply.
@@ -16,13 +16,13 @@ public class FunctionCall {
         random(n);
     }
     static void print(int n) {
-        System.out.print(n);
-        print2(n);
+        System.out.println(n);
+        print2(n + 1);
     }
 
     static void print2(int n) {
         System.out.println(n);
-        print3(n);
+        print3(n + 1);
     }
 
     static void print3(int n) {

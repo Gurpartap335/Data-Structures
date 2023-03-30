@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Fibonacci {
     public static void main(String[] args) {
-        System.out.println(fibo(3));
+        System.out.println(fibo(5));
     }
 
     // recursive
@@ -13,10 +13,11 @@ public class Fibonacci {
             return n;
         }
         // not tail recursion
+        // extra step of addition then returning is not tail recursion
         return fibo(n-1) + fibo(n-2);
     }
 
-    // iteration
+    // iterative
     static int fiboI(int n) {
         if (n < 2) {
             return n;
@@ -36,3 +37,6 @@ public class Fibonacci {
 
 // 0 1 1 2 3 5 8 13
 // 0 1 2 3 4 5 6 7
+// 1. try to see if you can divide problem into sub-problems.
+// F(n) = F(n - 1) + F(n - 2) recurrence relation
+// 2. The base condition is represented by answers we already know.

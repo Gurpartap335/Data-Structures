@@ -1,4 +1,4 @@
-package lecture.method;
+package lecture.oop.method;
 
 // https://www.java67.com/2020/04/4-examples-to-round-floating-point-numbers-in-java.html
 

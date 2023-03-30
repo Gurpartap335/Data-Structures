@@ -1,4 +1,4 @@
-package lecture.method;
+package lecture.oop.method;
 
 // https://www.java67.com/2019/04/difference-between-overloading-overriding-hiding-shadowing-and-obscuring-in-java-oop.html
 

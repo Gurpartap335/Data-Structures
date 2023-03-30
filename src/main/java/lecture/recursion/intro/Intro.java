@@ -6,17 +6,15 @@ public class Intro {
     public static void main(String[] args) {
 //        print1(1);
 
-        int test = 3;
-        printFun(test);
+//        int test = 4;
+//        printFun(test);
 
     }
 
-    static void printFun(int test){
-        if (test < 1){ // base condition function will stop when test becomes less than 1.
+    static void printFun(int test) {
+        if (test < 1) { // base condition function will stop when test becomes less than 1.
             return;
-        }
-        else {
-            System.out.println(test);
+        } else {
             // this is called tail recursion
             // this is the last function call.
             printFun(test - 1);
@@ -24,7 +22,8 @@ public class Intro {
     }
 
 
-
+    // print1 is waiting for in call stack bcz it call other function print2,
+    // so it's waiting for print2 function to finish.
     static void print1(int n){
         System.out.println(n);
         print2(2);
@@ -52,13 +51,13 @@ public class Intro {
 
 }
 
-/*
+/**
 Why recursion?
 It helps us in solving bigger/complex problems in a simple way.
 you can convert recursion solution into iteration(loops) and vice versa.
 Space complexity is not constant because of recursive calls.
 
-Recursion Tree
+Visualizing recursion using Recursion tree
 
 when you write recursion in formula it is called
 Recurrence relation
@@ -72,13 +71,23 @@ LIFO Last In Fast Out.
 
 Base Condition:
 Condition where our recursion will stop making new calls.
+ The base condition is represented by answers we already know
 
 1. identify if you can break down the problem into smaller problems.
 2. Write the recurrence relation if needed
 3. Draw the recursive tree
 4. About the tree
-See the flow of functions how they are getting in stack
-Identify and focus on left tree calls and right tree calls
+- See the flow of functions how they are getting in stack
+- Identify and focus on left tree calls and right tree calls
 Draw the tree and pointer again and again
 Use a debugger
+
+ 5 See how the values and what type of values(int string) are returned at each step.
+ see where the function call with come out. In the end, you will come put of the
+ main function.
+
+
+ Repeated function call happening in recursion Dynamic programming.
+
+ Do not overthink
  */

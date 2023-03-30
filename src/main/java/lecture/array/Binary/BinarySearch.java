@@ -68,22 +68,22 @@ The idea of binary search is to use the information the array is sorted and redu
 the time complexity to O(Log n) .
 
 1. compare x with the middle element .
-2. If x matches with the middle element , we return the mid index .
-3. if x > mid x only lie in the right half sub-array after the mid element . So we recur for the right half .
+2. If x matches with the middle element , we return the mid-index.
+3. if x > mid x only lie in the right half sub-array after the mid-element. So we recur for the right half.
 4. if x < mid recur for the left half .
 
 why Binary Search ?
 
 Time Complexity of Binary Search
 
-k : steps
-2^k = n
+k : steps/ comparison
+2^k = N
 N/2^k = 1
 N = 2^k
 log(N) = log(2^K)
 log(N) = klog2
 k = logN / log2
-k = log2N (log 2 base ) where N is the size of array .
+k = log2N (log 2 base) where N is the size of array .
 
 The last element would be the element we are looking for.
 so how many steps does it take to reach 1 from n by dividing by 2 at each step ?

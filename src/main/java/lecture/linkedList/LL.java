@@ -316,7 +316,7 @@ public class LL {
         list1.insertLast(6);
         list1.insertLast(5);
         list1.display();
-        list1.removeElements(list1, 6);
+        list1.reverse(list1.head);
         list1.display();
 
     }
