@@ -6,13 +6,15 @@ package lecture.recursion.level1;
 public class Nto1 {
     public static void main(String[] args) {
         print(5);
+        printI(5);
     }
 
     // iterative
     static void printI(int n) {
-        for (int i = n; i >= 1; i--) {
-            System.out.println(i);
+        for (int i = n; i > 0; i--) {
+            System.out.print(i + " ");
         }
+        System.out.println();
     }
 
     // recursive
@@ -20,9 +22,8 @@ public class Nto1 {
         if (n == 0) {
             return;
         }
-//        System.out.println(n);
-        print(n - 1);
         System.out.println(n);
+        print(n - 1);
     }
 
 }

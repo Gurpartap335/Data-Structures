@@ -1,32 +1,27 @@
 package lecture.sorting;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class SelectionSort {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter size of array : ");
-        int size = s.nextInt();
-        int[] arr = new int[size];
 
-        for (int i = 0; i < size; i++) {
-            arr[i] = s.nextInt();
-        }
+        int[] arr = {1, 2, 3, 4, 5};
 
-        System.out.println(Arrays.toString(arr));
         selection(arr);
         System.out.println(Arrays.toString(arr));
     }
 
-    static void selection(int[] arr) {
+    static void selection(int @NotNull [] arr) {
 
         for (int i = 0; i < arr.length - 1; i++) {
             int iMin = i;
-            // j = i + 1 as we only need to go through unsorted array.
+
             for (int j = i + 1; j < arr.length; j++) {
                 if(arr[j] < arr[iMin])
-                    iMin = j;
+                    iMin = j; // update the minimum element index.
             }
 
             if (iMin != i) { // if minimum element index and i are same then skip.
@@ -96,9 +91,6 @@ Time Complexity : O(n^2).
 Space complexity : O(1).
  */
 
-/*
-read github code.
- */
 
 /*
 My understanding of selection sort algorithm.

@@ -2,23 +2,24 @@ package lecture.recursion.level1;
 
 public class ReverseANumber {
     public static void main(String[] args) {
-//        System.out.println(reverse2(1234));
-        int a = 123;
-        reverse(a);
-        System.out.println(a);
+        System.out.println(reverse2(1234));
     }
 
-    static int sum = 0 ;
-    static void reverse(int n) {
+    static int ans = 0;
+    static void reverse1(int n) {
         if (n == 0) {
             return;
         }
         int rem = n % 10;
-        sum = sum * 10 + rem;
-        reverse(n/10);
+        ans = ans * 10 + rem;
+        reverse1(n / 10);
     }
 
+
+    //
     static int reverse2(int n) {
+        // sometimes you might need some additional variables in the argument
+        // in that case, make another function
         int digits = (int)(Math.log10(n) + 1);
         return helper(n, digits);
     }
@@ -41,4 +42,13 @@ public class ReverseANumber {
         }
         return ans;
     }
+
+    public static int reverse(int n, int a) {
+        if (n == 0) {
+            return a;
+        }
+
+        return reverse(n / 10 , (a * 10) + n % 10);
+    }
+    //  recurrence relation
 }

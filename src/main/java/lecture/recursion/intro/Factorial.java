@@ -4,11 +4,14 @@ import java.util.Scanner;
 
 public class Factorial {
     public static void main(String[] args) {
-        System.out.println(fact3(9));
-
+        System.out.println(fact(4));
+        System.out.println(factTR(4,1));
     }
 
     // recursive
+    // not tail recursion
+    // extra steps
+    // inefficient uses extra memory.
     static int fact(int n){
         if (n < 2){
             return 1;
@@ -18,9 +21,13 @@ public class Factorial {
 
     // iteration
     static int fact2(int n) {
+        if (n < 2) { // 0! = 1, 1! = 1
+            return 1;
+        }
         int ans = 1;
-        for (int i = 1; i <= n; i++) {
-            ans *= i;
+        while (n > 1) {
+            ans *= n;
+            n--;
         }
         return ans;
     }
@@ -33,7 +40,9 @@ public class Factorial {
         return factTR(n - 1, n * a);
     }
 
-    static int fact3(int n) {
-        return factTR(n, 1);
-    }
 }
+/**
+ * 1. yes
+ * 2. F(n) = n * (n - 1) * (n - 2) * (n - 3) * (n * 4)
+ * Base case not multiply it with 0.
+ */

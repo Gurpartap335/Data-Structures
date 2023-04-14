@@ -4,18 +4,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LinearSearch {
+
+    // members of Linear Search
+    static int a = 0;
+    static final int b = 1;
     public static void main(String[] args) {
-        int[] arr = {3, 42, 2, 422, 4};
-//        System.out.println(find(arr, 18, 0));
-        System.out.println(findFirstIndex(arr, 4, 0));
-//        System.out.println(findLastIndex(arr, 4, arr.length - 1));
-//        System.out.println(list);
-//        findAllIndex(arr, 4, 0);
-//        System.out.println(list);
 
-//        System.out.println(findAllIndex2(arr, 4, 0, new ArrayList<>()));
+//        int[] arr = {3, 42, 34, 2, 34, 5, 34};
+        int[] arr = {1, 2, 3, 2, 2};
 
-//        System.out.println(findAllIndex3(arr, 4, 0));
+//        System.out.println(findAllIndex2(arr, 34, 0, new ArrayList<>()));
+//        ArrayList<Integer> ans = findAllIndex2(arr, 34, 0, new ArrayList<>());
+//        System.out.println(ans);
+
+//        ArrayList<Integer> list = new ArrayList<>();
+//        ArrayList<Integer> ans = findAllIndex2(arr, 2, 0, list);
+//        System.out.println(ans); // return list we stored in ans list.
+//        System.out.println(list); // list got modified
+
+        System.out.println(findAllIndex3(arr, 2, 0));
+
     }
 
     static boolean find(int[] arr, int target, int index) {
@@ -31,8 +39,11 @@ public class LinearSearch {
         }
         if (arr[index] == target) {
             return index;
+        } else {
+            return findFirstIndex(arr, target, index + 1);
+            // we have to put return statement before this function
+            // because the method contains a return statement.
         }
-        return findFirstIndex(arr, target, index + 1);
     }
 
     static int findLastIndex(int[] arr, int target, int index) {
@@ -46,6 +57,7 @@ public class LinearSearch {
         }
     }
 
+    // without returning ArrayList
     static ArrayList<Integer> list = new ArrayList<>();
     static void findAllIndex(int[] arr, int target, int index) {
         if (index == arr.length) {
@@ -58,6 +70,7 @@ public class LinearSearch {
         findAllIndex(arr, target, index + 1);
     }
 
+    // list is reference variable which is pointing to the same object.
     static ArrayList<Integer> findAllIndex2(int[] arr, int target, int index, ArrayList<Integer> list) {
         if (index == arr.length) {
             return list;
@@ -66,22 +79,29 @@ public class LinearSearch {
             list.add(index);
         }
         return findAllIndex2(arr, target, index + 1, list);
+        // tail recursion?
     }
 
     // return the list without passing the argument
     static ArrayList<Integer> findAllIndex3(int[] arr, int target, int index) {
         ArrayList<Integer> list = new ArrayList<>();
-        if (index == arr.length) {
+        if (index == arr.length) { // base condition
             return list;
         }
         if (arr[index] == target) {
             list.add(index);
         }
 
+        // answer from below calls will get here
         ArrayList<Integer> ansFromBelowCalls = findAllIndex3(arr, target, index + 1);
         list.addAll(ansFromBelowCalls);
         return list;
+        // In the end list and ansFromBelowCalls contain the same list.
+        // list contains the list from its current function. which is created when this method start executing (arr, 2, 4)
+        // ansFromBelowCalls contain the input from upper function from stack.
+        // ansFromBelowCalls keep the list update and list var is same with everytime function getting out of the stack.
     }
+    // line 98 execute when the functions calls getting out of the stack
 
 
 }

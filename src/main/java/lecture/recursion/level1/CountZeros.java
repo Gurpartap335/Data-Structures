@@ -8,7 +8,10 @@ public class CountZeros {
     public static void main(String[] args) {
         System.out.println(zeros(1000010110));
         System.out.println(zeros(0));
-        System.out.println(count(1000010110));
+        System.out.println(count(100010110));
+        System.out.println(countZeros(1000010110, 0));
+        System.out.println(countZeros(0, 0));
+        System.out.println(countZeros(6505540, 0));
     }
 
 
@@ -27,6 +30,10 @@ public class CountZeros {
     static int count(int n) {
         return helper(n, 0);
     }
+
+    // using helper function
+    // use helper function when you know what do you want to put in the argument
+    // of the function.
     private static int helper(int n, int c) {
         if (n == 0) {
             return c;
@@ -36,5 +43,17 @@ public class CountZeros {
             return helper(n/10, c+1);
         }
         return helper(n/10, c);
+    }
+
+    public static int countZeros(int n, int c) {
+        if (n == 0) {
+            return c;
+        }
+
+        if (n % 10 == 0) {
+            c++;
+        }
+
+        return countZeros(n / 10, c);
     }
 }

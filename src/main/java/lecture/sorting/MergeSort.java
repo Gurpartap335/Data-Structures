@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = {3, 5, 2, 1, 4, 6};
+        int[] arr = {6, 5, 7, 2, 9, 1};
 //        arr = mergeSort(arr);
 //        System.out.println(Arrays.toString(arr));
 
@@ -69,6 +69,7 @@ public class MergeSort {
         mergeSortInPlace(arr, s, mid);
         mergeSortInPlace(arr, mid, e);
 
+        mergeInPlace(arr, s, mid, e);
     }
 
     static void mergeInPlace(int[] arr, int s, int m, int e) {
@@ -114,7 +115,9 @@ Divide array into 2 parts
 Get both parts sorted via recursion
 Merge the sorted parts
 
-O(n log*n)
 
-T(n) = T(n/2) + T(n/2) + (n - 1)
+At every level, N element are being merged.
+O(n log * n)
+
+T(n) = T(n/2) +  T(n/2) + (n - 1)
  */

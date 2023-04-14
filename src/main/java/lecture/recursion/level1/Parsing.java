@@ -10,7 +10,7 @@ public class Parsing {
             return;
         }
         System.out.println(n);
-        fun(--n);
+        fun(--n); // n-- will pass the value first then subtract it.
     }
 
     // n-- vs --n

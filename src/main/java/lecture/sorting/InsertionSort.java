@@ -5,19 +5,9 @@ import java.util.Scanner;
 
 public class InsertionSort {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter size of array : ");
-        int size = s.nextInt();
-        int[] arr = new int[size];
 
-        for (int i = 0; i < size; i++) {
-            arr[i] = s.nextInt();
-        }
-
-        System.out.println(Arrays.toString(arr));
+        int[] arr = {6, 5, 3, 1, 8, 7};
         sort(arr);
-        System.out.println(Arrays.toString(arr));
-        sortD(arr);
         System.out.println(Arrays.toString(arr));
 
     }
@@ -26,6 +16,7 @@ public class InsertionSort {
     // kunal code
     static void sort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
+
              for (int j = i + 1; j > 0; j--) {
                 if (arr[j] < arr[j - 1]) {
                     swap(arr, j, j - 1);

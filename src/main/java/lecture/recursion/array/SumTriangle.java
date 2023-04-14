@@ -1,24 +1,20 @@
-package lecture.recursion.level1;
+package lecture.recursion.array;
 
 import java.util.Arrays;
 
+// https://www.geeksforgeeks.org/sum-triangle-from-array/
 public class SumTriangle {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4};
-        printTriangle(arr);
-        System.out.println(Arrays.toString(arr));
+        sumTrianglePrint(arr);
     }
 
     // recursive W problem
     static void sumTrianglePrint(int[] arr) {
-        if (arr.length < 1) {
+        if (arr.length <= 1) {
+            System.out.println(Arrays.toString(arr));
             return;
         }
-
-//        if (arr.length <= 1) {
-//            System.out.println(Arrays.toString(arr));
-//            return;
-//        }
 
         int[] temp = new int[arr.length - 1];
         for (int i = 0; i < temp.length; i++) {
@@ -27,7 +23,7 @@ public class SumTriangle {
 
         sumTrianglePrint(temp);
 
-        System.out.println(Arrays.toString(arr)); // why we are printing arr not temp
+        System.out.println(Arrays.toString(arr));// why we are printing arr not temp
         // curr. temp = [3, 5, 7, 9] arr = [1, 2, 3, 4, 5]
         // then function sumTrianglePrint called again by passing [3, 5, 7, 9]
     }
@@ -57,3 +53,10 @@ public class SumTriangle {
         return helper(temp, arr, index + 1);
     }
 }
+/**
+ * We can solve this by recursion
+ * We will print array after when stack getting empty
+ *
+ * Decrease the array size by one then keep adding two consecutive elements.
+ *
+ */

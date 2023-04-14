@@ -33,3 +33,11 @@ public class OneToN {
         }
     }
 }
+/**
+ * Print(n) function after getting out of stack has to execute
+ * another statement which is print statement.
+ * After we reached the last function call stack starts getting
+ * empty and print statement starts executing for every function.
+ *
+ * Print when stack is getting empty.
+ */
