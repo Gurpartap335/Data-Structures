@@ -1,16 +1,33 @@
 package lecture.array.hashing;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
+import java.util.*;
 
 public class Dictionary {
     public static void main(String[] args) {
-        Map<String, String> dict = new HashMap<>();
-        dict.put("vector", "Array with no fixed size");
-        dict.put("linked list", "linear data structure");
-        dict.put("binary search tree", "data structure based upon binary search");
-        dict.put("map", "ADT data structure with fast accessing of the data");
+        Map<Integer, String> manga = new HashMap<>();
+        manga.put(1, "Chainsaw Man");
+        manga.put(2, "Jujutsu Kaisen");
+        manga.put(3, "Night");
+        manga.put(4, "One piece");
+        manga.put(5, "Bleach");
+        manga.put(null , null); // HashMap allows one null key only.
+        manga.put(6, "Naruto");
+        manga.put(null, "Tokyo Ghoul");// override another one
+        manga.put(null, "Choujin X");
+        manga.put(1, "Chainsaw man"); // ignored
+        manga.put(7, "Batman");
+
+        manga.put(9, null);
+        manga.put(10, null);
+        manga.put(0, null);
+
+        System.out.println(manga.size()); // only allow one null key all other null keys are
+        // ignored
+
+        System.out.println(manga);
 
     }
 }
+/**
+ *
+ */

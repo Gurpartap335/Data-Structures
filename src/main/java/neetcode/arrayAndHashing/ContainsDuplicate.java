@@ -75,7 +75,7 @@ We have integer array nums if array contains duplicate elements return true else
 return false.
 
 - we can solve this using nested for loop. O(n^2)
-- sort the array  + for loop ->  O(n log(n)) + O(n)
+- sort the array + for loop ->  O(n log(n)) + O(n)
 - Hash table Time complexity : O(n) Memory: O(n) n : size of array
  */
 
@@ -85,7 +85,24 @@ return false.
  * HashMap and hashtable are both implementation of a map - a collection of
  * key value pairs where keys are unique.
  * Hashtable is thread safe but hashmap is not.
- * Hashtable does not allow a null key, but hashmap does.
+ * This means you cannot use HashMap in a multithreaded Java application without
+ * external synchronization.
+ *
+ * Hashmap allows one null key(still unique keys.. i think??) and null values but Hashtable doesn't allow null
+ * key or values.
+ * Hashtable thread safety is achieved using internal synchronization, which makes it
+ * slower than HashMap.
+ *
+ * HashMap does not guarantee that the order of the map will remain constant over time
+ * so Hashtable??
  */
 
 //https://medium.com/swlh/hashmap-implementation-for-java-90a5f58d4a5b
+// https://javarevisited.blogspot.com/2010/10/difference-between-hashmap-and.html#axzz7zElXqyw1
+// https://stackoverflow.com/questions/2817695/how-does-java-order-items-in-a-hashmap-or-a-hashtable
+// https://www.java67.com/2012/07/difference-between-arraylist-hashset-in-java.html
+
+/**
+ * HashSet: unordered object-based implement Set interface does not allow duplicate element
+ * ArrayList: order  index-based implement List interface permits duplicate element
+ */

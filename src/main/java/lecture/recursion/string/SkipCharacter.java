@@ -2,8 +2,8 @@ package lecture.recursion.string;
 
 public class SkipCharacter {
     public static void main(String[] args) {
-//        skip("abcaa", "");
-        System.out.println(skip("aaaasdfasdfaaa"));
+        skip("abcaa", "");
+//        System.out.println(skip("aaaasdfasdfaaa"));
 
 //        System.out.println(search("asdfasdf", ""));
 
@@ -56,8 +56,6 @@ public class SkipCharacter {
 //        }
 
         return ch == 'a' ? search(str.substring(1), temp) : search(str.substring(1), temp + ch);
-
-
     }
 
 
@@ -110,6 +108,5 @@ public class SkipCharacter {
  *
  * This pattern of taking some elements and removing some is known as this subset
  * pattern.
- *
  *
  */

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class SubSeq {
     public static void main(String[] args) {
         System.out.println(subSeqRet("abc", ""));
+
     }
 
     static void subSeq(String str, String temp) {
@@ -37,10 +38,8 @@ public class SubSeq {
         char ch = str.charAt(0);
         ArrayList<String> left = subSeqRet(str.substring(1), temp + ch);
         ArrayList<String> right = subSeqRet(str.substring(1), temp);
-
         left.addAll(right);
         return left;
     }
 
-
-    }
+}
