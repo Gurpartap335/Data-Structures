@@ -6,13 +6,14 @@ import java.util.Arrays;
 public class SumTriangle {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4};
-        sumTrianglePrint(arr);
+//        sumTrianglePrint(arr);
+        printTriangle(arr);
+
     }
 
     // recursive W problem
     static void sumTrianglePrint(int[] arr) {
-        if (arr.length <= 1) {
-            System.out.println(Arrays.toString(arr));
+        if (arr.length < 1) {
             return;
         }
 
@@ -23,14 +24,14 @@ public class SumTriangle {
 
         sumTrianglePrint(temp);
 
-        System.out.println(Arrays.toString(arr));// why we are printing arr not temp
-        // curr. temp = [3, 5, 7, 9] arr = [1, 2, 3, 4, 5]
-        // then function sumTrianglePrint called again by passing [3, 5, 7, 9]
+        System.out.println(Arrays.toString(arr));
     }
 
-    // recursion tail
+
+    // recursive approach (without using for loop)
     public static void printTriangle(int[] arr) {
         if (arr.length == 1) {
+            System.out.println(Arrays.toString(arr));
             return;
         }
 
@@ -40,12 +41,11 @@ public class SumTriangle {
 
         printTriangle(temp);
 
-        System.out.println(Arrays.toString(temp));
-
+        System.out.println(Arrays.toString(arr));
     }
 
     static int[] helper(int[] temp, int[] arr, int index) {
-        if (index == arr.length - 1) {
+        if (temp.length == index) {
             return temp;
         }
 
@@ -53,10 +53,7 @@ public class SumTriangle {
         return helper(temp, arr, index + 1);
     }
 }
-/**
- * We can solve this by recursion
- * We will print array after when stack getting empty
- *
- * Decrease the array size by one then keep adding two consecutive elements.
- *
- */
+// why primitive data types can not store null values
+// https://stackoverflow.com/questions/11047276/why-cant-primitive-data-types-be-null-in-java#:~:text=Because%20null%20is%20a%20reference,Only%20objects%20are%20reference%20types.
+// https://stackoverflow.com/questions/27476845/what-is-the-difference-between-a-null-array-and-an-empty-array
+// https://stackoverflow.com/questions/8790809/whats-the-difference-between-primitive-and-reference-types

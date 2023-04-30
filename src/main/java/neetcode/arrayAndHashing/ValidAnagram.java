@@ -33,6 +33,7 @@ public class ValidAnagram {
 //        return true;
     }
 
+    // https://leetcode.com/problems/valid-anagram/solutions/66550/share-my-java-solution/
     // Using HashMap data structure.
     // TC : O(n) SC : O(n) n length of string
     public static boolean isAnagram2(String s, String t) {
@@ -50,8 +51,8 @@ public class ValidAnagram {
             map1.put(s2[i], map1.getOrDefault(s2[i], 0) + 1);
             map2.put(t2[i], map2.getOrDefault(t2[i], 0) + 1);
         }
-//        System.out.println(map1);
-//        System.out.println(map2);
+        System.out.println(map1);
+        System.out.println(map2);
         return map1.equals(map2); //for comparing two maps use equal method not ==
     }
 }

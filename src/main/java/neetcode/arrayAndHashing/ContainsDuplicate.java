@@ -20,6 +20,7 @@ public class ContainsDuplicate {
 
     }
 
+    // tc : O(n)
     public static boolean containsDuplicateMap(int[] arr) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int j : arr) {
@@ -32,6 +33,7 @@ public class ContainsDuplicate {
         return false;
     }
 
+    // O(n)
     public static boolean containsDuplicateSet(int[] arr) {
         Set<Integer> set = new HashSet<>();
         for (int i : arr) {
@@ -42,7 +44,8 @@ public class ContainsDuplicate {
         return false;
     }
 
-    //using nested for loop
+    // O(n^2)
+    // using nested for loop
     // Gives Time Limit Exceeded runs too slow but works
     public static boolean containsDuplicate(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
@@ -56,6 +59,7 @@ public class ContainsDuplicate {
     }
 
     // using sorting
+    // O(n log n)
     public static boolean containsDuplicate2(int[] arr) {
         Arrays.sort(arr);
         for (int i = 0; i < arr.length - 1; i++) {
@@ -97,7 +101,7 @@ return false.
  * so Hashtable??
  */
 
-//https://medium.com/swlh/hashmap-implementation-for-java-90a5f58d4a5b
+// https://medium.com/swlh/hashmap-implementation-for-java-90a5f58d4a5b
 // https://javarevisited.blogspot.com/2010/10/difference-between-hashmap-and.html#axzz7zElXqyw1
 // https://stackoverflow.com/questions/2817695/how-does-java-order-items-in-a-hashmap-or-a-hashtable
 // https://www.java67.com/2012/07/difference-between-arraylist-hashset-in-java.html
@@ -106,3 +110,55 @@ return false.
  * HashSet: unordered object-based implement Set interface does not allow duplicate element
  * ArrayList: order  index-based implement List interface permits duplicate element
  */
+
+
+class ContainDuplicateII {
+
+    public static void main(String[] args) {
+        System.out.println(brute(new int[]{1, 2, 3, 1}, 3));
+    }
+
+    public static boolean containsNearByDuplicate(int[] nums, int k) {
+        Set<Integer> set = new HashSet<Integer>();
+        for(int i = 0; i < nums.length; i++){
+            if (i > k) {
+                set.remove(nums[i - k - 1]);
+            }
+            if (!set.add(nums[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean containsNearByDuplicate2(int[] nums, int k) {
+        if (nums == null || nums.length < 2) return false;
+
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.containsKey(nums[i])) {
+                // get gives value to which specified key is mapped
+                if (i - map.get(nums[i]) <= k) {
+                    return true;
+                }
+            }
+            map.put(nums[i], i);
+        }
+        return false;
+    }
+
+    // brute force
+    public static boolean brute(int[] nums, int k) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
+                    int a = Math.abs(i - j);
+                    if (a <= k) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+}

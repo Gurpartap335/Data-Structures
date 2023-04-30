@@ -32,3 +32,4 @@ public class LongestCommonPrefix {
 }
 
 // Strings are ordered based on their alphabetical order(lexicographical).
+// based on the int value of the chars that form them.

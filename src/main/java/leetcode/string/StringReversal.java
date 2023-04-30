@@ -3,6 +3,8 @@ package leetcode.string;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 /**
  * Java program to reverse a String in place
  * without any additional buffer in Java.
@@ -13,7 +15,9 @@ import org.junit.Test;
 class StringReversal {
 
     public static void main(String[] args) {
-        System.out.println(reverseString2(""));
+        System.out.println(reverseR(""));
+        System.out.println(reverseR("hello"));
+        System.out.println(reverseR("hannah"));
     }
 
     /**
@@ -86,6 +90,27 @@ class StringReversal {
      * TC: O(n)
      * SC: O(n)
      */
+
+    // using recursion
+    public static String reverseR(String str) {
+        char[] charStr = str.toCharArray();
+        return Arrays.toString(reverse(charStr, 0, str.length() - 1));
+        // can convert char[] array to strings
+    }
+
+    public static char[] reverse(char[] str, int s, int e) {
+        if (s > e) {
+            return str;
+        }
+
+        char temp = str[s];
+        str[s] = str[e];
+        str[e] = temp;
+
+        return reverse(str, s + 1, e - 1);
+    }
+
+
 
 
     // JUnit test Cases (to test your code)
