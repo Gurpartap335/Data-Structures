@@ -11,7 +11,7 @@ public class LengthOfString {
         System.out.println();
     }
 
-    // without using inbuilt fuction
+    // without using inbuilt function
     public static int find(String s) {
         return solve(s, s.length(), 0);
     }

@@ -6,21 +6,12 @@ import java.util.*;
 
 public class ContainsDuplicate {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter size of array: ");
-        int n = in.nextInt();
-        int[] arr = new int[n];
-
-        System.out.println("Enter array elements: ");
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = in.nextInt();
-        }
-
-        System.out.println(containsDuplicateSet(arr));
+        int[] arr = {1, 2, 3, 4, 5};
+        System.out.println(containsDuplicateR(arr));
 
     }
 
-    // tc : O(n)
+    // TC: O(n) and SC : O(n)
     public static boolean containsDuplicateMap(int[] arr) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int j : arr) {
@@ -33,11 +24,13 @@ public class ContainsDuplicate {
         return false;
     }
 
-    // O(n)
+    // what will be the time complexity and space complexity
+    // add method takes constant time and loop is running n times. where n is the size of the array. O(n)
+    // space complexity will be O(n) in worst case set has to all the elements
     public static boolean containsDuplicateSet(int[] arr) {
         Set<Integer> set = new HashSet<>();
         for (int i : arr) {
-            if (!(set.add(i))) { // if we try to add duplicate element add method gives false
+            if (!(set.add(i))) { // if we try to add duplicate element add method returns false
                 return true;
             }
         }
@@ -59,7 +52,8 @@ public class ContainsDuplicate {
     }
 
     // using sorting
-    // O(n log n)
+    // O(n log(n) ) one more n of for loop
+    // SP :
     public static boolean containsDuplicate2(int[] arr) {
         Arrays.sort(arr);
         for (int i = 0; i < arr.length - 1; i++) {
@@ -70,6 +64,23 @@ public class ContainsDuplicate {
         return false;
     }
 
+    // using recursion
+    // find TC SC next time
+    public static boolean containsDuplicateR(int[] arr) {
+        Arrays.sort(arr);
+        return helper(arr, 0);
+    }
+
+    public static boolean helper(int[] arr, int i){
+        if (i > arr.length - 2) { // see the sign
+            return false;
+        }
+
+//        if (!(i < arr.length - 1)) {
+//            return false;
+//        }
+        return arr[i] == arr[i++] || helper(arr, ++i);
+    }
 
 
 }

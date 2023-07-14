@@ -11,8 +11,9 @@ public class GoalParserInterpretation {
         System.out.println(interpret(name));
     }
 
+    // TC: O(n) SC : O(n)
     static String interpret(String command) {
-        // return command.replace("()","o").replace("(al)","al");
+//         return command.replace("()","o").replace("(al)","al");
 
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < command.length(); i++) {
@@ -32,6 +33,8 @@ public class GoalParserInterpretation {
         return str.toString();
     }
 }
+
+// regex regular expressions
 /*
 G -> 1
 () -> 2
@@ -43,4 +46,8 @@ but than add
 i++;
 i += 2;
 i += 4;
+string getting out of bound can happen with this one.
  */
+
+
+// regular expressions or regex

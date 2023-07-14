@@ -2,7 +2,7 @@ package leetcode.string;
 
 import java.util.Scanner;
 
-public class DefangingAnIPAddress {
+public class DerangingAnIPAddress {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
 

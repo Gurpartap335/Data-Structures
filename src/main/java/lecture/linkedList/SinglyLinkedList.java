@@ -449,8 +449,9 @@ class SinglyLinkedList<E> {
         list.insertLast(3);
         list.insertLast(2);
         list.insertLast(1);
+        list.clear();
         list.display();
-        System.out.println(list.isPalindrome2(list));
+//        System.out.println(list.isPalindrome2(list));
 
     }
 }

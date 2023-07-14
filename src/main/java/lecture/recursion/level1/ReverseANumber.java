@@ -16,6 +16,16 @@ public class ReverseANumber {
     }
 
 
+    public static int reverse(int n, int a) {
+        if (n == 0) {
+            return a;
+        }
+
+        return reverse(n / 10 , (a * 10) + n % 10);
+    }
+    //  recurrence relation
+
+
     //
     static int reverse2(int n) {
         // sometimes you might need some additional variables in the argument
@@ -42,13 +52,4 @@ public class ReverseANumber {
         }
         return ans;
     }
-
-    public static int reverse(int n, int a) {
-        if (n == 0) {
-            return a;
-        }
-
-        return reverse(n / 10 , (a * 10) + n % 10);
-    }
-    //  recurrence relation
 }

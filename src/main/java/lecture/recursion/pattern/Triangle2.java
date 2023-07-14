@@ -9,7 +9,8 @@ package lecture.recursion.pattern;
 
 public class Triangle2 {
     public static void main(String[] args) {
-        printTriangleR(4, 0);
+        printTriangleR(3, 0);
+//        print(4);
     }
 
     static void printTriangleI(int n) {
@@ -20,6 +21,7 @@ public class Triangle2 {
             System.out.println();
         }
     }
+
 
     static void printTriangleR(int r, int c) {
         if (r == 0) {
@@ -34,5 +36,19 @@ public class Triangle2 {
                 System.out.println();
             }
         }
+    }
+
+    // this works
+    //  using recursion
+    // when the stack getting empty
+    public static void print(int n) {
+        if (n == 0) {
+            return;
+        }
+        print(n - 1);
+        for (int i = 0; i < n; i++) {
+            System.out.print("* ");
+        }
+        System.out.println();
     }
 }

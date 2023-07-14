@@ -21,8 +21,10 @@ public class SubSet {
      */
     // iteration
     static List<List<Integer>> subset(int[] arr) {
-        List<List<Integer>> outer = new ArrayList<>();
-        outer.add(new ArrayList<>());
+        List<List<Integer>> outer = new ArrayList<>(); // main list
+
+        outer.add(new ArrayList<>()); // add empty list
+
         for (int num : arr) {
             int n = outer.size();
             for (int i = 0; i < n; i++) {
@@ -32,6 +34,5 @@ public class SubSet {
             }
         }
         return outer;
-        
     }
 }

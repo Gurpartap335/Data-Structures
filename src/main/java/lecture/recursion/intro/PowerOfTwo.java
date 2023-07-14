@@ -7,6 +7,7 @@ public class PowerOfTwo {
 
     }
 
+    // TC: O(log n) SC: O(1)
     public static boolean isPowerOfTwo(int n) {
         if (n == 0) {
             return false;
@@ -18,6 +19,8 @@ public class PowerOfTwo {
     }
 
     // using recursion
+    // TC : O(log n)
+    // SC : O(log n) recursive stack is counted.
     public static boolean isPowerOfTwoR(int n) {
         if (n == 0) {
             return false;
@@ -33,6 +36,11 @@ public class PowerOfTwo {
 //        return isPowerOfTwoR(n/2);
         return (n == 1 || (n % 2 == 0 && isPowerOfTwoR(n/2)));
     }
+
+    public static boolean isPowerOfTwoRS(int n) {
+        return n == 1 || (n != 0 && n % 2 == 0) && isPowerOfTwoRS(n/2);
+    }
+    // just add all the condition statements in return statement.
 
 }
 /**

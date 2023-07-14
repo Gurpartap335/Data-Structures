@@ -39,6 +39,7 @@ public class StackMain {
  * is executed.
  * insertion and deletion can only happen from one end of the stack. top of the stack
  *
+ * You can implement stack using array and linked list.
  * Implementing a stack as an array can result in stack overflow if the elements
  * exceed the arrays size capacity.
  *
@@ -53,7 +54,6 @@ public class StackMain {
  * undo/redo
  * browser history
  * call stack
- * stack creation happens all the time -- even when just a single function is called.
- * 
  *
+ * stack creation happens all the time -- even when just a single function is called.
  */

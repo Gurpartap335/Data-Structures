@@ -53,6 +53,7 @@ public class SumTriangle {
         return helper(temp, arr, index + 1);
     }
 }
+// searchWord
 // why primitive data types can not store null values
 // https://stackoverflow.com/questions/11047276/why-cant-primitive-data-types-be-null-in-java#:~:text=Because%20null%20is%20a%20reference,Only%20objects%20are%20reference%20types.
 // https://stackoverflow.com/questions/27476845/what-is-the-difference-between-a-null-array-and-an-empty-array

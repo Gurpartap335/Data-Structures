@@ -67,6 +67,6 @@ Object is an instance(copy) of a class.
 
 class is a blueprint or template from which objects are created.
 
-Java String class provides a lot methods
+Java String class provides a lot of methods
 compare concat equals split length replace compareTo intern substring
  */
