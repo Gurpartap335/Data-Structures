@@ -367,10 +367,7 @@ public class BinaryTree {
  *
  * Degenerate tree : every node has single children(singly linked list)
  *
- * Ordered BT
- * every node has some property.
- * example : BST
- *
+ * Ordered BT or sorted Binary tree (Binary search tree).
  *
  * You can add or delete elements in O(log n) time
  * limitation unbalanced binary tree insertion and deletion take more time.
@@ -380,7 +377,6 @@ public class BinaryTree {
  * inefficient for sorted data
  *
  * Tree type of graph
- *
  *
  * Properties
  * size = total number of nodes
