@@ -1,16 +1,19 @@
 package lecture.trees;
 
-import java.util.ArrayList;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
 public class BinarySearchTree {
-
     private Node root;
 
-    // insertion
-    // to the left, to the left, all the small numbers in the tree to the left.
+    public boolean isEmpty() {
+        return root == null;
+    }
 
+    // to the left, to the left, all the small numbers in the tree to the left.
     // TC:   SC:
     // root node always returned not other nodes
     public void insertionR(int value) {
@@ -84,10 +87,28 @@ public class BinarySearchTree {
         else {
             return search(node.right, value);
         }
-
     }
 
     // search iterative
+    public boolean searchI(int value) {
+        return searchI(root, value);
+    }
+
+    // we are not updating root node here
+    public boolean searchI(Node node, int value) {
+
+        while (node != null) {
+            if (node.value == value) {
+                return true;
+            }
+            if (value < node.value) {
+                node = node.left;
+            } else {
+                node = node.right;
+            }
+        }
+        return false;
+    }
 
 
     // preorder traversal
@@ -105,6 +126,36 @@ public class BinarySearchTree {
         preorder(node.right);
     }
 
+    public void preOrderI() {
+        Stack<Node> stack = new Stack<>();
+        stack.add(root);
+        while (!stack.isEmpty()) {
+            Node node = stack.pop();
+            System.out.print(node.value + " ");
+            if (node.right != null) {
+                stack.add(node.right);
+            }
+            if (node.left != null) {
+                stack.add(node.left);
+            }
+        }
+    }
+
+    public void preOrderI2() {
+        Deque<Node> stack = new ArrayDeque<>();
+        stack.add(root);
+        while (!stack.isEmpty()) {
+            Node node = stack.pollLast();
+            System.out.print(node.value + " ");
+            if (node.right != null) {
+                stack.add(node.right);
+            }
+            if (node.left != null) {
+                stack.add(node.left);
+            }
+        }
+    }
+
     public void inOrder() {
         inOrder(root);
     }
@@ -115,6 +166,21 @@ public class BinarySearchTree {
         inOrder(node.left);
         System.out.print(node.value + " ");
         inOrder(node.right);
+    }
+
+    public void inOrderI() {
+        Stack<Node> stack = new Stack<>();
+        Node cur = root;
+
+        while (cur != null || !stack.isEmpty()) {
+            while (cur != null) {
+                stack.add(cur);
+                cur = cur.left;
+            }
+            cur = stack.pop();
+            System.out.print(cur.value + " ");
+            cur = cur.right;
+        }
     }
 
     public void postOrder() {
@@ -130,35 +196,7 @@ public class BinarySearchTree {
         System.out.print(node.value + " ");
     }
 
-    public ArrayList<ArrayList<Integer>> levelOrder(Node root) {
-        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
 
-        // if there is no element in the root []
-        if (root == null) {
-            return list;
-        }
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(root);
-
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            ArrayList<Integer> level = new ArrayList<>();
-            for (int i = 0; i < size; i++) {
-                Node node = queue.poll();
-                level.add(node.value);
-
-
-                if (node.left != null) {
-                    queue.add(node.left);
-                }
-                if (node.right != null) {
-                    queue.add(node.right);
-                }
-            }
-            list.add(level);
-        }
-        return list;
-    }
 
     // Node class
      private static class Node {
@@ -182,24 +220,7 @@ public class BinarySearchTree {
 //        bt.root.left.left = new Node(1);
 //        bt.root.left.right = new Node(4);
 //        bt.root.right.right = new Node(10);
-//
-//        bt.preorder();
 
-//        System.out.println();
-//
-//        BinarySearchTree tree = new BinarySearchTree();
-//        tree.insertion(8);
-//        tree.insertion(4);
-//        tree.insertion(3);
-//        tree.insertion(6);
-//        tree.insertion(5);
-//        tree.insertion(7);
-//
-//        tree.preorder();
-//        System.out.println();
-//        System.out.println(tree.levelOrder(tree.root));
-//        System.out.println();
-//        System.out.println(tree.levelOrder(tree.root));
 
         BinarySearchTree tree1 = new BinarySearchTree();
         tree1.insertionR(8);
@@ -214,17 +235,7 @@ public class BinarySearchTree {
         tree1.insertionR(9);
         tree1.insertionR(12);
 
-        tree1.preorder();
-        System.out.println();
-        tree1.inOrder();
-        System.out.println();
         tree1.postOrder();
-        System.out.println();
-        System.out.println(tree1.levelOrder(tree1.root));
-
-        System.out.println(tree1.search(12));
-
-
 
     }
 }
@@ -235,3 +246,7 @@ public class BinarySearchTree {
 // debug read article
 // https://www.enjoyalgorithms.com/blog/insertion-in-binary-search-tree
 // debug a tree
+// https://www.enjoyalgorithms.com/blog/minimum-absolute-difference-in-bst
+
+// count nodes
+// delete nodes
