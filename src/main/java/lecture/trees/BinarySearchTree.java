@@ -1,10 +1,7 @@
 package lecture.trees;
 
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 public class BinarySearchTree {
     private Node root;
@@ -196,6 +193,65 @@ public class BinarySearchTree {
         System.out.print(node.value + " ");
     }
 
+    public void postOrderI() {
+
+    }
+
+    public void levelOrder() {
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
+            System.out.print(node.value + " ");
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+    }
+
+    // return number of nodes present in trees
+    public int countNodes(Node node) {
+        if (node == null) {
+            return 0;
+        }
+
+        return countNodes(node.left) + countNodes(node.right) + 1;
+    }
+
+    // you can add or delete element in binary tree in O(log n)
+//    public int countNodes(Node node) {
+//        int leftDepth = leftDepth(root);
+//        int rightDepth = rightDepth(root);
+//
+//        if (leftDepth == rightDepth) {
+//            return (1 << leftDepth) - 1; // if it's full binary tree, then the result is 2^h - 1
+//        } else {
+//            return countNodes(root.left) + countNodes(root.left) + 1;
+//        }
+//
+//    }
+
+    // get the left-subtree's height(including root node)
+    public int leftDepth(Node root) {
+        int height = 0;
+        while (root != null) {
+            height++;
+            root = root.left;
+        }
+        return height;
+    }
+
+    public int rightDepth(Node root) {
+        int height = 0;
+        while (root != null) {
+            height++;
+            root = root.right;
+        }
+        return height;
+    }
 
 
     // Node class
@@ -222,20 +278,34 @@ public class BinarySearchTree {
 //        bt.root.right.right = new Node(10);
 
 
-        BinarySearchTree tree1 = new BinarySearchTree();
-        tree1.insertionR(8);
-        tree1.insertionR(4);
-        tree1.insertionR(2);
-        tree1.insertionR(6);
-        tree1.insertionR(5);
-        tree1.insertionR(7);
-        tree1.insertionR(13);
-        tree1.insertionR(11);
-        tree1.insertionR(16);
-        tree1.insertionR(9);
-        tree1.insertionR(12);
+//        BinarySearchTree tree1 = new BinarySearchTree();
+//        tree1.insertionR(8);
+//        tree1.insertionR(4);
+//        tree1.insertionR(2);
+//        tree1.insertionR(6);
+//        tree1.insertionR(5);
+//        tree1.insertionR(7);
+//        tree1.insertionR(13);
+//        tree1.insertionR(11);
+//        tree1.insertionR(16);
+//        tree1.insertionR(9);
+//        tree1.insertionR(12);
+//
+//        tree1.postOrder();
 
-        tree1.postOrder();
+        BinarySearchTree bt = new BinarySearchTree();
+        bt.insertion(5);
+        bt.insertion(3);
+        bt.insertion(1);
+        bt.insertion(4);
+        bt.insertion(7);
+        bt.insertion(6);
+        bt.insertion(9);
+        bt.postOrder();
+        System.out.println();
+        bt.levelOrder();
+        System.out.println();
+        System.out.println(bt.countNodes(bt.root));
 
     }
 }

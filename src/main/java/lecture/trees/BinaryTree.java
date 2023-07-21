@@ -295,18 +295,29 @@ public class BinaryTree {
     // longest path between two nodes, path does not need to pass via root.
 
     public static void main(String[] args) {
-        BinaryTree bt = new BinaryTree();
-        bt.insert(4);
-        bt.insert(2);
-        bt.insert(7);
-        bt.insert(1);
-        bt.insert(3);
-        bt.insert(6);
-        bt.insert(9);
-        bt.levelOrder();
-        bt.invertTree2(bt.root);
+//        BinaryTree bt = new BinaryTree();
+//        bt.insert(4);
+//        bt.insert(2);
+//        bt.insert(7);
+//        bt.insert(1);
+//        bt.insert(3);
+//        bt.insert(6);
+//        bt.insert(9);
+//        bt.levelOrder();
+//        bt.invertTree2(bt.root);
+//        System.out.println();
+//        bt.levelOrder();
+
+        BinarySearchTree bt = new BinarySearchTree();
+        bt.insertion(5);
+        bt.insertion(4);
+        bt.insertion(1);
+        bt.insertion(2);
+        bt.insertion(7);
+        bt.insertion(6);
+        bt.insertion(10);
+        bt.postOrder();
         System.out.println();
-        bt.levelOrder();
 
     }
 }
