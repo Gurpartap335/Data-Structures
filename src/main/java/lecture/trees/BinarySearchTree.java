@@ -64,7 +64,14 @@ public class BinarySearchTree {
         return root;
     }
 
+
+    // https://www.enjoyalgorithms.com/blog/searching-in-binary-search-tree
     // search key or node in tree if it exits
+    // TC: O(h) h : height of the tree
+    //  When BST is balanced O(log n) log n height of the BST where n is number of nodes
+    // When BST is unbalanced O(n) Height of the BST
+    // Space complexity is equal to the size of recursion stack which is equal to height of the binary tree.
+    // SC O(h) for balanced O(log n) and unbalanced O(n)
     public Boolean search(int value) {
         return search(root, value);
     }
@@ -87,6 +94,8 @@ public class BinarySearchTree {
     }
 
     // search iterative
+    // TC same as recursion
+    // SC O(1)
     public boolean searchI(int value) {
         return searchI(root, value);
     }
@@ -253,6 +262,50 @@ public class BinarySearchTree {
         return height;
     }
 
+    // get the height of the tree
+    public int height() {
+        return height(root);
+    }
+
+    // TC : O(n)
+    // SC : O(h)
+    public int height(Node root) {
+        if (root == null || root.left == null && root.right == null) {
+            return 0;
+        }
+
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
+
+    // height of the binary tree = no. of levels - 1
+    public int heightI(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+        int height = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                Node node = queue.poll();
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            height++;
+        }
+        return height - 1;
+    }
+
+    // can you get height of tree using stack
+
 
     // Node class
      private static class Node {
@@ -306,6 +359,8 @@ public class BinarySearchTree {
         bt.levelOrder();
         System.out.println();
         System.out.println(bt.countNodes(bt.root));
+        System.out.println(bt.height());
+        System.out.println(bt.heightI(bt.root));
 
     }
 }
@@ -320,3 +375,5 @@ public class BinarySearchTree {
 
 // count nodes
 // delete nodes
+// find the height of binary tree
+// depth of the node

@@ -159,6 +159,28 @@ public class BinaryTree {
         return list;
     }
 
+    // printing list, using one stack
+    public void postOrder3() {
+        Stack<Node> stack = new Stack<>();
+        LinkedList<Integer> list = new LinkedList<>();
+        if (root == null) {
+            return;
+        }
+
+        stack.push(root);
+        while(!stack.isEmpty()) {
+            Node node = stack.pop();
+            list.addFirst(node.value);
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+        }
+        System.out.println(list);
+    }
+
 
     public void inorder() {
         inorder(root);
@@ -295,29 +317,18 @@ public class BinaryTree {
     // longest path between two nodes, path does not need to pass via root.
 
     public static void main(String[] args) {
-//        BinaryTree bt = new BinaryTree();
-//        bt.insert(4);
-//        bt.insert(2);
-//        bt.insert(7);
-//        bt.insert(1);
-//        bt.insert(3);
-//        bt.insert(6);
-//        bt.insert(9);
-//        bt.levelOrder();
-//        bt.invertTree2(bt.root);
-//        System.out.println();
-//        bt.levelOrder();
-
-        BinarySearchTree bt = new BinarySearchTree();
-        bt.insertion(5);
-        bt.insertion(4);
-        bt.insertion(1);
-        bt.insertion(2);
-        bt.insertion(7);
-        bt.insertion(6);
-        bt.insertion(10);
+        BinaryTree bt = new BinaryTree();
+        bt.insert(4);
+        bt.insert(2);
+        bt.insert(7);
+        bt.insert(1);
+        bt.insert(3);
+        bt.insert(6);
+        bt.insert(9);
         bt.postOrder();
         System.out.println();
+        bt.invertTree(bt.root);
+        bt.postorder();
 
     }
 }
@@ -346,11 +357,24 @@ public class BinaryTree {
  are either the depth of a node or the height of a node.
 
  The depth of a node is the number of links or edges it takes to reach that
- node from the root of the tree.
+ node to the root of the tree.
  The height of a node is the maximum number of links or edges(or the longest path)
  from that node to its furthest leaf.
 
+ height: leaf to root
+ depth: node to root
+
+The height of a tree would be the height of its root node or
+ the depth of its deepest node.
+
+ The diameter or width of a tree is the number of nodes on the longest path between
+ any two lead nodes
+
  Balanced tree vs Unbalanced tree
+ A tree is considered to be balanced if any two sibling subtrees do not differ
+ in height by more than one level.
+ However, if two sibling subtrees differ significantly in height(and have more than
+ one level of depth difference), the tree is unbalanced.
 
  Example: File structure or file system are really just trees.
  Data Structures, Algorithms/networking, Compression of files
@@ -386,8 +410,6 @@ public class BinaryTree {
  * self balance Binary tree
  *
  * inefficient for sorted data
- *
- * Tree type of graph
  *
  * Properties
  * size = total number of nodes
