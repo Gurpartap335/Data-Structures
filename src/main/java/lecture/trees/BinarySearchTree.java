@@ -270,7 +270,7 @@ public class BinarySearchTree {
     // TC : O(n)
     // SC : O(h)
     public int height(Node root) {
-        if (root == null || root.left == null && root.right == null) {
+        if (root == null || root.left == null && root.right == null) { // see if in height edges are counting or nodes
             return 0;
         }
 
@@ -305,6 +305,34 @@ public class BinarySearchTree {
     }
 
     // can you get height of tree using stack
+
+
+
+
+    // Diameter of Binary Tree
+    // longest path between two nodes, path does not need to pass via root.
+    // count number of edges between two nodes(as for leetcode)
+
+    public int diameter() {
+        return diameter(root);
+    }
+    public int diameter(Node root) {
+        int[] diameterNode = new int[1];
+        height(root, diameterNode);
+        return diameterNode[0];
+    }
+
+    public int height(Node root, int[] diameterNode) {
+        if (root == null) {
+            return 0;
+        }
+
+        int left = height(root.left, diameterNode);
+        int right = height(root.right, diameterNode);
+
+        diameterNode[0] = Math.max(diameterNode[0], left + right);
+        return 1 + Math.max(left, right);
+    }
 
 
     // Node class
@@ -354,13 +382,23 @@ public class BinarySearchTree {
         bt.insertion(7);
         bt.insertion(6);
         bt.insertion(9);
-        bt.postOrder();
-        System.out.println();
-        bt.levelOrder();
-        System.out.println();
         System.out.println(bt.countNodes(bt.root));
         System.out.println(bt.height());
         System.out.println(bt.heightI(bt.root));
+        System.out.println(bt.diameter());
+
+//        BinarySearchTree tree = new BinarySearchTree();
+//        tree.root = new Node(1);
+//        tree.root.left = new Node(7);
+//        tree.root.left.left = new Node(2);
+//        tree.root.left.right = new Node(6);
+//        tree.root.left.right.left = new Node(5);
+//        tree.root.left.right.right = new Node(11);
+//        tree.root.right = new Node(9);
+//        tree.root.right.right = new Node(9);
+//        tree.root.right.right.left = new Node(5);
+//
+//        System.out.println(tree.diameter());
 
     }
 }
@@ -377,3 +415,12 @@ public class BinarySearchTree {
 // delete nodes
 // find the height of binary tree
 // depth of the node
+
+// which things are passed by reference
+// why primitives are passed by not reference.
+// array are passed by reference
+
+/**
+ * java always passes argument by value, but what you are passing by value is a reference
+ * to an object, not a copy of the object.
+ */
