@@ -12,6 +12,7 @@ public class ContainsDuplicate {
     }
 
     // TC: O(n) and SC : O(n)
+    // HashMap takes constant time for retrieving and storing elements.
     public static boolean containsDuplicateMap(int[] arr) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int j : arr) {
@@ -26,7 +27,8 @@ public class ContainsDuplicate {
 
     // what will be the time complexity and space complexity
     // add method takes constant time and loop is running n times. where n is the size of the array. O(n)
-    // space complexity will be O(n) in worst case set has to all the elements
+    // space complexity will be O(n) in worst case set has to add all the elements
+    // HashSet take O(1) for remove(), add(), contains()
     public static boolean containsDuplicateSet(int[] arr) {
         Set<Integer> set = new HashSet<>();
         for (int i : arr) {
@@ -37,7 +39,7 @@ public class ContainsDuplicate {
         return false;
     }
 
-    // O(n^2)
+    // O(n^2) SC: O(1)
     // using nested for loop
     // Gives Time Limit Exceeded runs too slow but works
     public static boolean containsDuplicate(int[] arr) {
@@ -52,8 +54,8 @@ public class ContainsDuplicate {
     }
 
     // using sorting
-    // O(n log(n) ) one more n of for loop
-    // SP :
+    // O(n log(n)) for loop - n log(n) + n -> O(n log n)
+    // SP : O(log n)
     public static boolean containsDuplicate2(int[] arr) {
         Arrays.sort(arr);
         for (int i = 0; i < arr.length - 1; i++) {
@@ -66,33 +68,24 @@ public class ContainsDuplicate {
 
     // using recursion
     // find TC SC next time
+    // TC : for sorting the array O(n log n) n : size of array
+    // SC: is the size of recursion stack O(n)
     public static boolean containsDuplicateR(int[] arr) {
         Arrays.sort(arr);
         return helper(arr, 0);
     }
 
-    public static boolean helper(int[] arr, int i){
+    private static boolean helper(int[] arr, int i){
         if (i > arr.length - 2) { // see the sign
             return false;
         }
 
-//        if (!(i < arr.length - 1)) {
-//            return false;
-//        }
-        return arr[i] == arr[i++] || helper(arr, ++i);
+        return arr[i] == arr[i + 1] || helper(arr, i +1);
     }
 
 
 }
 
-/*
-We have integer array nums if array contains duplicate elements return true else
-return false.
-
-- we can solve this using nested for loop. O(n^2)
-- sort the array + for loop ->  O(n log(n)) + O(n)
-- Hash table Time complexity : O(n) Memory: O(n) n : size of array
- */
 
 /**
  * Set and Map are abstract data type.
@@ -103,13 +96,13 @@ return false.
  * This means you cannot use HashMap in a multithreaded Java application without
  * external synchronization.
  *
- * Hashmap allows one null key(still unique keys.. i think??) and null values but Hashtable doesn't allow null
+ * Hashmap allows one null key(still unique keys) and null values but Hashtable doesn't allow null
  * key or values.
  * Hashtable thread safety is achieved using internal synchronization, which makes it
  * slower than HashMap.
  *
  * HashMap does not guarantee that the order of the map will remain constant over time
- * so Hashtable??
+ * so Hashtable?? probably same
  */
 
 // https://medium.com/swlh/hashmap-implementation-for-java-90a5f58d4a5b
@@ -173,3 +166,6 @@ class ContainDuplicateII {
         return false;
     }
 }
+
+// abstract class vs interface
+// https://www.baeldung.com/java-collections-complexity

@@ -405,22 +405,11 @@ public class BinarySearchTree {
 
 // why declare your class static?
 // why declare global variables?
-// search element
-// debug read article
-// https://www.enjoyalgorithms.com/blog/insertion-in-binary-search-tree
-// debug a tree
-// https://www.enjoyalgorithms.com/blog/minimum-absolute-difference-in-bst
 
-// count nodes
 // delete nodes
-// find the height of binary tree
-// depth of the node
-
-// which things are passed by reference
-// why primitives are passed by not reference.
-// array are passed by reference
 
 /**
- * java always passes argument by value, but what you are passing by value is a reference
- * to an object, not a copy of the object.
+ * Merge Two Binary tree recursive iterative dfs, bfs
+ * Range Sum of BST
+ * can you get height of tree using stack
  */
