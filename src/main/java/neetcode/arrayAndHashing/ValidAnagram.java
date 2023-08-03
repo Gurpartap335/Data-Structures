@@ -10,7 +10,7 @@ public class ValidAnagram {
 
 
     // using sorting
-    // TC O(n log(n))
+    // TC O(n log(n)) SC : O(n)
     public static boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) {
             return false;
@@ -21,15 +21,7 @@ public class ValidAnagram {
 
         Arrays.sort(s2);
         Arrays.sort(t2);
-
         return Arrays.equals(s2,t2);
-
-//        for(int i = 0; i < s.length(); i++) {
-//            if (s2[i] != t2[i]) {
-//                return false;
-//            }
-//        }
-//        return true;
     }
 
     // https://leetcode.com/problems/valid-anagram/solutions/66550/share-my-java-solution/
@@ -50,9 +42,7 @@ public class ValidAnagram {
             map1.put(s2[i], map1.getOrDefault(s2[i], 0) + 1);
             map2.put(t2[i], map2.getOrDefault(t2[i], 0) + 1);
         }
-        System.out.println(map1);
-        System.out.println(map2);
-        return map1.equals(map2); //for comparing two maps use equal method not ==
+        return map1.equals(map2); // for comparing two maps use equal method not ==
     }
 
 

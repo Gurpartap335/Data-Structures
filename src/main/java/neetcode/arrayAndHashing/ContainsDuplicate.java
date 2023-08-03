@@ -43,7 +43,7 @@ public class ContainsDuplicate {
     // using nested for loop
     // Gives Time Limit Exceeded runs too slow but works
     public static boolean containsDuplicate(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length - 1; i++) {
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[i] == arr[j]) {
                     return true;
@@ -135,6 +135,8 @@ class ContainDuplicateII {
         return false;
     }
 
+    // TC : O(n)
+    // SC : O(n)
     public static boolean containsNearByDuplicate2(int[] nums, int k) {
         if (nums == null || nums.length < 2) return false;
 
@@ -147,6 +149,20 @@ class ContainDuplicateII {
                 }
             }
             map.put(nums[i], i);
+        }
+        return false;
+    }
+
+    // sliding window + Set
+    public static boolean containsNearByDuplicate3(int[] nums, int k) {
+        Set<Integer> set = new HashSet<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (i > k) {
+                set.remove(nums[i - k - 1]);
+            }
+            if (!set.add(nums[i])) {
+                return true;
+            }
         }
         return false;
     }
