@@ -4,17 +4,18 @@ import java.util.*;
 
 public class GroupAnagrams {
     public static void main(String[] args) {
-        String[] str = {"abcd", "abbc", "cabb", "accc", "abcd", "abcd", "a", "a"};
-        System.out.println(Arrays.deepToString(new List[]{groupAnagrams(str)}));
+        String[] str = {"eat", "tea", "tan", "ate", "nat", "bat"};
+        System.out.println(Arrays.deepToString(new List[]{groupAnagrams11(str)}));
     }
 
-    private static List<List<String>> groupAnagrams(String[] str) {
 
-        Map<Map<Character, Integer>, ArrayList<String>> map = new HashMap<>();
+    // TC : O(n*m) n : size of string array m : length of word in string array
+    // SC : O(n)
+    private static List<List<String>> groupAnagrams(String[] str) {
+        Map<Map<Character, Integer>, List<String>> map = new HashMap<>();
 
         for (String s : str) {
             HashMap<Character, Integer> fmap = new HashMap<>();
-
             char[] arr = s.toCharArray();
             for (char c : arr) {
                 fmap.put(c, fmap.getOrDefault(c, 0) + 1);
@@ -24,20 +25,89 @@ public class GroupAnagrams {
                 list.add(s);
                 map.put(fmap, list);
             } else {
-                ArrayList<String> list = map.get(fmap);
+                List<String> list = map.get(fmap);
                 list.add(s);
             }
         }
-        
-        List<List<String>> res = new ArrayList<>();
-        for (ArrayList<String> val :
-                map.values()) {
-            res.add(val);
-        }
-        return res;
+
+        return new ArrayList<>(map.values());
 
     }
+
+    //update
+    private static List<List<String>> groupAnagrams11(String[] str) {
+        Map<Map<Character, Integer>, List<String>> map = new HashMap<>();
+
+        for (String s : str) {
+            HashMap<Character, Integer> fmap = new HashMap<>();
+            char[] arr = s.toCharArray();
+            for (char c : arr) {
+                fmap.put(c, fmap.getOrDefault(c, 0) + 1);
+            }
+            if (!map.containsKey(fmap)) {
+                map.put(fmap, new ArrayList<>());
+            }
+            map.get(fmap).add(s);
+        }
+        return new ArrayList<>(map.values());
+    }
+
+
+    //using sorting
+    public static List<List<String>> groupAnagrams2(String[] strs) {
+
+        // Here Key is String so to match every key we have to sort anagrams
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String s : strs) {
+            char[] chars = s.toCharArray();
+            Arrays.sort(chars);
+            String key = String.valueOf(chars);
+
+            if (!map.containsKey(key)) {
+                map.put(key, new ArrayList<>());
+            }
+            map.get(key).add(s);
+        }
+
+        return new ArrayList<>(map.values());
+    }
+
+
+    // building key without sorting
+
+
+// When creating HashMap value can be anything but key can't be anything.
+// To become key of hashmap it should have two function equals and hashcode.
 }
+
+class HighestFrequencyCharacter {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter a string");
+        String s = in.nextLine();
+
+        System.out.println(highest(s));
+
+    }
+
+    public static char highest(String s) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
+        }
+
+        char mfc = s.charAt(0);
+        for (char key : map.keySet()) {
+            if (map.get(key) > map.get(mfc)) {
+                mfc = key;
+            }
+        }
+        return mfc;
+    }
+}
+
 
 
 
@@ -80,32 +150,5 @@ class Test {
         }
 
         // all retrieving and storing in map happens O(1) time
-    }
-}
-
-class HighestFrequencyCharacter {
-
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter a string");
-        String s = in.nextLine();
-
-        System.out.println(highest(s));
-
-    }
-
-    public static char highest(String s) {
-        HashMap<Character, Integer> map = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            map.put(s.charAt(i), map.getOrDefault(s.charAt(i) , 0) + 1);
-        }
-
-        char mfc = s.charAt(0);
-        for (char key : map.keySet()) {
-            if (map.get(key) > map.get(mfc)) {
-                mfc = key;
-            }
-        }
-        return mfc;
     }
 }
