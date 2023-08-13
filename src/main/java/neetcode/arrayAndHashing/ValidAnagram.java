@@ -178,7 +178,8 @@ class CharacterValue {
 class Parsing {
 
     public static void main(String[] args) {
-        // Parsing a string of characters is analyzing this string to find tokens, or items and then create a structure from the result.
+        // Parsing a string of characters is analyzing this string to find tokens,
+        // or items and then create a structure from the result.
         // Integer.parseInt on a string is parsing this string to find an integer
 
         int i = Integer.parseInt("34543");
@@ -209,6 +210,11 @@ class Parsing {
         // converting int to string
         int a = 5;
         System.out.println(String.valueOf(a)); // Integer to string
+        String str = String.valueOf(a);
+        System.out.println(str);
+
+        String str1 = Integer.toString(a);
+        System.out.println(str1);
 
     }
 }
@@ -217,3 +223,42 @@ class Parsing {
 
 // Follow up: What if the inputs contain Unicode characters? How could you adapt
 // your solution to such a case?
+
+
+class Test1 {
+
+    public static void main(String[] args) {
+        String album  = "utopia";
+        int[] alphabet = new int[26];
+        System.out.println(Arrays.toString(alphabet));
+
+        for (char c : album.toCharArray()) {
+            alphabet[c - 'a']++;
+        }
+        System.out.println(Arrays.toString(alphabet));
+
+        // Internally, Java converts the character value to an ASCII value.
+        System.out.println("Lets print all lowercase letters with their ASCII value");
+        for (int i = 0; i < 26; i++) {
+            System.out.println((char)('a' + i) +  " " + ('a' + i));
+        }
+
+        //char array
+        // char arrays are not readable
+        char[] chars = new char[26];
+
+        for (char c : album.toCharArray()) {
+            chars['c' - 'a']++;
+        }
+
+        System.out.println(chars);
+        System.out.println(Arrays.toString(chars));
+
+        String key = String.valueOf(chars);
+        String key1 = Arrays.toString(chars);
+        System.out.println(key);
+        System.out.println(key1);
+
+        // https://stackoverflow.com/questions/57704422/why-cant-i-see-the-contents-in-java-char-array-neither-in-eclipse-console-nor-i
+    }
+}

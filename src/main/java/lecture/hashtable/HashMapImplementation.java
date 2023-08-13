@@ -27,7 +27,7 @@ public class HashMapImplementation {
  * HashMap uses a hashtable, however, it is internally implemented using two data
  * structures namely an array and a linked list.
  * Whenever you declare a hashmap, internally, it will create an array of buckets.
- * The buckets are referred to as nodes or you can say a linked list.
+ * The buckets are referred to as nodes, or you can say a linked list.
  *
  * Node can represent:
  * HashCode

@@ -54,12 +54,13 @@ public class GroupAnagrams {
 
 
     //using sorting
-    public static List<List<String>> groupAnagrams2(String[] strs) {
+    // O(m *n) or O(sum of all chars in str)
+    public static List<List<String>> groupAnagrams2(String[] str) {
 
         // Here Key is String so to match every key we have to sort anagrams
         Map<String, List<String>> map = new HashMap<>();
 
-        for (String s : strs) {
+        for (String s : str) {
             char[] chars = s.toCharArray();
             Arrays.sort(chars);
             String key = String.valueOf(chars);
@@ -75,6 +76,26 @@ public class GroupAnagrams {
 
 
     // building key without sorting
+    public static List<List<String>> groupAnagrams3(String[] str) {
+
+        // Here Key is String so to match every key we have to sort anagrams
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String s : str) {
+            char[] chars = new char[26];
+            for (char c : s.toCharArray()) {
+                chars[c - 'a']++;
+            }
+            String key = String.valueOf(chars);
+
+            if (!map.containsKey(key)) {
+                map.put(key, new ArrayList<>());
+            }
+            map.get(key).add(s);
+        }
+
+        return new ArrayList<>(map.values());
+    }
 
 
 // When creating HashMap value can be anything but key can't be anything.
@@ -141,6 +162,7 @@ class Test {
         map.put("Utopia", 8);
         System.out.println(map);
         System.out.println(map.size());
+
         Set<String> set = map.keySet();
         System.out.println(set);
 
@@ -150,5 +172,38 @@ class Test {
         }
 
         // all retrieving and storing in map happens O(1) time
+    }
+}
+
+/**
+ * Char is the one data type that isn't signed in java.
+ * It's a 16-bit unsigned integer.
+ * why char is unsigned integer data type in java?
+ */
+
+
+class Random {
+
+    public static void main(String[] args) {
+        String str = "abcdz";
+
+        System.out.println(str);
+
+        char[] chars = new char[26];
+
+        System.out.println(Arrays.toString(chars));
+        for (char c : str.toCharArray()) {
+            chars[c - 'a']++;
+        }
+
+        String key = new String(chars);
+        System.out.println(key);
+        String ans = String.valueOf(chars);
+        System.out.println(ans);
+
+
+        for (int i = 0; i < chars.length; i++) {
+            System.out.print(chars[i] + " ");
+        }
     }
 }
