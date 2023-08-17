@@ -117,15 +117,8 @@ public class ValidAnagram {
 // Unicode
 class UniCode {
     public static void main(String[] args) {
-        int a = 5;
-        char c = (char) a;
-        System.out.println(c);
-        System.out.println(c + 1);
-        System.out.println(c + '!');
-        System.out.println((char)(c + '!'));
-        System.out.println((char)(c + 1)); // unprintable
-
-        c = '\u0905';
+        System.out.println((char)37);
+        char c = '\u0905';
         System.out.println(c);
         System.out.println('\u0A17' + "" + '\u0A30');
         System.out.println('\u0A2F');

@@ -72,15 +72,15 @@ public class FlippingImage {
 
 }
 /*
-For each row use two pointers . one is going forward and the other is going backward .
+For each row use two pointers. one is going forward and the other is going backward.
 
 1. if the two elements are the same then make a slight change  like this 0 -> 1 and 1 -> 0
-2 if the two elements are different , Don't do anything .just let it go .
+2 if the two elements are different , Don't do anything .just let it go.
 
  */
 /*
 Two pointers technique
 
-Two pointers is really an easy and effective technique i.e is typically used for searching pairs in a sorted array .
+Two pointers is really an easy and effective technique i.e. is typically used for searching pairs in a sorted array .
 
  */
