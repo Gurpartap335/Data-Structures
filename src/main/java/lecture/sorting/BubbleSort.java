@@ -1,83 +1,38 @@
 package lecture.sorting;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class BubbleSort {
     public static void main(String[] args) {
-        int[] arr= {3, 5, 2, 4, 1};
-        bubbleR(arr, arr.length - 1, 0);
+        BubbleSort sort = new BubbleSort();
+        int[] arr= {6, 2, 8, 4, 10};
+        sort.bubbleSort(arr);
         System.out.println(Arrays.toString(arr));
 
     }
 
-    static void bubbleSort(int arr[]) {
-        int n = arr.length;
-        boolean swapped;
-        for (int i = 0; i < n - 1; i++)
-        {
-            swapped = false;
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1])
-                {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    swapped = true;
+
+    public void bubbleSort(int[] arr) {
+
+        for (int i = 1; i < arr.length; i++) {
+            boolean swap = false;
+            for (int j = 0; j < arr.length - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    swap(arr, j, j + 1);
+                    swap = true;
                 }
             }
-            // IF no two elements were
-            // swapped by inner loop, then break it means array is already sorted.
-            if (!swapped)
-                break;
-        }
-    }
-
-    // descending order
-    static void bubble(int[] arr) {
-       int n = arr.length;
-        boolean swapped;
-        for (int i = 0; i < n - 1; i++) {
-            // run the steps n-1 times
-            swapped = false;
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] < arr[j + 1]) {
-                    // swap arr[j+1] and arr[j]
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    swapped = true;
-                }
-            }
-
-            // if you did not swap for a particular value of i, it means the array is sorted
-            if (!swapped) { // if no two elements were swapped by inner loop , then break.
+            if (!swap) {
                 break;
             }
-
         }
     }
 
-    // if descending order just change the symbol.
-    static void bubble2 (int[] arr) {
-
-        for (int i = 0; i < arr.length - 1; i++) {
-
-            for (int j = 0; j < arr.length - i - 1; j++) {
-
-                if (arr[j] < arr[j+1]) {
-                    // swap arr[j+1] and arr[j]
-                    int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
-                }
-            }
-        }
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
-    /*
-    THE above function always runs O(n^2) time even if the array is sorted.
-    It can be optimized by stopping the algorithm if the inner loop did not cause any swap.
-     */
 
     // recursive
     // r : arr.length - 1 for array getting out of bound
@@ -101,9 +56,11 @@ public class BubbleSort {
         }
     }
 
+
 }
 /*
 Bubble Sort aka sinking sort/ exchange sort
+Pushes the maximum to the last by ADJACENT swaps.
 
 why?
 With the first pass through the array the largest element come to end.
@@ -124,7 +81,7 @@ It only takes one iteration to detect that a collection is already sorted.
 
 Worst and Average case time complexity O(N^2)
 Best case Time complexity: O(N)
-Auxiliary sorted O(1)
+Space Complexity O(1)
  */
 
 /*
@@ -132,7 +89,7 @@ Number of swaps :
 In ascending order:
 largest element moves to the right.
 so swapping is done when a smaller element is found on the right side.
-count number of elements smaller that it.
+count number of elements smaller than it.
 
 https://stackoverflow.com/questions/20035505/bubble-sort-number-of-swaps
  */

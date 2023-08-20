@@ -5,20 +5,18 @@ import java.util.Scanner;
 
 public class InsertionSort {
     public static void main(String[] args) {
-
-        int[] arr = {6, 5, 3, 1, 8, 7};
-        sort(arr);
+        InsertionSort sort = new InsertionSort();
+        int[] arr = {1, 2, 3, 4, 5};
+        sort.insertionSort(arr);
         System.out.println(Arrays.toString(arr));
 
     }
 
 
-    // kunal code
-    static void sort(int[] arr) {
+    public void insertionSort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
-
              for (int j = i + 1; j > 0; j--) {
-                if (arr[j] < arr[j - 1]) {
+                if (arr[j - 1] > arr[j]) {
                     swap(arr, j, j - 1);
                 } else {
                     break;
@@ -28,10 +26,10 @@ public class InsertionSort {
     }
 
     // descending
-    static void sortD(int[] arr) {
+    public void sortD(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = i + 1; j > 0; j--) {
-                if (arr[j] > arr[j - 1]) {
+                if (arr[j - 1] < arr[j]) {
                     swap(arr, j, j - 1);
                 } else {
                     break;
@@ -40,7 +38,7 @@ public class InsertionSort {
         }
     }
 
-    static void swap(int[] arr, int index1, int index2) {
+    private void swap(int[] arr, int index1, int index2) {
         int temp = arr[index1];
         arr[index1] = arr[index2];
         arr[index2] = temp;
@@ -48,7 +46,8 @@ public class InsertionSort {
 
 }
 /*
-O(n^2) comparisons and swaps
+Takes an element and place it in its current position.
 
-Best O(n) O(1) swaps if array is already sorted.
+TC : O(n^2) Best Case O(1)
+SC: O(1)
  */

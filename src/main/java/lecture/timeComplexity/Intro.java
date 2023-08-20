@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Intro {
     public static void main(String[] args) {
-
+//        System.currentTimeMillis();
     }
 }
 /*

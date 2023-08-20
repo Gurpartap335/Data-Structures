@@ -1,39 +1,36 @@
 package lecture.sorting;
 
-import org.jetbrains.annotations.NotNull;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class SelectionSort {
+public class SelectionSort<E> {
     public static void main(String[] args) {
 
-        int[] arr = {3, 1, 2, 4, 5, 0};
-        selectionRR(arr, arr.length - 1, 0);
-        System.out.println(Arrays.toString(arr));
     }
 
-    static void selection(int @NotNull [] arr) {
 
+    // TC : O(n^2) SC : O(1)
+    // TC same best, average and worst
+    public void selectionSort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
-            int iMin = i;
-
+            int min = i;
             for (int j = i + 1; j < arr.length; j++) {
-                if(arr[j] < arr[iMin])
-                    iMin = j; // update the minimum element index.
+                if (arr[min] > arr[j]) {
+                    min = j;
+                }
             }
-
-            if (iMin != i) { // if minimum element index and i are same then skip.
-                int temp = arr[i];
-                arr[i] = arr[iMin];
-                arr[iMin] = temp;
+            if (i != min) {
+                swap(arr, i, min);
             }
         }
     }
 
+    private static void swap(int[] arr, int i, int min) {
+        int temp = arr[i];
+        arr[i] = arr[min];
+        arr[min] = temp;
+    }
 
     // descending order
-    static void selection3(int[] arr) {
+    public void selection3(int[] arr) {
 
         for (int i = 0; i < arr.length - 1; i++) {
 
@@ -51,7 +48,7 @@ public class SelectionSort {
     }
 
     // recursive
-    static void selectionR(int[] arr, int r, int c, int max) {
+    public void selectionR(int[] arr, int r, int c, int max) {
         if (r == 0) {
             return;
         }
@@ -71,7 +68,7 @@ public class SelectionSort {
     }
 
     // putting minimum element at the first position
-    static void selectionRR(int[] arr, int r, int c) {
+    public void selectionRR(int[] arr, int r, int c) {
         if (r == 0) {
             return;
         }
@@ -87,41 +84,8 @@ public class SelectionSort {
         }
     }
 }
-
-
-/*
-Selection Sort
-The selection sort algorithm sorts an array by repeatedly finding the minimum
-element from unsorted part and putting it at the beginning(if sorting in
-ascending order).
-
-Initialize minimum value(iMin) to location 0.
-traverse tha array to find the minimum element in the array.
-while traversing if any element smaller than iMin is found then swap both the
-values.
-- then increment iMin to point to next element
-repeat until array is sorted
-
-Time Complexity : O(n^2).
-
-Space complexity : O(1).
- */
-
-
-/*
-My understanding of selection sort algorithm.
-
-Selection sort is a sorting algorithm which means we arrange data in ascending
-or descending order.
-we use two nested for loops. After declaring first for loop we initialize
-iMin variable which stores the index of minimum element in list.
-Then we declare another for loop in which we compare it with every element
-find the minimum element in list.
-Then we swap the iMin value to the first element in array.
-
-First we let first element is minimum element if sorting in asc order then
-we compare it with unsorted array and find minimum element then swap it with
-beginning element(put it in sorted array). we repeat this until we sort the array.
-
-Time complexity for selection is similar in three cases best average worst is O(n^2).
+/**
+ * Select minimum and swap
+ * arr -> 3, 1, 2, 4, 5, 0
+ * arr -> 13, 46, 24, 52, 20, 9
  */
