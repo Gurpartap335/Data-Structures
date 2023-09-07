@@ -60,7 +60,7 @@ public class BubbleSort {
 }
 /*
 Bubble Sort aka sinking sort/ exchange sort
-Pushes the maximum to the last by ADJACENT swaps.
+>>> Pushes the maximum to the last by ADJACENT swaps.
 
 why?
 With the first pass through the array the largest element come to end.

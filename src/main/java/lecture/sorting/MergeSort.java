@@ -1,123 +1,78 @@
 package lecture.sorting;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = {6, 5, 7, 2, 9, 1};
-//        arr = mergeSort(arr);
-//        System.out.println(Arrays.toString(arr));
-
+        int[] arr = {7, 9, 3, 2, 1, 5, 4};
+        MergeSort sort = new MergeSort();
         System.out.println(Arrays.toString(arr));
-        mergeSortInPlace(arr, 0, arr.length);
+        sort.mergeSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
-    static int[] mergeSort(int[] arr) {
-        if (arr.length == 1) {
-            return arr;
+
+    public void mergeSort(int[] arr, int low, int high) {
+        if (arr.length == 0) {
+            return;
         }
-
-        int mid = arr.length / 2;
-
-        int[] left = mergeSort(Arrays.copyOfRange(arr, 0, mid)); // first index inclusive
-        int[] right = mergeSort(Arrays.copyOfRange(arr, mid, arr.length));
-
-        return merge(left, right);
-    }
-
-    static int[] merge(int[] first, int[] second) {
-        int[] mix = new int[first.length + second.length];
-
-        int i = 0;
-        int j = 0;
-        int k = 0;
-
-        while (i < first.length && j < second.length) {
-            if (first[i] < second[j]) {
-                mix[k] = first[i];
-                i++;
-            } else {
-                mix[k] = second[j];
-                j++;
-            }
-            k++;
-        }
-
-        while (i < first.length) {
-            mix[k] = first[i];
-            i++;
-            k++;
-        }
-
-        while (j < second.length) {
-            mix[k] = second[j];
-            j++;
-            k++;
-        }
-        return mix;
-    }
-
-    // in place
-    static void mergeSortInPlace(int[] arr, int s, int e) {
-        if (e - s == 1) {
+        if (low == high) {
             return;
         }
 
-        int mid = s + (e - s)/2;
-
-        mergeSortInPlace(arr, s, mid);
-        mergeSortInPlace(arr, mid, e);
-
-        mergeInPlace(arr, s, mid, e);
+        int mid = (low + high)/2;
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid + 1, high);
+        merge(arr, low, mid, high);
     }
 
-    static void mergeInPlace(int[] arr, int s, int m, int e) {
-        int[] mix = new int[e - s];
+    public void merge(int[] arr, int low, int mid, int high) {
+        ArrayList<Integer> temp = new ArrayList<>();
+        int left = low; // starting index of left of arr
+        int right = mid + 1; // starting index of right half of arr
 
-        int i = s;
-        int j = m;
-        int k = 0;
-
-        while (i < m && j < e) {
-            if (arr[i] < arr[j]) {
-                mix[k] = arr[i];
-                i++;
+        while (left <= mid && right <= high) {
+            if (arr[left] <= arr[right]) {
+                temp.add(arr[left]);
+                left++;
             } else {
-                mix[k] = arr[j];
-                j++;
+                temp.add(arr[right]);
+                right++;
             }
-            k++;
         }
 
-        while (i < m) {
-            mix[k] = arr[i];
-            i++;
-            k++;
+        while (left <= mid) {
+            temp.add(arr[left]);
+            left++;
         }
 
-        while (j < e) {
-            mix[k] = arr[j];
-            j++;
-            k++;
+        while (right <= high) {
+            temp.add(arr[right]);
+            right++;
         }
 
-        for (int l = 0; l < mix.length; l++) {
-            arr[s + l] = mix[l];
+        for (int i = low; i <= high; i++) {
+            arr[i] = temp.get(i - low);
         }
+        // low give us current index from where our current hypothetical array start
+        // and high where its end.
+        // temp.get(i - low) to start the indexing of temp from zero.
+        // we are directly updating input array.
 
     }
+
 
 
 }
 /*
-Divide array into 2 parts
-Get both parts sorted via recursion
-Merge the sorted parts
+Merge Sort -> Divide and Merge
 
+Time complexity : O(n * log2 n) -> O(n logn)
+Everytime getting divide by 2 -> log2
+At each step we divide the whole array, for that logn and
+we assume n steps are taken to get a sorted array.
 
-At every level, N element are being merged.
-O(n log * n)
-
-T(n) = T(n/2) +  T(n/2) + (n - 1)
+Space complexity: O(n) temp array we are creating in merge method
+in-place sorting algorithm.
  */

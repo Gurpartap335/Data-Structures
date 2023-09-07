@@ -5,13 +5,14 @@ import java.util.Scanner;
 
 public class Intro {
     public static void main(String[] args) {
-//        System.currentTimeMillis();
+
     }
 }
 /*
 What is a time complexity of an algorithm and why is it important?
-Rate at which time taken increases with respect to the input size.
 
+
+Rate at which time taken increases with respect to the input size.
 Time Complexity != time taken
 
 1. Always count TC in worst case scenario Big O Notation
