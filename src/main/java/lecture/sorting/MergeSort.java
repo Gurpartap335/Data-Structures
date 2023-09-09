@@ -8,11 +8,14 @@ public class MergeSort {
         int[] arr = {7, 9, 3, 2, 1, 5, 4};
         MergeSort sort = new MergeSort();
         System.out.println(Arrays.toString(arr));
-        sort.mergeSort(arr, 0, arr.length - 1);
+        sort.mergeSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
 
+    public void mergeSort(int[] arr) {
+        mergeSort(arr, 0, arr.length - 1);
+    }
     public void mergeSort(int[] arr, int low, int high) {
         if (arr.length == 0) {
             return;
@@ -69,6 +72,7 @@ public class MergeSort {
 Merge Sort -> Divide and Merge
 
 Time complexity : O(n * log2 n) -> O(n logn)
+worst time complexity is also same for merge sort as of Quicksort.
 Everytime getting divide by 2 -> log2
 At each step we divide the whole array, for that logn and
 we assume n steps are taken to get a sorted array.
