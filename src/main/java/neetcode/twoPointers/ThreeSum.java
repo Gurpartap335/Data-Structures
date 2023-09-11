@@ -6,9 +6,9 @@ public class ThreeSum {
 
     public static void main(String[] args) {
         ThreeSum sum = new ThreeSum();
-        int[] arr = {-4, -2, -1, -1, -1, 0, 1, 1, 2, 3};
-        System.out.println(Arrays.toString(new List[]{sum.threeSum(arr)}));
-        System.out.println(Arrays.toString(new List[]{sum.threeSum2(new int[]{-1, 0, 1, -4, 2, -2})}));
+        int[] arr = {-4, -3, -2, -2, -2, 0, 1, 2, 4};
+        System.out.println(sum.threeSum(arr));
+
     }
 
     public List<List<Integer>> threeSumBrute(int[] arr) {
@@ -43,92 +43,50 @@ public class ThreeSum {
         if (arr.length < 3) {
             return list;
         }
+
         Arrays.sort(arr);
+
         if (arr[0] > 0) {
             return list;
         }
-
+                      // arr.length - 2 works
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > 0) {
                 return list;
             }
-            //to avoid using same element as first element in the list
-            // if number is getting repeated continue
+
             if (i > 0 && arr[i] == arr[i - 1]) {
-                continue;
+                continue; // to avoid using same element as first element in the list
             }
-            int left = i + 1;
-            int right = arr.length - 1;
+
+            int s = i + 1;
+            int e = arr.length - 1;
             int sum;
-            while (left < right) {
-                sum = arr[i] + arr[left] + arr[right];
+            while (s < e) {
+                sum = arr[i] + arr[s] + arr[e];
                 if (sum == 0) {
-                    list.add(Arrays.asList(arr[i], arr[left], arr[right]));
-                    // to avoid adding duplicate lists
-                    // move the pointers to new number
-                    while (left < right && arr[left] == arr[left + 1]) {
-                        left++;
+                    list.add(Arrays.asList(arr[i], arr[s], arr[e]));
+                    // to avoid adding duplicate lists move the pointers to new number
+                    while (s < e && arr[s] == arr[s + 1]) {
+                        s++;
                     }
-                    while (left < right && arr[right] == arr[right - 1]) {
-                        right--;
+                    while (s < e && arr[e] == arr[e - 1]) {
+                        e--;
                     }
-                    left++;
-                    right--;
+                    s++;
+                    e--;
                 }
                 else if (sum < 0) {
-                    left++;
+                    s++;
                 } else {
-                    right--;
+                    e--;
                 }
             }
         }
         return list;
-
-    }
-
-    public List<List<Integer>> threeSum2(int[] arr) {
-        Set<List<Integer>> set = new HashSet<>();
-        Arrays.sort(arr);
-        if (arr.length < 3 || arr[0] > 0) {
-            return Collections.emptyList();
-        }
-
-
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < 0) {
-                break;
-            }
-            if (i > 0 && arr[i] == arr[i - 1]) {
-                continue;
-            }
-            int left = i + 1;
-            int right = arr.length - 1;
-            int sum;
-            while (left < right) {
-                sum = arr[i] + arr[left] + arr[right];
-                if (sum == 0) {
-                    set.add(Arrays.asList(arr[i], arr[left], arr[right]));
-                    while (left < right && arr[left] == arr[left + 1]) {
-                        left++;
-                    }
-                    while (left < right && arr[right] == arr[right - 1]) {
-                        right--;
-                    }
-                    left++;
-                    right--;
-                }
-                else if (sum < 0) {
-                    left++;
-                } else {
-                    right--;
-                }
-            }
-        }
-        return new ArrayList<>(set);
     }
 }
 
 
 
 // https://www.youtube.com/watch?v=DhFh8Kw7ymk&ab_channel=takeUforward
-

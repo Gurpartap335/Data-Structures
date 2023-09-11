@@ -7,11 +7,14 @@ import java.util.Map;
 public class TwoSum {
     public static void main(String[] args) {
         int[] arr = {2, 3, 6, 8, 1, 9, 11, 2};
-        System.out.println(Arrays.toString(twoSum(arr, 5)));
+        System.out.println(Arrays.toString(twoSum(arr, 11)));
     }
 
 
-    // TC : O(n) SC : O(N)
+    // HashMap takes constant time for retrieving and storing elements.
+    // time complexity is constant for containsKey but for containsValue its O(n)
+    // TC : O(n)
+    // SC : O(n) in worst can we have to add all the element in map
     // two numbers return
     public static int[] twoSum(int[] arr, int target) {
         Map<Integer, Integer> map = new HashMap<>();
@@ -30,10 +33,10 @@ public class TwoSum {
     // using auxiliary space array.
     public static int[] twoSum2(int[] arr, int target) {
 
-        int[] ans  = new int[2];
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
             if (map.containsKey(target - arr[i])) {
+                int[] ans  = new int[2];
                 ans[0] = i;
                 arr[1] = map.get(target - arr[i]);// get returns value. we need index to return.
                 return ans;
@@ -62,19 +65,12 @@ public class TwoSum {
         return n;
     }
 
-
-
-    /**
-     * 2  0
-     * 3  1
-     * 6  2
-     * 8  3
-     * 1  4
-     * 9  5 we have not put this value in the map. 17 - 9 == 8 8 key exits in the map.
-     */
 }
 
 /**
  * 2 3 6 8 1 9 11 2 7 0 debug with this array target = 4, 11
  */
+
+//With HashMap, we can achieve an average time complexity of O(1)
+// for the put and get operations and space complexity of O(n).
 
