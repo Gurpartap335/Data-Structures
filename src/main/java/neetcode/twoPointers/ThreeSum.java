@@ -6,7 +6,7 @@ public class ThreeSum {
 
     public static void main(String[] args) {
         ThreeSum sum = new ThreeSum();
-        int[] arr = {-4, -3, -2, -2, -2, 0, 1, 2, 4};
+        int[] arr = {-4, -3, -2, -2, -2, -2, 0, 0, 0, 1, 2, 4};
         System.out.println(sum.threeSum(arr));
 
     }
@@ -36,9 +36,9 @@ public class ThreeSum {
         return list;
     }
 
-    // TC : O(n^2)
+    // TC : O(n^2) || n logn + n^2
     // SC : O(n)
-    public List<List<Integer>> threeSum(int[] arr) {
+    public List<List<Integer>> threeSum2(int[] arr) {
         List<List<Integer>> list = new ArrayList<>();
         if (arr.length < 3) {
             return list;
@@ -49,8 +49,8 @@ public class ThreeSum {
         if (arr[0] > 0) {
             return list;
         }
-                      // arr.length - 2 works
-        for (int i = 0; i < arr.length; i++) {
+
+        for (int i = 0; i < arr.length - 2; i++) {
             if (arr[i] > 0) {
                 return list;
             }
@@ -85,6 +85,57 @@ public class ThreeSum {
         }
         return list;
     }
+
+    // hashing
+    // TC : O(n logn + n ^2) O(n^2)
+    // SC : O(n)
+     public List<List<Integer>> threeSum(int[] arr) {
+        Set<List<Integer>> set = new HashSet<>();// set is "set of lists"
+
+        if (arr.length < 3) {
+            return new ArrayList<>(set);
+        }
+
+        Arrays.sort(arr);
+
+        for (int i = 0; i < arr.length - 2; i++) {
+            if (arr[i] > 0) {
+                break;
+            }
+
+            if (i > 0 && arr[i] == arr[i - 1]) {
+                continue;
+            }
+
+            int s = i + 1;
+            int e = arr.length - 1;
+            int sum;
+            while (s < e) {
+                sum = arr[i] + arr[s] + arr[e];
+                if (sum == 0) {
+                    set.add(Arrays.asList(arr[i], arr[s], arr[e]));
+                    s++;
+                    e--;
+                } else if (sum < 0) {
+                    s++;
+                } else {
+                    e--;
+                }
+            }
+        }
+
+        return new ArrayList<>(set);
+        // ArrayList<>() constructor accepts a "Collection", iterate through the elements of "Collection", and place each element in ArrayList
+    }
+
+    /**
+     * Time complexity: O(n^2)
+     * Explanation: Sorting takes O(nlogn) & 'for' loop and 'while' loop takes O(n^2) together. But since O(n^2) > O(nlogn). Therefore, O(n^2).
+     * Space complexity: O(n)
+     * Explanation: As the total elements are n and the space complexity will be some factor of n. Therefore, after removing constant, we are left with O(n).
+     */
+
+
 }
 
 
