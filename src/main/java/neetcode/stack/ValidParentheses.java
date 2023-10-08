@@ -17,7 +17,7 @@ import java.util.Stack;
 public class ValidParentheses {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        System.out.println(isValid2("(([]))"));
+        System.out.println(isValid(")))"));
         System.out.println(isValid("([)]")); // debug in copy and intellij
     }
 
@@ -55,7 +55,7 @@ public class ValidParentheses {
                 stack.push(c);
             }
 
-            else if (stack.isEmpty() || map.get(c) != stack.pop()) {
+            else if (stack.isEmpty() || map.get(c) != stack.pop ()) {
                 return false;
             }
         }

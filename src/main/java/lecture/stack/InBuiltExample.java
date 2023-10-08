@@ -3,10 +3,6 @@ package lecture.stack;
 import java.util.*;
 
 
-// internally array?
-// stack extends vector class
-// queue is like linked list.
-// why use stack and queues?
 public class InBuiltExample {
     public static void main(String[] args) {
 //        Stack<Integer> stack = new Stack<>();
