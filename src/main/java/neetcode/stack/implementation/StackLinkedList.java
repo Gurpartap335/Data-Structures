@@ -46,15 +46,23 @@ class Node {
 
 class LinkedListStack {
 
+    /* Top of stack */
     Node head;
 
+    /* size of stack */
     private int size;
 
+    /* Init properties */
     public LinkedListStack() {
         head = null;
         size = 0;
     }
 
+    /**
+     * Push element at top
+     * @param value to be added
+     * @return true if add successfully
+     */
     public boolean push(int value) {
         Node node = new Node(value);
         node.next = head;
@@ -63,6 +71,10 @@ class LinkedListStack {
         return true;
     }
 
+    /**
+     * Removes element at top of stack
+     * @return element at top of stack
+     */
     public int pop() {
         if (size == 0) {
             throw new NoSuchElementException();
@@ -74,9 +86,13 @@ class LinkedListStack {
         return node.data;
     }
 
+    /**
+     * Peek element at top of stack
+     * @return element at top of stack
+     */
     public int peek() {
         if (size == 0) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("Empty stack. Nothing to pop");
         }
 
         return head.data;
