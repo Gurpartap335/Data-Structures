@@ -2,33 +2,47 @@ package neetcode.stack;
 
 import lecture.stack.StackException;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
+import java.util.EmptyStackException;
 import java.util.Stack;
-import java.util.Vector;
+
 
 public class CustomStack {
 
-    protected int[] data;
-    private static final int DEFAULT_SIZE = 5;
+    private int[] data;
+    private static final int DEFAULT_SIZE = 4;
 
-    private int ptr = -1;
+    private int ptr;
 
     public CustomStack() {
         this(DEFAULT_SIZE);
     }
 
+    /**
+     * Constructor
+     * @param size Size of the stack
+     */
     public CustomStack(int size) {
         this.data = new int[size];
+        ptr = -1;
     }
 
-    public boolean push(int n) throws StackException{
-        if (isFull()) {
-            throw new StackException("Stack is Full");
-        }
 
-        data[++ptr] = n;
+    public boolean push(int value) {
+        if (isFull()) {
+            resize();
+        }
+        data[++ptr] = value;
         return true;
+    }
+
+
+    public void resize() {
+        int[] temp = new int[data.length * 2];
+
+        for (int i = 0; i < data.length; i++) {
+            temp[i] = data[i];
+        }
+        data = temp;
     }
 
     public int pop() throws StackException {
@@ -47,7 +61,8 @@ public class CustomStack {
 
     public void display() throws StackException {
         if (isEmpty()) {
-            throw new StackException("Can print elements from empty stack");
+            throw new StackException();
+//            throw new StackException("Can print elements from empty stack");
         }
 
         for (int i = 0; i <= ptr; i++) {
@@ -60,29 +75,74 @@ public class CustomStack {
         return ptr == data.length - 1;
     }
 
+    /**
+     * Returns true if the stack is empty
+     * @return true if the stack is empty
+     */
     public boolean isEmpty() {
-        return ptr == -1; //if 0 means when element is already added in the stack.
+        return ptr == -1;
     }
 
+    /**
+     * Return size of stack
+     * @return size of stack
+     */
     public int size() {
-        if (isEmpty()) {
-            return -1;
-        }
         return ptr + 1;
     }
 
-    public static void main(String[] args) throws StackException{
-        CustomStack stack = new CustomStack(3);
-        assert stack.isEmpty();
-        assert stack.isEmpty();
+    public void makeEmpty() {
+        ptr = -1;
+    }
+
+    public static void main(String[] args) throws StackException {
+        CustomStack stack = new CustomStack();
+
+        assert stack.isEmpty():"stack is empty";
+        assert !stack.isFull():"stack is not Full";
 
         stack.push(3);
         stack.push(5);
         stack.push(2);
+        stack.push(9);
+
+        assert !stack.isEmpty();
+        assert stack.isFull();
+        assert stack.pop() == 9;
+        assert stack.peek() == 2;
+        assert stack.size() == 3;
+        assert stack.pop() == 2;
+
+        stack.push(1);
+        stack.push(2);
+
+        System.out.println(stack.data.length);
+        System.out.println(stack.size());
+        assert stack.size() == 4;
+        assert stack.pop() == 2;
+        assert stack.pop() == 1;
+
+        stack.push(6);
+        stack.display();
+
+        while (!stack.isEmpty()) {
+            stack.pop();
+        }
+
+        assert stack.isEmpty();
+
+        try {
+            stack.pop();
+            assert false;
+        } catch (EmptyStackException e) {
+            assert true;
+        }
 
     }
 }
-/**
- * What time complexity of each method.
- * Implementing stack using array.
- */
+
+
+// why can we instantiate abstract class
+// AbstractList, AbstractCollection
+// Include EmptyStackException in implementation
+// why should you use Exception when you just simply can print the error and end the message.
