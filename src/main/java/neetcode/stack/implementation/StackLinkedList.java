@@ -34,12 +34,12 @@ public class StackLinkedList {
 
 
 class Node {
-    public int data;
+    public int value;
     public Node next;
 
 
     public Node(int data) {
-        this.data = data;
+        this.value = data;
         this.next = null;
     }
 }
@@ -83,7 +83,7 @@ class LinkedListStack {
         Node node = head;
         head = head.next;
         size--;
-        return node.data;
+        return node.value;
     }
 
     /**
@@ -95,7 +95,7 @@ class LinkedListStack {
             throw new NoSuchElementException("Empty stack. Nothing to pop");
         }
 
-        return head.data;
+        return head.value;
     }
     public boolean isEmpty() {
         return size == 0;
@@ -108,13 +108,12 @@ class LinkedListStack {
     @Override
     public String toString() {
         if (isEmpty()) {
-            return "";
-            // or throw new NoSuchElementException();
+             throw new NoSuchElementException("Can't print from empty stack");
         }
         Node cur = head;
         StringBuilder builder = new StringBuilder();
         while (cur != null) {
-            builder.append(cur.data).append("->");
+            builder.append(cur.value).append("->");
             cur = cur.next;
         }
         builder.delete(builder.length() - 2, builder.length());
