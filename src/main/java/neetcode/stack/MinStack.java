@@ -1,6 +1,7 @@
 package neetcode.stack;
 
 import java.util.Deque;
+import java.util.Stack;
 
 // https://leetcode.com/problems/min-stack/
 public class MinStack {

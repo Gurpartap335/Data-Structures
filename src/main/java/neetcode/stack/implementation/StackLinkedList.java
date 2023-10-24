@@ -8,7 +8,7 @@ public class StackLinkedList {
 
         LinkedListStack stack = new LinkedListStack();
 
-        System.out.println(stack);
+//        System.out.println(stack);
         System.out.println(stack.size());
 
         stack.push(1);

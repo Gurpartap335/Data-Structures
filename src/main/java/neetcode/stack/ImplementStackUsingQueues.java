@@ -1,24 +1,27 @@
 package neetcode.stack;
 
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 // https://leetcode.com/problems/implement-stack-using-queues/
 
-/**
- * Implemented stack: push top pop empty
- * queue :
- */
 public class ImplementStackUsingQueues {
 
     public static void main(String[] args) {
-
+        ImplementStackUsingQueues stack = new ImplementStackUsingQueues();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        System.out.println(stack.pop());
+        System.out.println(stack.top());
     }
 
     // using one queue
-    private Queue<Integer> queue = new LinkedList<>();
+    private final Queue<Integer> queue;
 
+    public ImplementStackUsingQueues() {
+        queue = new ArrayDeque<>();
+    }
     public void push(int x) {
         queue.add(x);
         // rotate the queue to make the tail be the head
