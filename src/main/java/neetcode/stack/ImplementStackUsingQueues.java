@@ -1,12 +1,14 @@
 package neetcode.stack;
 
+import lecture.queue.CircularQueue;
+
 import java.util.*;
 
 // https://leetcode.com/problems/implement-stack-using-queues/
 
 public class ImplementStackUsingQueues {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ImplementStackUsingQueues stack = new ImplementStackUsingQueues();
         stack.push(1);
         stack.push(2);
@@ -14,6 +16,19 @@ public class ImplementStackUsingQueues {
         stack.push(4);
         System.out.println(stack.pop());
         System.out.println(stack.top());
+
+
+        System.out.println("====");
+        CircularQueue queue1 = new CircularQueue();
+        queue1.insert(1);
+        queue1.insert(2);
+        queue1.insert(3);
+        queue1.insert(4);
+        System.out.println(queue1.remove());
+        System.out.println(queue1.remove());
+        System.out.println(queue1.remove());
+        System.out.println(queue1.remove());
+
     }
 
     // using one queue
