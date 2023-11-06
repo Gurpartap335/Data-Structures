@@ -1,102 +1,95 @@
 package lecture.array.Binary;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class BinarySearch {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter array size : ");
-        int size  = s.nextInt();
-        int[] arr = new int[size];
-
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = s.nextInt();
-        }
-
-        System.out.println(Arrays.toString(arr));
-
-        System.out.println("Enter key element : ");
-        int key = s.nextInt();
-        System.out.println(binarySearch(arr,key));
-
-
-
+        System.out.println(recursiveBinarySearch(new int[]{-1,0,3,5,9,12}, 5));
     }
 
-    // Binary Search algorithm
-    // Given a sorted array arr[] of n elements, write a function to search a given element x in arr[] .
-    // return the index
-    // return -1 if it does not exit .
-    static int binarySearch(int[] arr , int target) {
+
+    // TC : O(log n) , SC : O(1)
+    public static int binarySearch(int[] arr , int target) {
         int start = 0;
         int end = arr.length - 1;
 
         while (start <= end) {
             int mid = start + (end - start)/2;
-
             if (arr[mid] == target) {
                 return mid;
             }
-
-            else if(target > arr[target]) { // if target value is greater than arr mid value then shift start
+            else if (target > arr[mid]) {
                 start = mid + 1;
             }
-
-            else { // if target value is less than mid value then shfit end .
+            else {
                 end = mid - 1;
             }
         }
         return -1;
     }
 
-    /*
-    Better way to find mid (element)
-    m = (s + e) /2;  (s + e) this may exceed the int range
 
-    m = s + (e - s) / 2
-     */
+    // recursive binary search
+    // TC : O(log n) SC : O(log n)
+    // space complexity is the size of recursion stack
+
+    public static int recursiveBinarySearch(int[] arr, int target) {
+        return recursiveBinarySearch(arr, target, 0, arr.length - 1);
+    }
+
+    private static int recursiveBinarySearch(int[] arr, int target, int start, int end) {
+        int mid = start + (end - start) / 2;
+
+        if (start > end) {
+            return -1;
+        }
+        if (arr[mid] == target) {
+            return mid;
+        } else if (target > arr[mid]) {
+            return recursiveBinarySearch(arr, target, mid + 1, end);
+        } else {
+            return recursiveBinarySearch(arr, target, start, mid - 1);
+        }
+    }
+
+
 
 }
 
 /*
-Binary Search
+Why Binary Search?
 
-Binary search is a searching algorithm used in a sorted array by repeatedly dividing the search interval in half.
+Binary search is a searching algorithm used in a sorted array by repeatedly
+dividing the search interval in half.
 
-The idea of binary search is to use the information the array is sorted and reduce
-the time complexity to O(Log n) .
+Better way to find mid (element)
+m = (s + e) /2;  (s + e) this may exceed the int range
+m = s + (e - s) / 2
+mid = (s + e) >>> 1;
 
-1. compare x with the middle element .
-2. If x matches with the middle element , we return the mid-index.
-3. if x > mid x only lie in the right half sub-array after the mid-element. So we recur for the right half.
-4. if x < mid recur for the left half .
 
-why Binary Search ?
+The idea of binary search is to use the information the array is sorted and
+reduce the time complexity to O(log n).
 
-Time Complexity of Binary Search
+Duplicate elements in array then how we calculate?
 
-k : steps/ comparison
-2^k = N
-N/2^k = 1
-N = 2^k
-log(N) = log(2^K)
-log(N) = klog2
-k = logN / log2
-k = log2N (log 2 base) where N is the size of array .
+Time Complexity of Binary Search:
 
-The last element would be the element we are looking for.
-so how many steps does it take to reach 1 from n by dividing by 2 at each step ?
-If you are familiar with logarithm you would know that the anwser is log2n.
+k : comparison
 
-Total comparisons in the worst case = logN
+1 = n / 2^k
+2^k = n
+n = 2^k
+log(n) = log(2^K)
+log(n) = k log2
+k = log n/log2
+k = log 2 n (log 2 base)
 
-search in 1 millions elements
+Total comparisons in the worst case = log n
+
+Search in 1 millions elements
 worst case for
-LS : 1m comparisons
-BS : 20 comparisons
-
+Linear Search : 1m comparisons
+Binary Search : 20 comparisons
 
 Order-Agnostic Binary Search.
-
+This range of possible values is called Search Space.
  */

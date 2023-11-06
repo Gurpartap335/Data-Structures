@@ -2,8 +2,8 @@ package lecture.array.Binary;
 
 import java.util.Arrays;
 import java.util.Scanner;
-//import org.apache.commons.lang3.ArrayUtils;
 
+// https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 
 public class FIndFirstAndLastPositionOfElementInSortedArray {
     public static void main(String[] args) {

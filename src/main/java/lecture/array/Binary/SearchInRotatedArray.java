@@ -94,5 +94,4 @@ search( O(log n) ).
 
 subProblems
 First find the maximum element's index in the array so you can apply binary search.
-
  */
