@@ -1,4 +1,4 @@
-package lecture.array.Binary;
+package lecture.binarySearch;
 
 
 public class OrderAgnosticsBS {

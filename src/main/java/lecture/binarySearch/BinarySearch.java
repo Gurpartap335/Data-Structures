@@ -1,4 +1,4 @@
-package lecture.array.Binary;
+package lecture.binarySearch;
 
 public class BinarySearch {
     public static void main(String[] args) {

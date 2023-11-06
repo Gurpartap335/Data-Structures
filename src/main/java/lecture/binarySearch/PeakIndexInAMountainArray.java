@@ -1,7 +1,7 @@
 /*
 https://leetcode.com/problems/peak-index-in-a-mountain-array/
  */
-package lecture.array.Binary;
+package lecture.binarySearch;
 
 import java.util.Arrays;
 import java.util.Scanner;

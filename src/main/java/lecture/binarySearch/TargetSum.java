@@ -1,6 +1,5 @@
-package lecture.array.Binary;
+package lecture.binarySearch;
 
-import java.util.Scanner;
 /*
 Given a sorted array and a target sum, check if you can search a pair of three elements
 such that, the sum of three elements will be equal to the target sum.

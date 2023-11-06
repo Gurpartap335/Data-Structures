@@ -5,21 +5,6 @@ import java.util.Scanner;
 
 public class FindFirstAndLastPositionOfElementInSortedArray {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter size of array : ");
-        int size = s.nextInt();
-        int[] arr = new int[size];
-
-
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = s.nextInt();
-        }
-
-        System.out.println(Arrays.toString(arr));
-        System.out.println("Enter target element : ");
-        int t = s.nextInt();
-        System.out.println(Arrays.toString(searchRange(arr,t)));
-
 
     }
 
