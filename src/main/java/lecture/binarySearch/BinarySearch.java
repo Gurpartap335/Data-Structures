@@ -55,6 +55,8 @@ public class BinarySearch {
 }
 
 /*
+Binary Search, half-interval search, logarithmic search, binary chop
+
 Why Binary Search?
 
 Binary search is a searching algorithm used in a sorted array by repeatedly
