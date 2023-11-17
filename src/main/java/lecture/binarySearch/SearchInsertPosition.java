@@ -1,54 +1,34 @@
+
+package lecture.binarySearch;
+
 /*
 https://leetcode.com/problems/search-insert-position/
  */
-package lecture.binarySearch;
-
-import java.util.Arrays;
-import java.util.Scanner;
 
 public class SearchInsertPosition {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter array size : ");
-        int size = s.nextInt();
-        int[] arr = new int[size];
-
-        System.out.println("Enter element : ");
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = s.nextInt();
-        }
-
-        System.out.println(Arrays.toString(arr));
-
-        System.out.println("Enter target element : ");
-        int key = s.nextInt();
-
-        System.out.println(searchInsertPosition(arr,key));
-
-
+        System.out.println(searchInsertPosition(new int[]{-1,0,3,5,9,12}, -5));
 
     }
 
     static int searchInsertPosition(int[] arr , int target) {
-        if(arr == null || arr.length == 0) return 0;
-
         int start = 0;
         int end = arr.length - 1;
 
         while (start <= end) {
             int mid = start + (end - start) / 2 ;
 
-            if (target < arr[mid]) {
-                end = mid -1;
-            }
-            else if(target > arr[mid]) {
-                start = mid + 1;
-            }
-            else {
+            if (arr[mid] == target) {
                 return mid;
+            } else if(target > arr[mid]) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
             }
         }
         return start;
-//        return arr[end] < target ? end + 1: end;
     }
 }
+
+// edge case if target is less than first element
+// or target is greater than last element in an array
