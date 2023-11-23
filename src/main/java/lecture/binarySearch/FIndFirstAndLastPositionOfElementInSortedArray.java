@@ -1,103 +1,86 @@
 package lecture.binarySearch;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 // https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+
+import java.util.Arrays;
 
 public class FIndFirstAndLastPositionOfElementInSortedArray {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-
-        System.out.println("Enter array size : ");
-        int size = s.nextInt();
-        int[] arr = new int[size];
-
-        System.out.println("Enter element : ");
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = s.nextInt();
-        }
-
-        System.out.println(Arrays.toString(arr));
-
-
-
-        while (true) {
-            // corner case
-            System.out.println("Enter a target element : ");
-            int t = s.nextInt();
-            System.out.println(firstPosition(arr,t));
-            System.out.println(lastPosition(arr,t));
-        }
+        System.out.println(Arrays.toString(search(new int[]{5, 6, 6, 7, 7, 7, 8, 8}, 8)));
     }
 
-    // first i am going to find the first position of an element.
-    static int firstPosition(int[] arr, int t) {
+    public static int[] search(int[] arr, int target) {
+        int a = firstPosition(arr, target);
+        int b = lastPosition(arr, target);
+        return new int[]{a, b};
+    }
+
+
+    public static int firstPosition(int[] arr, int target) {
         // corner case
         if (arr.length == 0) {
             return -1;
         }
 
-        if (arr[0] == t) {
+        // array out of bound for first element
+        if (arr[0] == target) {
             return 0;
         }
-        int s = 0;
-        int e = arr.length - 1;
+        int start = 0;
+        int end = arr.length - 1;
 
-        while (s <= e) {
-            int m = s + (e - s)/2;
-            if (arr[m] == t) {
-                if (arr[m] > arr[m - 1]) {
-                    return m;
+        while (start <= end) {
+            int mid = start + (end - start)/2;
+
+            if (arr[mid] == target) {
+                if (arr[mid] > arr[mid - 1]) {
+                    return mid;
                 } else {
-                    e = m - 1;
+                    end = mid - 1;
                 }
             }
-            else if (t > arr[m]) {
-                s = m + 1;
+            else if (target > arr[mid]) {
+                start = mid + 1;
             } else {
-                e = m - 1;
+                end = mid - 1;
             }
         }
-
         return -1;
 
     }
 
-    // this function gonna return the last position of element
-    static int lastPosition(int[] arr, int t) {
+    public static int lastPosition(int[] arr, int target) {
 
         // corner case
         if (arr.length == 0) {
             return -1;
         }
 
-        if (arr[arr.length - 1] == t) {
+        // array out of bound for last element
+        if (arr[arr.length - 1] == target) {
             return (arr.length - 1);
         }
 
-        int s = 0;
-        int e = arr.length - 1;
+        int start = 0;
+        int end = arr.length - 1;
 
-        while (s <= e) {
-            int m = s + (e - s)/2;
-            if (arr[m] == t) {
-                if (arr[m] < arr[m + 1]) {
-                    return m;
+        while (start <= end) {
+            int mid = start + (end - start)/2;
+
+            if (arr[mid] == target) {
+                if (arr[mid] < arr[mid + 1]) {
+                    return mid;
                 } else {
-                    s = m + 1;
+                    start = mid + 1;
                 }
             }
-            else if (t > arr[m]) {
-                s = m + 1;
+            else if (target > arr[mid]) {
+                start = mid + 1;
             } else {
-                e = m - 1;
+                end = mid - 1;
             }
         }
-
         return -1;
-
     }
-
 
 }
