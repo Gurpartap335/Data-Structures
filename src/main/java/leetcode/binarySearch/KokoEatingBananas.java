@@ -1,4 +1,4 @@
-package neetcode.BinarySearch;
+package leetcode.binarySearch;
 
 // https://leetcode.com/problems/koko-eating-bananas/
 public class KokoEatingBananas {

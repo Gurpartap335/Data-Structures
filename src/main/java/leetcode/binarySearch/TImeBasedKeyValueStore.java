@@ -1,4 +1,4 @@
-package neetcode.BinarySearch;
+package leetcode.binarySearch;
 
 public class TImeBasedKeyValueStore {
 }
