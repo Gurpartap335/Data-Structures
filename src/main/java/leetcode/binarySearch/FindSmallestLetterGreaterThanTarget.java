@@ -7,7 +7,6 @@ package leetcode.binarySearch;
 public class FindSmallestLetterGreaterThanTarget {
     public static void main(String[] args) {
 
-
     }
 
     static char nextGreatestLetter(char[] letters , char target) {

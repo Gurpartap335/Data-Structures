@@ -1,5 +1,5 @@
 
-package lecture.binarySearch;
+package leetcode.binarySearch;
 
 /*
 https://leetcode.com/problems/search-insert-position/

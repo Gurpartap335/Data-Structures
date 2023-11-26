@@ -1,4 +1,4 @@
-package lecture.binarySearch;
+package leetcode.binarySearch;
 
 public class SearchInRotatedArray {
     public static void main(String[] args) {
