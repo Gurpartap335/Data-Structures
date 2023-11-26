@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class TwoDimensionalArray {
     public static void main(String[] args) {
-        // Multidimensional array can be defined in simple words as array of arrays .
+        // Multidimensional array can be defined in simple words as array of arrays.
         /*
         data_type[1st dimension][2nd][nth] array_name = new data_type[size1][size2]..[sizeN];
          */
@@ -67,11 +67,6 @@ public class TwoDimensionalArray {
                 {2,3,4,5,6}
         };
         System.out.println(arr2.length);
-
-
-
-
-
 
     }
 }
