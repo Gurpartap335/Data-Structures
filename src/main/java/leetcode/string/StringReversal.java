@@ -8,8 +8,6 @@ import java.util.Arrays;
 /**
  * Java program to reverse a String in place
  * without any additional buffer in Java.
- *
- * @author Gurpartap225
  */
 
 class StringReversal {

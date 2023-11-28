@@ -1,7 +1,5 @@
 package lecture.core.oop.wrapper;
 
-import lecture.array.ArrayList1;
-
 import java.util.ArrayList;
 
 /**

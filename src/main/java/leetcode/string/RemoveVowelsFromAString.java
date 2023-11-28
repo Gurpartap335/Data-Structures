@@ -14,11 +14,7 @@ import java.util.Set;
 
 public class RemoveVowelsFromAString {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter name");
-        String n = in.nextLine();
 
-        System.out.println(removeVowels(n));
     }
 
     static String removeVowels(String s) {

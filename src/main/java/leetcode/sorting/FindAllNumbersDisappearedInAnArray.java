@@ -10,20 +10,7 @@ import java.util.Scanner;
 
 public class FindAllNumbersDisappearedInAnArray {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter size of array : ");
-        int n = s.nextInt();
-        int[] arr = new int[n];
 
-        for (int i = 0; i < n; i++) {
-            arr[i] = s.nextInt();
-        }
-
-        System.out.println(Arrays.toString(arr));
-
-        System.out.println(cyclic(arr));
-
-        cyclic(arr);
 
     }
 

@@ -5,23 +5,7 @@ import java.util.Scanner;
 
 public class validMountainArray {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
 
-
-
-        while (true) {
-            System.out.println("Enter array size : ");
-            int size = s.nextInt();
-            int[] arr = new int[size];
-
-            System.out.println("Enter element : ");
-            for (int i = 0; i < arr.length; i++) {
-                arr[i] = s.nextInt();
-            }
-
-            System.out.println(Arrays.toString(arr));
-            System.out.println(validMountain(arr));
-        }
     }
 
     static boolean validMountain(int[] arr) {

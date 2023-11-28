@@ -11,54 +11,6 @@ import java.util.Scanner;
 
 public class FindSecondLargestElementInAnArray {
     public static void main(String[] args) {
-//        Scanner in = new Scanner(System.in);
-//        System.out.println("Enter size of array : ");
-//        int size = in.nextInt();
-//        int[] arr1 = new int[size];
-//
-//        for (int i = 0; i < arr1.length; i++) {
-//            arr1[i] = in.nextInt();
-//        }
-//
-//        System.out.println(Arrays.toString(arr1));
-
-//        System.out.println(secondLargest(arr1));
-
-
-        // difference between Integer array and primitive int array.
-        Integer[] a = {
-                12, 35, 1, 10, 34, 1
-        };
-
-        int[] a2 = {
-                12, 35, 1, 10, 34, 1
-        };
-
-
-        System.out.println(Arrays.toString(a));
-        Arrays.sort(a);
-        System.out.println(Arrays.toString(a));
-        Arrays.sort(a, Collections.reverseOrder());
-
-        // converting primitives to their respective objects. Integer -> int
-        Integer[] arr = new Integer[3];
-
-//        arr[0] = 3443;
-////        arr[1] = 343;
-////        arr[2] = 3432;
-//
-//        System.out.println(Arrays.toString(arr));
-//
-//        Integer[] b = {
-//                1, 2, 4, 34
-//        };
-//        System.out.println(Arrays.toString(b));
-
-        int[] arr2 = new int[3];
-        arr2[0] = 2343;
-        arr2[2] = 343;
-        System.out.println(Arrays.toString(arr2));
-
 
     }
 
