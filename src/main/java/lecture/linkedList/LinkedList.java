@@ -1,27 +1,31 @@
 package lecture.linkedList;
 
+// Implemented Linked List using both Head and Tail pointer.
 public class LinkedList {
 
     private Node head;
     private Node tail;
     private int size;
     public LinkedList() {
+        head = null;
+        tail = null;
         size = 0;
     }
 
     public int getSize() {
         return size;
     }
+
     // O(1)
     public void insertFirst(int val) {
         Node node = new Node(val);
-        node.next = head; // is also same data type
+        node.next = head;
         head = node;
 
         if (tail == null) {
             tail = head;
         }
-        size += 1;
+        size++;
     }
 
     public void insertLast(int val) {
@@ -37,7 +41,6 @@ public class LinkedList {
 
     // using head pointer O(n)
     public void insertLast2(int value) {
-
         Node node = new Node(value, null);
 
         Node temp = head;
@@ -62,8 +65,7 @@ public class LinkedList {
             temp = temp.next;
         }
 
-        Node node = new Node(val, temp.next);
-        temp.next = node;
+        temp.next = new Node(val, temp.next);
         size++;
     }
 
@@ -88,19 +90,20 @@ public class LinkedList {
         return node;
     }
 
-
-    public void display() {
+    @Override
+    public String toString() {
         Node temp = head;
         if (temp == null) {
-            System.out.println("Linked List is Empty.");
-            return;
-        }
-        while (temp != null) {
-            System.out.print(temp.value + " -> ");
-            temp = temp.next;
+            return "Linked List is Empty";
         }
 
-        System.out.println("End");
+        StringBuilder sb = new StringBuilder();
+        while (temp != null) {
+            sb.append(temp.value).append(" -> ");
+            temp = temp.next;
+        }
+        sb.append("End");
+        return sb.toString();
     }
 
     public void deleteFirst() {
@@ -143,6 +146,8 @@ public class LinkedList {
         }
         return node;
     }
+
+
     public Node find(int value) {
         Node node = head;
         while (node != null) {
@@ -152,19 +157,6 @@ public class LinkedList {
             node = node.next;
         }
         return null;
-    }
-    private class Node {
-        private int value;
-        private Node next; // reference variable
-
-        public Node(int value) {
-            this.value = value;
-        }
-
-        public Node(int value, Node next) {
-            this.value = value;
-            this.next = next;
-        }
     }
 
     // questions
@@ -305,6 +297,20 @@ public class LinkedList {
         head = prev;
     }
 
+    private class Node {
+        private int value;
+        private Node next; // reference variable
+
+        public Node(int value) {
+            this.value = value;
+        }
+
+        public Node(int value, Node next) {
+            this.value = value;
+            this.next = next;
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList list1 = new LinkedList();
         list1.insertLast(6);
@@ -315,9 +321,7 @@ public class LinkedList {
         list1.insertLast(4);
         list1.insertLast(6);
         list1.insertLast(5);
-        list1.display();
         list1.reverse(list1.head);
-        list1.display();
 
     }
 }

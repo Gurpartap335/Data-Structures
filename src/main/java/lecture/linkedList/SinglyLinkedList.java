@@ -148,10 +148,18 @@ class SinglyLinkedList<E> {
 
     @Override
     public String toString() {
-        return "SinglyLinkedList{" +
-                "head=" + head +
-                ", size=" + size +
-                '}';
+        Node temp = head;
+        if (temp == null) {
+            return "Linked List is Empty";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        while (temp != null) {
+            sb.append(temp.value).append(" -> ");
+            temp = temp.next;
+        }
+        sb.append("null");
+        return sb.toString();
     }
 
     public void clear() {
@@ -163,20 +171,6 @@ class SinglyLinkedList<E> {
         }
         head = null;
         size = 0;
-    }
-
-    public void display() {
-        if (isEmpty()) {
-            System.out.println("List is empty");
-            return;
-        }
-
-        Node temp  = head;
-        while (temp != null) {
-            System.out.print(temp.value + " -> ");
-            temp = temp.next;
-        }
-        System.out.println("END");
     }
 
     // https://leetcode.com/problems/remove-duplicates-from-sorted-list/
@@ -450,7 +444,6 @@ class SinglyLinkedList<E> {
         list.insertLast(2);
         list.insertLast(1);
         list.clear();
-        list.display();
 //        System.out.println(list.isPalindrome2(list));
 
     }
