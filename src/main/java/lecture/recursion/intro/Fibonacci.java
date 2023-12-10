@@ -4,8 +4,7 @@ import java.util.Scanner;
 
 public class Fibonacci {
     public static void main(String[] args) {
-//        System.out.println(fibo(49));
-        System.out.println(fiboTail(6, 0, 1));
+        System.out.println(fiboTail(260, 0, 1));
     }
 
     // recursive
@@ -22,7 +21,7 @@ public class Fibonacci {
 
     // tail recursion
     // more efficient
-    static int fiboTail(int n, int a, int b){
+    static long fiboTail(long n, long a, long b){
         if (n == 0) {
             return a;
         }
