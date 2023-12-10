@@ -1,5 +1,6 @@
 package lecture.linkedList;
 
+
 public class DoublyLinkedList<E> {
     private Node head;
 
@@ -9,11 +10,10 @@ public class DoublyLinkedList<E> {
         head = null;
         size = 0;
     }
+
     public void insertFirst(E value) {
-        Node node = new Node(value);
+        Node node = new Node(value, null, null);
         if (head == null) {
-            node.next = null;
-            node.prev = null;
             head = node;
             size++;
             return;
@@ -37,7 +37,15 @@ public class DoublyLinkedList<E> {
         size++;
     }
 
+    public void add(E value) {
+        insertLast(value);
+    }
+
     public void removeFirst() {
+        if (head == null) {
+            System.out.println("No element to remove");
+            return;
+        }
         if (head.next == null) {
             head = null;
             size--;
@@ -45,17 +53,24 @@ public class DoublyLinkedList<E> {
         }
         Node temp = head;
         head = head.next;
-        temp.next.prev = null;
+        temp.next = null;
+        head.prev = null;
         size--;
     }
 
     public void removeLast() {
+        if (head == null) {
+            System.out.println("No element to remove");
+            return;
+        }
         if (head.next == null) {
             head = null;
             size--;
             return;
         }
         Node temp = get(size - 2);
+        Node lastNode = temp.next;
+        lastNode.prev = null;
         temp.next = null;
         size--;
     }
@@ -72,14 +87,13 @@ public class DoublyLinkedList<E> {
             return;
         }
 
-        Node temp = get(index - 1);
-        Node temp2 = get(index);
-        temp.next = node;
-        node.prev = temp;
-        node.next = temp2;
-        temp2.prev = node;
+        Node first = get(index - 1);
+        Node second = first.next;
+        first.next = node;
+        node.prev = first;
+        node.next = second;
+        second.prev = node;
         size++;
-
     }
 
     public void remove(int index) {
@@ -88,16 +102,35 @@ public class DoublyLinkedList<E> {
             return;
         }
 
-        if (index == size) {
-
+        if (index == size - 1) {
+            removeLast();
+            return;
         }
-
-        Node temp = get(index - 1);
-        temp.next = temp.next.next;
-
-        Node temp2 = get(index);
-        temp2.prev = temp;
+        Node first = get(index - 1);
+        Node second = first.next;
+        Node third = second.next;
+        first.next = third;
+        third.prev = first;
+        second = null;
+//        second.next = null;
+//        second.prev = null;
+//        second.value = null;
         size--;
+    }
+
+    @Override
+    public String toString() {
+        if (head == null) {
+            return "[]";
+        }
+        StringBuilder sb = new StringBuilder();
+        Node temp = head;
+        while (temp != null) {
+            sb.append(temp.value).append(" -> ");
+            temp = temp.next;
+        }
+        sb.append("null");
+        return sb.toString();
     }
 
     public void display() {
@@ -111,7 +144,7 @@ public class DoublyLinkedList<E> {
             System.out.print(temp.value + " -> ");
             temp = temp.next;
         }
-        System.out.println("End");
+        System.out.println("null");
     }
 
     public void displayBackwards() {
@@ -121,8 +154,7 @@ public class DoublyLinkedList<E> {
             System.out.print(temp.value + " -> ");
             temp = temp.prev;
         }
-        System.out.println("END");
-
+        System.out.println("null");
     }
 
     public Node get(int index) {
@@ -134,6 +166,15 @@ public class DoublyLinkedList<E> {
     }
 
     public void clearList() {
+        Node current = head;
+        while (current != null) {
+            Node prev = current;
+            current = current.next;
+            prev.next = null;
+            prev.prev = null;
+            System.out.println(prev.value);
+            prev.value = null;
+        }
         head = null;
         size = 0;
     }
@@ -168,39 +209,6 @@ public class DoublyLinkedList<E> {
 
 
     public static void main(String[] args) {
-        DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
-
-
-
-        list.insertFirst(1);
-        list.insertFirst(2);
-        list.insertFirst(3);
-        list.insertFirst(4);
-        list.display();
-        list.insert(34, 2);
-        list.display();
-        list.insert(23, 2);
-        list.display();
-        list.remove(3);
-        list.display();
-        list.remove(2);
-        list.display();
-//        list.removeFirst();
-//        list.removeFirst();
-//        list.removeFirst();
-//        list.display();
-//        list.removeFirst();
-//        list.display();
-
-//        list.removeLast();
-//        list.removeLast();
-//        list.removeLast();
-//        list.display();
-//        list.removeLast();
-//        list.display();
-        list.clearList();
-        list.display();
-        list.displayBackwards();
 
     }
 }

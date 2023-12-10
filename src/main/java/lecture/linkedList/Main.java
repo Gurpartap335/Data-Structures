@@ -3,7 +3,7 @@ package lecture.linkedList;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+        SinglyLinkedList list = new SinglyLinkedList();
         list.insertFirst(12);
         list.insertFirst(34);
         list.insertFirst(23);
