@@ -1,4 +1,4 @@
-package leetcode.linkedList;
+package leetcode.LinkedList;
 
 
 public class SinglyLinkedList {
