@@ -130,6 +130,22 @@ public class SinglyLinkedList {
         return removeNode.value;
     }
 
+    public void removeData(int data) {
+        Node temp = head;
+        if (head.value == data) {
+            head = head.next;
+            size--;
+            return;
+        }
+        while (temp.next != null) {
+            if (temp.next.value == data) {
+                temp.next = temp.next.next;
+                size--;
+            }
+            temp = temp.next;
+        }
+    }
+
     public Node getNode(int index) {
         Node temp = head;
         for (int i = 0; i < index; i++) {
@@ -199,16 +215,23 @@ public class SinglyLinkedList {
     public static void main(String[] args) {
         SinglyLinkedList list = new SinglyLinkedList();
         list.add(1);
+        list.add(2);
         list.add(3);
         list.add(4);
-        list.add(7);
+
+
         list.add(1);
-        list.add(4);
-        list.add(6);
+        list.add(1);
+        System.out.println(list);
+        System.out.println(list.size);
+        list.removeData(1);
+        System.out.println(list);
+        list.removeData(1);
+        System.out.println(list);
+        list.removeData(1);
         System.out.println(list);
 
     }
-
 
 
 }
@@ -240,3 +263,7 @@ class Node {
     }
 
 }
+
+// when you pass reference variable in the method which alter its reference does it also change
+// original passed variable reference java??
+// Java is passed by value not reference.

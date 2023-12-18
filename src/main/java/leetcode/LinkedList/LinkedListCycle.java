@@ -90,3 +90,10 @@ public class LinkedListCycle {
     }
 
 }
+
+/*
+Floyd's Cycle Algorithm
+
+If at any point slow and fast meet each other means there is cycle in linked list.
+If fast points to null that means cycle does not exit in LL.
+ */
