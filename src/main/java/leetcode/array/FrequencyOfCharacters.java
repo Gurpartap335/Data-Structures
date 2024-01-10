@@ -9,6 +9,8 @@ public class FrequencyOfCharacters {
 
     public static void main(String[] args) {
         String s = "carticarticarti";
+        frequency(s);
+        System.out.println();
         frequency2(s);
         System.out.println();
         frequency2("articles");
@@ -22,7 +24,10 @@ public class FrequencyOfCharacters {
         for (char c : s.toCharArray()) {
             map.put(c, map.getOrDefault(c, 0) + 1);
         }
-        System.out.println(map);
+
+        for (char c : map.keySet()) {
+            System.out.print(c + "" + map.get(c) + " ");
+        }
     }
 
     // String character range is Lowercase letters
