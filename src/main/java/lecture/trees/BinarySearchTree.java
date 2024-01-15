@@ -6,36 +6,37 @@ import java.util.*;
 public class BinarySearchTree {
     private Node root;
 
+    public BinarySearchTree() {
+        root = null;
+    }
+
     public boolean isEmpty() {
         return root == null;
     }
 
-    // to the left, to the left, all the small numbers in the tree to the left.
-    // TC:   SC:
-    // root node always returned not other nodes
+    // To the left, to the left, all the small numbers in the tree to the left.
+    // TC : O(log n)   SC : O(log n)
     public void insertionR(int value) {
         root = insertionR(root, value);
     }
 
-    // as an output we need to return the root of the modified BST.
-    // what if the value is the same as root node?
-    public Node insertionR(Node node, int value) {
-        if (node == null) { // new node created only when we reach null
-            node = new Node(value);
-            return node;
+    public Node insertionR(Node root, int value) {
+        if (root == null) {
+            root = new Node(value);
+            return root;
         }
 
-        if (value < node.value) {
-            node.left = insertionR(node.left, value);
+        if (value < root.value) {
+            root.left = insertionR(root.left, value);
         }
-        if (value > node.value) {
-            node.right = insertionR(node.right, value);
+        else if (value > root.value) {
+            root.right = insertionR(root.right, value);
         }
-
-        return node;
+        return root;
     }
 
-
+    // As an output, we need to return the root of the modified BST.
+    // TC : O(log n) SC : O(1)
     public void insertion(int value) {
         root = insertion(root, value);
     }
@@ -53,8 +54,10 @@ public class BinarySearchTree {
             parent = curr;
             if (value < curr.value) {
                 curr = curr.left;
-            } else {
+            } else if (value > curr.value) {
                 curr = curr.right;
+            } else {
+                return root;
             }
         }
         if (value < parent.value) {
@@ -67,7 +70,6 @@ public class BinarySearchTree {
 
 
     // https://www.enjoyalgorithms.com/blog/searching-in-binary-search-tree
-    // search key or node in tree if it exits
     // TC: O(h) h : height of the tree
     // When BST is balanced O(log n) log n height of the BST where n is number of nodes
     // When BST is unbalanced O(n) Height of the BST
@@ -77,64 +79,75 @@ public class BinarySearchTree {
         return search(root, value);
     }
 
-    public Boolean search(Node node, int value) {
-        if (node == null) {
+    public Boolean search(Node root, int value) {
+        if (root == null) {
             return false;
         }
 
-        if (node.value == value) {
+        if (root.value == value) {
             return true;
         }
 
-        if (value < node.value) {
-            return search(node.left, value);
+        if (value < root.value) {
+            return search(root.left, value);
         }
         else {
-            return search(node.right, value);
+            return search(root.right, value);
         }
     }
 
-    // search iterative
-    // TC same as recursion
+
+    // TC O(log n) if BST is balanced
     // SC O(1)
     public boolean searchI(int value) {
         return searchI(root, value);
     }
 
     // we are not updating root node here
-    public boolean searchI(Node node, int value) {
+    public boolean searchI(Node root, int value) {
 
-        while (node != null) {
-            if (node.value == value) {
+        while (root != null) {
+            if (root.value == value) {
                 return true;
             }
-            if (value < node.value) {
-                node = node.left;
+            if (value < root.value) {
+                root = root.left;
             } else {
-                node = node.right;
+                root = root.right;
             }
         }
         return false;
     }
 
 
-    // preorder traversal
+    // TC : O(n)
+    // SC : O(n) worst case if tree is skewed, best case and average case O(log n)
     public void preorder() {
         preorder(root);
         System.out.println();
     }
 
-    public void preorder(Node node) {
-        if (node == null) {
+    public void preorder(Node root) {
+            if (root == null) {
+                return;
+            }
+
+            System.out.print(root.value + " ");
+            preorder(root.left);
+            preorder(root.right);
+    }
+
+    // TC : O(n),
+    // SC : O(n) -> O(h) size of stack depends on height of the binary tree.
+    public void preOrderI() {
+        preOrderI(root);
+    }
+
+    public void preOrderI(Node root) {
+        if (root == null) {
             return;
         }
 
-        System.out.print(node.value + " ");
-        preorder(node.left);
-        preorder(node.right);
-    }
-
-    public void preOrderI() {
         Stack<Node> stack = new Stack<>();
         stack.add(root);
         while (!stack.isEmpty()) {
@@ -145,21 +158,6 @@ public class BinarySearchTree {
             }
             if (node.left != null) {
                 stack.push(node.left);
-            }
-        }
-    }
-
-    public void preOrderI2() {
-        Deque<Node> stack = new ArrayDeque<>();
-        stack.add(root);
-        while (!stack.isEmpty()) {
-            Node node = stack.pollLast();
-            System.out.print(node.value + " ");
-            if (node.right != null) {
-                stack.add(node.right);
-            }
-            if (node.left != null) {
-                stack.add(node.left);
             }
         }
     }
@@ -177,11 +175,15 @@ public class BinarySearchTree {
         inOrder(node.right);
     }
 
+    // TC : O(n) SC : O(n) -> O(h)
     public void inOrderI() {
+        if (root == null) {
+            return;
+        }
         Stack<Node> stack = new Stack<>();
         Node cur = root;
 
-        while (cur != null || !stack.isEmpty()) {
+        while (cur != null || !stack.isEmpty(   )) {
             while (cur != null) {
                 stack.add(cur);
                 cur = cur.left;
@@ -206,12 +208,9 @@ public class BinarySearchTree {
         System.out.print(node.value + " ");
     }
 
+
+    // TC : O(n) SC : O(n)
     public void postOrderI() {
-
-    }
-
-    // T : O(n) ans Space : O(n)
-    public void postOrder1() {
         Stack<Node> stack1 = new Stack<>();
         Stack<Node> stack2 = new Stack<>();
 
@@ -233,72 +232,9 @@ public class BinarySearchTree {
         System.out.println();
     }
 
-    public List<Integer> postOrder2() {
-        Stack<Node> stack = new Stack<>();
-        LinkedList<Integer> list = new LinkedList<>();
-        if (root == null) {
-            return list;
-        }
-
-        stack.push(root);
-        while(!stack.isEmpty()) {
-            Node node = stack.pop();
-            list.addFirst(node.value);
-            if (node.left != null) {
-                stack.push(node.left);
-            }
-            if (node.right != null) {
-                stack.push(node.right);
-            }
-        }
-        return list;
-    }
-
-    // printing list, using one stack
-    public void postOrder3() {
-        Stack<Node> stack = new Stack<>();
-        LinkedList<Integer> list = new LinkedList<>();
-        if (root == null) {
-            return;
-        }
-
-        stack.push(root);
-        while(!stack.isEmpty()) {
-            Node node = stack.pop();
-            list.addFirst(node.value);
-            if (node.left != null) {
-                stack.push(node.left);
-            }
-            if (node.right != null) {
-                stack.push(node.right);
-            }
-        }
-        System.out.println(list);
-    }
-
-    public void levelOrder() {
-        if (root == null) {
-            return;
-        }
-        Queue<Node> queue = new ArrayDeque<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            Node node = queue.poll();
-            System.out.print(node.value + " ");
-            if (node.left != null) {
-                queue.add(node.left);
-            }
-            if (node.right != null) {
-                queue.add(node.right);
-            }
-        }
-        System.out.println();
-    }
-
-    public ArrayList<ArrayList<Integer>> levelOrder(Node root) {
-        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
-
-        // if there is no element in the root []
+    // TC : O(n), SC : O(n)
+    public List<List<Integer>> levelOrder() {
+        List<List<Integer>> list = new ArrayList<List<Integer>>();
         if (root == null) {
             return list;
         }
@@ -311,7 +247,6 @@ public class BinarySearchTree {
             for (int i = 0; i < size; i++) {
                 Node node = queue.poll();
                 level.add(node.value);
-
 
                 if (node.left != null) {
                     queue.add(node.left);
@@ -451,7 +386,22 @@ public class BinarySearchTree {
 
 
     public static void main(String[] args) {
-
+        BinarySearchTree tree = new BinarySearchTree();
+        tree.insertion(8);
+        tree.insertion(4);
+        tree.insertion(2);
+        tree.insertion(6);
+        tree.insertion(5);
+        tree.insertion(7);
+        tree.insertion(13);
+        tree.insertion(11);
+        tree.insertion(16);
+        tree.insertion(9);
+        tree.insertion(12);
+        List<List<Integer>> list = tree.levelOrder();
+        System.out.println(list);
+        tree.inOrder();
+        tree.postOrder();
     }
 }
 
@@ -464,6 +414,7 @@ public class BinarySearchTree {
  * Merge Two Binary tree recursive iterative dfs, bfs
  * Range Sum of BST
  * can you get height of tree using stack
+ * what if we try insert a value which is already in tree?
  */
 
 
@@ -574,5 +525,7 @@ public class BinarySearchTree {
  * Post Order Traversal (left right root)
  *
  * BFS : goes level wise
+ *
+ * AVL tree
+ * Red-Black tree
  */
-
