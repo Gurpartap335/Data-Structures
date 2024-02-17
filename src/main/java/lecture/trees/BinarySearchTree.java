@@ -1,10 +1,9 @@
 package lecture.trees;
 
-
 import java.util.*;
 
 public class BinarySearchTree {
-    private Node root;
+    public Node root;
 
     public BinarySearchTree() {
         root = null;
@@ -183,7 +182,7 @@ public class BinarySearchTree {
         Stack<Node> stack = new Stack<>();
         Node cur = root;
 
-        while (cur != null || !stack.isEmpty(   )) {
+        while (cur != null || !stack.isEmpty()) {
             while (cur != null) {
                 stack.add(cur);
                 cur = cur.left;
@@ -232,8 +231,12 @@ public class BinarySearchTree {
         System.out.println();
     }
 
+    public void levelOrder() {
+        System.out.println(Arrays.toString(new List[]{levelOrderI()}));
+    }
+
     // TC : O(n), SC : O(n)
-    public List<List<Integer>> levelOrder() {
+    public List<List<Integer>> levelOrderI() {
         List<List<Integer>> list = new ArrayList<List<Integer>>();
         if (root == null) {
             return list;
@@ -374,36 +377,17 @@ public class BinarySearchTree {
     }
 
 
-     private static class Node {
-        private int value;
-        private Node left;
-        private Node right;
-
-        public Node(int value) {
-            this.value = value;
-        }
-    }
-
 
     public static void main(String[] args) {
         BinarySearchTree tree = new BinarySearchTree();
-        tree.insertion(8);
-        tree.insertion(4);
         tree.insertion(2);
-        tree.insertion(6);
-        tree.insertion(5);
-        tree.insertion(7);
-        tree.insertion(13);
-        tree.insertion(11);
-        tree.insertion(16);
-        tree.insertion(9);
-        tree.insertion(12);
-        List<List<Integer>> list = tree.levelOrder();
-        System.out.println(list);
+        tree.insertion(1);
+        tree.insertion(4);
+        tree.insertion(3);
         tree.inOrder();
-        tree.postOrder();
     }
 }
+
 
 // why declare your class static?
 // why declare global variables?
