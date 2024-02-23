@@ -4,25 +4,9 @@ import java.util.Scanner;
 
 public class LinearSearch {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter size of array : ");
-        int size = s.nextInt();
+        int[] arr = {3, 5, 7, 1, 18, 9};
 
-        int[] arr = new int[size];
-        System.out.println("Enter element of array : ");
-        for (int i = 0; i <arr.length; i++) {
-            arr[i] = s.nextInt();
-        }
-
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
-
-        System.out.println("Enter key you want to find : ");
-        int key = s.nextInt();
-
-        int ans = linearSearch(arr,key);
+        int ans = linearSearch(arr, 4);
         System.out.println(ans);
 
     }
@@ -39,7 +23,7 @@ public class LinearSearch {
     }
 }
 /*
-Best Case O(1)
+Best Case O(1),
 Worst Case O(N)
  */
 

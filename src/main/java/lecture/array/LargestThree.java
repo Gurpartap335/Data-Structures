@@ -16,27 +16,16 @@ public class LargestThree {
 
         System.out.println(Arrays.toString(arr1));
 
-        System.out.println(avg(arr1));
-
         largestThree(arr1);
 
     }
 
-    static int avg(int[] a){
-        int sum = 0;
-        for (int i = 0; i < a.length; i++) {
-            sum += a[i];
-        }
-
-        return (sum/a.length);
-    }
-
-    static void largestThree(int[] a){
+    public static void largestThree(int[] a){
         sorting(a);
         System.out.println(a[0] + " " + a[1] + " " + a[2]);
     }
 
-    static void sorting(int[] arr) {
+    public static void sorting(int[] arr) {
 
         for (int i = 0; i < arr.length - 1; i++) {
 

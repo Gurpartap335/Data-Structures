@@ -8,7 +8,7 @@ public class MinMax {
     public static void main(String[] args) {
         int[] arr = {3432, 4, 45, 6, 10, 99};
         System.out.println(Arrays.toString(find(arr, 0, Integer.MAX_VALUE, Integer.MIN_VALUE)));
-        System.out.println(Arrays.toString(find(arr, 0, 0, 0)));
+        System.out.println(Arrays.toString(find(arr, 0, arr[0], arr[0])));
     }
 
     // recursive program to find minimum and maximum elements of array.

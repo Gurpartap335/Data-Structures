@@ -3,42 +3,55 @@ https://www.geeksforgeeks.org/find-second-largest-element-array/
  */
 package lecture.array;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Scanner;
-
 public class FindSecondLargestElementInAnArray {
     public static void main(String[] args) {
 
+
     }
 
-    private static int secondLargest(int[] arr1) {
+    public static int largestElement(int[] arr) {
 
-        int max1  = 0 , max2 = 0;
-        for (int i = 0; i < arr1.length; i++) {
-            max1 = Math.max(arr1[i],max1);
+        int largest = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (largest < arr[i]) {
+                largest = arr[i];
+            }
+        }
+        return largest;
+    }
+
+    private static int secondLargest(int[] arr) {
+
+        int max1  = arr[0] , max2 = Integer.MIN_VALUE;
+        for (int i = 1; i < arr.length; i++) {
+            max1 = Math.max(arr[i],max1);
         }
 
-        for (int i = 0; i < arr1.length; i++) {
-            if (arr1[i] == max1){
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == max1){
                 continue;
             }
-            max2 = Math.max(arr1[i],max2);
+            max2 = Math.max(arr[i],max2);
         }
 
-        if (max2 == 0){
-            System.out.println("There is no second largest element :");
-            return -1;
-        }
-        else {
-            return max2;
-        }
+        return max2;
+    }
 
-        // time complexity O(n^2)
+    public static int secondLargest2(int[] arr) {
+
+        int largest = arr[0];
+        int secondLargest = Integer.MIN_VALUE;
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > largest) {
+                secondLargest = largest;
+                largest = arr[i];
+            } else if (secondLargest < arr[i]) {
+                secondLargest = arr[i];
+            }
+        }
+        return secondLargest;
     }
 }
-/*
-return -1 if no element is found.
- */
+
