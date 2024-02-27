@@ -3,10 +3,7 @@ https://leetcode.com/problems/build-array-from-permutation/
  */
 package leetcode.array;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class BuildArrayfromPermutation {
+public class BuildArrayFromPermutation {
     public static void main(String[] args) {
 
     }

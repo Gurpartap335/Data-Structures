@@ -1,25 +1,8 @@
 package leetcode.array;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class MatrixDiagonalSum {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter size of array : ");
-        int r = s.nextInt();
 
-        int[][] nums = new int[r][r];
-
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                nums[i][j] = s.nextInt();
-            }
-        }
-
-        System.out.println(Arrays.deepToString(nums));
-
-        System.out.println((diagonalSum(nums)));
     }
 
     static int diagonalSum(int[][] arr) {

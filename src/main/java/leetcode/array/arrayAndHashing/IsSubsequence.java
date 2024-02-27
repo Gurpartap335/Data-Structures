@@ -1,4 +1,4 @@
-package leetcode.arrayAndHashing;
+package leetcode.array.arrayAndHashing;
 
 // https://leetcode.com/problems/is-subsequence/description/
 public class IsSubsequence {

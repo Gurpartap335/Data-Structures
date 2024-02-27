@@ -5,21 +5,6 @@ import java.util.Scanner;
 
 public class FlippingImage {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter row size : ");
-        int r = s.nextInt();
-        int[][] nums = new int[r][r];
-
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length; j++) {
-                nums[i][j] = s.nextInt();
-            }
-        }
-
-        System.out.println(Arrays.deepToString(nums));
-
-        System.out.println(Arrays.deepToString(flippingImage2(nums)));
-
 
     }
 

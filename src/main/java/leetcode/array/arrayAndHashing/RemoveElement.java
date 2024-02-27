@@ -1,4 +1,4 @@
-package leetcode.arrayAndHashing;
+package leetcode.array.arrayAndHashing;
 
 public class RemoveElement {
 

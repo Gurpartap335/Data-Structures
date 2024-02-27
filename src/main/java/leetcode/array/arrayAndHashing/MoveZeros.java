@@ -1,31 +1,37 @@
-package leetcode.arrayAndHashing;
+package leetcode.array.arrayAndHashing;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class MoveZeros {
 
     public static void main(String[] args) {
-        moveZeroes(new int[]{0, 10, 0, 4, 5, 3, 2, 10, 3, 13, 0, 0});
-
+        int[] arr = {0, -10, 0, -4, 5, 3, 2, 10, -3, 13, 0, 0};
+        moveZeros(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
 
     // out-of-place
-    // TC : O(n) and SC O(n)
-    public static int[] moveZeros(int[] arr) {
-        int[] temp = new int[arr.length];
+    // TC: O(n), SC O(n)
+    public static void moveZeros(int[] nums) {
+        int[] temp = nums.clone();
 
-        for (int i = 0, j = 0; i < arr.length; i++) {
-            if (arr[i] > 0) {
-                temp[j] = arr[i];
+        int j = 0;
+        for (int i = 0; i < temp.length; i++) {
+            if (temp[i] != 0) {
+                nums[j] = temp[i];
                 j++;
             }
         }
-        return temp;
+
+        while (j < nums.length) {
+            nums[j] = 0;
+            j++;
+        }
     }
 
     // in-place
-
     // TC : O(n) and SC O(1)
     public void moveZeros2(int[] arr) {
         int snowBallSize = 0;
@@ -40,6 +46,7 @@ public class MoveZeros {
         }
     }
 
+    // O(n), O(1)
     public static void moveZeros3(int[] nums) {
 
         for(int i = 0, j = 0; i < nums.length; i++) {
@@ -52,6 +59,7 @@ public class MoveZeros {
         }
     }
 
+    // O(n), O(1)
     public static void moveZeroes(int[] nums) {
         int j = 0;
         for (int i = 0; i < nums.length; i++) {
@@ -61,13 +69,10 @@ public class MoveZeros {
             }
         }
 
-        while ( j < nums.length) {
+        while (j < nums.length) {
             nums[j] = 0;
             j++;
         }
     }
-
-
-
 
 }

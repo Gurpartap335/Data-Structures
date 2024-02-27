@@ -6,20 +6,6 @@ import java.util.regex.Pattern;
 public class LengthOfLastWord {
     public static void main(String[] args) {
 
-        String s = "Hello "; //
-
-//        System.out.println(s.length());
-//        s = s.trim();
-//        System.out.println(s.length());
-//        System.out.println("Last Index of " + s.lastIndexOf(' ')); //
-//        int lastIndex = s.lastIndexOf(' ') + 1; // starting point of the last word.
-//        System.out.println(s.length() - lastIndex);
-
-        // we can also solve this problem by string to char array.
-        System.out.println(lastWordLength(s));
-
-//        System.out.println((int)' ');
-
     }
 
     // reverse iteration

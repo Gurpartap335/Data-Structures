@@ -8,27 +8,7 @@ import java.util.Scanner;
 
 public class RichestCustomerWealth {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
 
-        System.out.println("Enter the number of rows : ");
-        int r = s.nextInt();
-
-        System.out.println("Enter the num3ber of columns : ");
-        int c = s.nextInt();
-        int[][] nums = new int[r][c];
-
-        for (int i = 0; i < r; i++) {
-            for (int j = 0; j < c; j++) {
-                nums[i][j] = s.nextInt();
-            }
-        }
-
-//        System.out.println(Arrays.deepToString(nums)); // used for print to 2d array .
-
-        print2D(nums);
-
-
-        System.out.println(maximumWealth(nums));
     }
 
     static int maximumWealth(int[][] accounts) {
