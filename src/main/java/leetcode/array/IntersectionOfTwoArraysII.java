@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-// https://leetcode.com/problems/intersection-of-two-arrays/
+
 // https://leetcode.com/problems/intersection-of-two-arrays-ii/
 // duplicate elements are allowed
 public class IntersectionOfTwoArraysII {

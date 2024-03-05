@@ -2,7 +2,7 @@ package lecture.array;
 
 import java.util.*;
 
-public class UnionAndIntersection {
+public class Union {
     public static void main(String[] args) {
         int[] arr1 = {1, 1, 1, 1, 2, 3, 4, 9, 11, 14};
         int[] arr2 = {1, 1, 1, 2, 2, 2, 3, 4, 10, 12, 13};
@@ -84,34 +84,6 @@ public class UnionAndIntersection {
         }
 
         return arr3;
-    }
-
-
-    public int[] intersection(int[] nums1, int[] nums2) {
-        Arrays.sort(nums1);
-        Arrays.sort(nums2);
-
-        Set<Integer> set = new HashSet<>();
-        int i = 0, j = 0;
-        while (i < nums1.length && j < nums2.length) {
-            if (nums1[i] == nums2[j]) {
-                set.add(nums1[i]);
-                i++;
-                j++;
-            }
-            else if (nums1[i] < nums2[j]) {
-                i++;
-            } else {
-                j++;
-            }
-        }
-
-        int[] arr = new int[set.size()];
-        int a = 0;
-        for (int e : set) {
-            arr[a++] = e;
-        }
-        return arr;
     }
 
 }

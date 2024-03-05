@@ -1,13 +1,14 @@
 package leetcode.array.arrayAndHashing;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
 public class MoveZeros {
 
     public static void main(String[] args) {
-        int[] arr = {0, -10, 0, -4, 5, 3, 2, 10, -3, 13, 0, 0};
-        moveZeros(arr);
+        int[] arr = {1, 1, 1, 1, 1};
+        moveZeroes(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -42,19 +43,6 @@ public class MoveZeros {
             } else if (snowBallSize > 0){
                 arr[i - snowBallSize] = arr[i];
                 arr[i] = 0;
-            }
-        }
-    }
-
-    // O(n), O(1)
-    public static void moveZeros3(int[] nums) {
-
-        for(int i = 0, j = 0; i < nums.length; i++) {
-            if(nums[i] != 0) {
-                int temp = nums[j];
-                nums[j] = nums[i];
-                nums[i] = temp;
-                j++;
             }
         }
     }
