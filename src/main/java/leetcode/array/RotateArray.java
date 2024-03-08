@@ -82,6 +82,7 @@ public class RotateArray {
     }
 
 }
+// neet
 // Left rotated <---
 // right rotated --->
 // extra space used by algorithm and for the algorithm are different

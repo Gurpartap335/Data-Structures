@@ -2,13 +2,15 @@ package lecture.array;
 
 import java.util.*;
 
+// Union of two sorted arrays
+
 public class Union {
     public static void main(String[] args) {
-        int[] arr1 = {1, 1, 1, 1, 2, 3, 4, 9, 11, 14};
+        int[] arr1 = {0, 1, 1, 1, 1, 2, 3, 4, 9, 11, 14};
         int[] arr2 = {1, 1, 1, 2, 2, 2, 3, 4, 10, 12, 13};
 
         System.out.println(Arrays.toString(union(arr1, arr2)));
-        System.out.println(Arrays.toString(union2(arr1, arr2)));
+        System.out.println(Arrays.toString(union3(arr1, arr2)));
 
     }
 
@@ -34,6 +36,42 @@ public class Union {
         return arr3;
     }
 
+    public static int[] union3(int[] arr1, int[] arr2) {
+        int i = 0, j = 0;
+        Set<Integer> set = new HashSet<>();
+
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] == arr2[j]) {
+                set.add(arr1[i]);
+                i++;
+                j++;
+            }
+            else if (arr1[i] < arr2[j]) {
+                set.add(arr1[i]);
+                i++;
+            } else {
+                set.add(arr2[j]);
+                j++;
+            }
+        }
+
+        while (i < arr1.length) {
+            set.add(arr1[i]);
+            i++;
+        }
+
+        while (j < arr2.length) {
+            set.add(arr2[j]);
+            j++;
+        }
+
+        int[] arr3 = new int[set.size()];
+        int a = 0;
+        for (int e : set) {
+            arr3[a++] = e;
+        }
+        return arr3;
+    }
 
     // O(k), O(k) for returning the answer not for solving
     // k is size of arr1 + size of arr2.
