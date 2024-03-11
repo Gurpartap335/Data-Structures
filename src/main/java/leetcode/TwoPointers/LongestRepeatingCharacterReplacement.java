@@ -1,4 +1,4 @@
-package leetcode.twoPointers;
+package leetcode.TwoPointers;
 
 public class LongestRepeatingCharacterReplacement {
 

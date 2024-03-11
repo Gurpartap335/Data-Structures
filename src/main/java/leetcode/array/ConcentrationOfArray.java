@@ -3,9 +3,6 @@ https://leetcode.com/problems/concatenation-of-array/submissions/
  */
 package leetcode.array;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class ConcentrationOfArray {
     public static void main(String[] args) {
 

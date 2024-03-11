@@ -1,5 +1,4 @@
-package leetcode.twoPointers;
-
+package leetcode.TwoPointers;
 
 import java.util.Arrays;
 
@@ -12,8 +11,7 @@ public class TwoSumII {
     }
 
 
-    // TC : O(n)
-    // SC : O(1)
+    // O(n), O(1)
     public int[] twoSum(int[] arr, int target) {
         int start = 0;
         int end = arr.length - 1;
@@ -30,9 +28,4 @@ public class TwoSumII {
     }
 }
 
-/**
- * 1-indexed array
- * sorted
- * find two numbers such that they add up to a specific number.
- * 1 <= index1 < index2 < numbers.length
- */
+// https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/discuss/2128501/Two-Pointers-or-Visual-Explanation-JAVA

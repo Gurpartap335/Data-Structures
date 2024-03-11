@@ -6,27 +6,24 @@ import java.util.Map;
 
 public class TwoSum {
     public static void main(String[] args) {
-        int[] arr = {2, 3, 6, 8, 1, 9, 11, 2};
-        System.out.println(Arrays.toString(twoSum(arr, 11)));
+        int[] arr = {3, 1, 1, 1, 8, 8, 9};
+        System.out.println(Arrays.toString(twoSum(arr, 10)));
     }
 
 
     // HashMap takes constant time for retrieving and storing elements.
-    // time complexity is constant for containsKey but for containsValue its O(n)
-    // TC : O(n)
-    // SC : O(n) in worst can we have to add all the element in map
-    // two numbers return
+    // TC is constant for containsKey but for containsValue its O(n)
+    // O(n), O(n) in worst case we have to add all the element in map.
     public static int[] twoSum(int[] arr, int target) {
         Map<Integer, Integer> map = new HashMap<>();
 
         for (int i = 0; i < arr.length; i++) {
             if (map.containsKey(target - arr[i])) {
-                return new int[] {map.get(target - arr[i]), i}; // get returns value. we need index to return.
+                return new int[] {map.get(target - arr[i]), i};
             }
             map.put(arr[i], i);
         }
 
-        // return new int[]{-1, -1};
         return null;
     }
 
@@ -49,7 +46,7 @@ public class TwoSum {
 
 
     // brute force approach. Two nested loops
-    // TC : O(n^2)
+    // O(n^2), O(1)
     static int[] twoSum3(int[] nums, int target) {
         int[] n = new int[2];
 
@@ -66,10 +63,6 @@ public class TwoSum {
     }
 
 }
-
-/**
- * 2 3 6 8 1 9 11 2 7 0 debug with this array target = 4, 11
- */
 
 //With HashMap, we can achieve an average time complexity of O(1)
 // for the put and get operations and space complexity of O(n).

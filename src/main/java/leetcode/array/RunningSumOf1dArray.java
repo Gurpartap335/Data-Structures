@@ -1,11 +1,6 @@
-/*
-https://leetcode.com/problems/running-sum-of-1d-array/
- */
 package leetcode.array;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
+// https://leetcode.com/problems/running-sum-of-1d-array/
 public class RunningSumOf1dArray {
     public static void main(String[] args) {
 
@@ -20,5 +15,3 @@ public class RunningSumOf1dArray {
         return arr;
     }
 }
-
-// subArray is a contiguous part of array .

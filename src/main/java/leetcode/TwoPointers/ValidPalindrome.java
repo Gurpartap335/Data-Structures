@@ -1,4 +1,4 @@
-package leetcode.twoPointers;
+package leetcode.TwoPointers;
 
 // https://leetcode.com/problems/valid-palindrome/description/
 
