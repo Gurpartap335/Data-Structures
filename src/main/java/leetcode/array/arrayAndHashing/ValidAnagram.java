@@ -3,6 +3,7 @@ package leetcode.array.arrayAndHashing;
 import java.util.*;
 
 // https://leetcode.com/problems/valid-anagram/
+// https://leetcode.com/problems/first-letter-to-appear-twice/
 public class ValidAnagram {
     public static void main(String[] args) {
         System.out.println(isAnagram3("anagram", "nagrama"));

@@ -1,12 +1,22 @@
 package lecture.sorting;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class QuickSort {
     public static void main(String[] args) {
         int[] arr = {2,5,3,0,8,22,9,-1,-3,-5};
         quickSort(arr);
         System.out.println(Arrays.toString(arr));
+
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(1, 3);
+        map.put(2, 5);
+        System.out.println(map.values());
+        for (int e : map.values()) {
+            System.out.println(e);
+        }
     }
 
     static void quickSort(int[] arr) {

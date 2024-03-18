@@ -1,6 +1,8 @@
 package lecture.hashtable;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 public class HashMapImplementation {
 
@@ -8,18 +10,36 @@ public class HashMapImplementation {
         HashMap<Character, Integer> map = new HashMap<>();
         map.put('a', 3);
         map.put('n', 1);
-        map.put('m', 1);
+        map.put('m', 111);
         map.put('r', 1);
-        map.put('g', 2);
+        map.put('g', 21);
 
-        HashMap<Character, Integer> map1 = new HashMap<>();
-        map1.put('a', 3);
-        map1.put('n', 1);
-        map1.put('g', 2);
-        map1.put('m', 1);
-        map1.put('r', 1);
+        int maxValue = Collections.max(map.values());
 
-        System.out.println(map.equals(map1));
+        for (char e : map.keySet()) {
+            if (maxValue == map.get(e)) {
+                System.out.println("Key with max value: " + e);
+            }
+        }
+
+        // print Key which has maximum value
+//        Map.Entry<Character, Integer> maxEntry = null;
+//        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+//            if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0) {
+//                maxEntry = entry;
+//            }
+//        }
+//
+//        System.out.println(maxEntry.getKey());
+//
+//        HashMap<Character, Integer> map1 = new HashMap<>();
+//        map1.put('a', 3);
+//        map1.put('n', 1);
+//        map1.put('g', 2);
+//        map1.put('m', 1);
+//        map1.put('r', 1);
+//
+//        System.out.println(map.equals(map1));
 
     }
 }

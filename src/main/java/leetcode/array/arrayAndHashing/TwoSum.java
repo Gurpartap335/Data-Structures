@@ -27,23 +27,6 @@ public class TwoSum {
         return null;
     }
 
-    // using auxiliary space array.
-    public static int[] twoSum2(int[] arr, int target) {
-
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < arr.length; i++) {
-            if (map.containsKey(target - arr[i])) {
-                int[] ans  = new int[2];
-                ans[0] = i;
-                arr[1] = map.get(target - arr[i]);// get returns value. we need index to return.
-                return ans;
-            }
-            map.put(arr[i], i);
-        }
-
-        return null;
-    }
-
 
     // brute force approach. Two nested loops
     // O(n^2), O(1)
@@ -64,6 +47,8 @@ public class TwoSum {
 
 }
 
-//With HashMap, we can achieve an average time complexity of O(1)
-// for the put and get operations and space complexity of O(n).
+/*
+With HashMap, we can achieve an average time complexity of O(1) for the put and
+get operations and space complexity of O(n).
+ */
 

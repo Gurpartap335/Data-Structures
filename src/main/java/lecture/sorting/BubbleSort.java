@@ -90,7 +90,6 @@ public class BubbleSort {
 Bubble Sort aka sinking sort/ exchange sort
 >>> Pushes the maximum to the last by ADJACENT swaps.
 
-why?
 With the first pass through the array the largest element come to end.
 
 Bubble sort is the simplest sorting algorithm that works by repeatedly swapping
@@ -99,7 +98,7 @@ the adjacent elements if they are in the wrong order.
 time complexity is quite high.
 
 In the worst case, the total number of iterations or passes required to sort
-a given array is (n - 1). where n is a number of elements present in the array.
+a given array is (n - 1).
 
 Two parts of array
 one sorted
@@ -107,8 +106,8 @@ other unsorted.
 
 It only takes one iteration to detect that a collection is already sorted.
 
-Worst and Average case time complexity O(N^2)
-Best case Time complexity: O(N)
+Worst and Average case time complexity O(n^2)
+Best case Time complexity: O(n)
 Space Complexity O(1)
  */
 

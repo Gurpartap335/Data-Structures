@@ -5,14 +5,12 @@ import java.util.Arrays;
 public class RotateArray {
 
     public static void main(String[] args) {
-
         int[] arr = {1, 2, 3, 4, 5, 6, 7};
-        System.out.println(Arrays.toString(arr));
-        rotateArray4(arr, 3);
         System.out.println(Arrays.toString(arr));
 
     }
 
+    // we do k %= arr.length do reduce rotate times. k can be larger than array
     // TC: O(n^2) SC: O(1)
     public static void rotateArray(int[] arr, int k) {
         k %= arr.length;
@@ -29,22 +27,19 @@ public class RotateArray {
 
 
     // TC: O(n), SC: O(n)
-    public static void rotateArray2(int[] arr, int k) {
-        k %=  arr.length;
+    public static void rotateArray2(int[] nums, int k) {
+        k %=  nums.length;
 
-        int len = arr.length;
-        int[] temp = new int[k];
+        int[] temp = nums.clone();
+        int length = nums.length;
 
-        for (int j = 0; j < k; j++) {
-            temp[j] = arr[len - k + j];
+        int i = 0, j = length - k;
+        while (j < length) {
+            nums[i++] = temp[j++];
         }
-
-        for (int i = len - k - 1; i >= 0; i--) {
-            arr[i + k] = arr[i];
-        }
-
-        for (int i = 0; i < k; i++) {
-            arr[i] = temp[i];
+        j = 0;
+        while (i < length) {
+            nums[i++] = temp[j++];
         }
     }
 
@@ -74,9 +69,8 @@ public class RotateArray {
     public static void reverse(int[] arr, int start, int end) {
         while (start < end) {
             int temp = arr[start];
-            arr[start] = arr[end];
-            arr[end] = temp;
-            start++; end--;
+            arr[start++] = arr[end];
+            arr[end--] = temp;
         }
     }
 

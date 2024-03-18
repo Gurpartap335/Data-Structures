@@ -1,6 +1,5 @@
 package leetcode.array;
 
-import java.util.Arrays;
 import java.util.HashMap;
 
 // https://takeuforward.org/data-structure/calculate-frequency-of-characters-in-a-string/
