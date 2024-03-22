@@ -1,12 +1,9 @@
-/*
-https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
- */
 package leetcode.sorting;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
+
+// https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/
 
 public class FindAllNumbersDisappearedInAnArray {
     public static void main(String[] args) {

@@ -6,7 +6,7 @@ import java.util.Map;
 public class LongestSubArrayWithSumK {
 
     public static void main(String[] args) {
-        int[] arr = {9, 12, 4, 1, 2, 3, 1, 5};
+        int[] arr = {3, 1, 1, -3, 3, 0, 5, 1, 1};
         System.out.println(longestSubArrayWithSum(arr, 6));
         System.out.println(longestSubArrayWithSum2(arr, 6));
         System.out.println(longestSubArrayWithSum3(arr, 6));
