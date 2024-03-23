@@ -1,14 +1,12 @@
 package lecture.recursion.intro;
 
-import java.util.Scanner;
 
 public class Fibonacci {
     public static void main(String[] args) {
         System.out.println(fiboTail(260, 0, 1));
     }
 
-    // recursive
-    static int fibo(int n){
+    public static int fibo(int n){
         if (n < 2){
             return n;
         }
@@ -21,7 +19,7 @@ public class Fibonacci {
 
     // tail recursion
     // more efficient
-    static long fiboTail(long n, long a, long b){
+    public static long fiboTail(long n, long a, long b){
         if (n == 0) {
             return a;
         }
@@ -32,18 +30,15 @@ public class Fibonacci {
     }
 
     // iterative
-    static int fiboI(int n) {
+    public static int fiboI(int n) {
         if (n < 2) {
             return n;
         }
-        int a = 0;
-        int b = 1;
-        int temp = 0;
-        while (n > 1) {
+        int a = 0, b = 1, temp = 0;
+        while (n-- > 1) {
             temp = a + b;
             a = b;
             b = temp;
-            n--;
         }
         return b; // also can return temp
     }

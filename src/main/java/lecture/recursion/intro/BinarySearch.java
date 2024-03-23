@@ -6,11 +6,6 @@ public class BinarySearch {
         System.out.println(binarySearch(arr, 7, 0, arr.length - 1));
     }
 
-    /**
-     * Arguments
-     * Return type
-     * body of function
-     */
     static int binarySearch(int[] arr, int t, int s, int e) {
         if (s > e) {
             return -1;

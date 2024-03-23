@@ -1,7 +1,5 @@
 package lecture.recursion.intro;
 
-import java.util.HashSet;
-import java.util.Set;
 
 // https://www.geeksforgeeks.org/sum-of-natural-numbers-using-recursion/
 public class SumOfNaturalNumbers {

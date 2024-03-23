@@ -1,26 +1,34 @@
 package lecture.recursion.intro;
 
-import java.util.Scanner;
-
 public class Factorial {
     public static void main(String[] args) {
-        System.out.println(fact(4));
-        System.out.println(factTR(4,1));
+        System.out.println(fact(5));
+        System.out.println(factTR(4));
     }
 
     // recursive
     // not tail recursion
-    // extra steps
-    // inefficient uses extra memory.
-    static int fact(int n){
+    // extra steps + inefficient uses extra memory.
+    public static int fact(int n){
         if (n < 2){
             return 1;
         }
         return n * fact(n - 1);
     }
 
+    // tail recursive
+    public static int factTR(int n) {
+        return factTR(n, 1);
+    }
+    public static int factTR(int n, int a) {
+        if (n < 2) {
+            return a;
+        }
+        return factTR(n - 1, n * a);
+    }
+
     // iteration
-    static int fact2(int n) {
+    public static int fact2(int n) {
         if (n < 2) { // 0! = 1, 1! = 1
             return 1;
         }
@@ -30,14 +38,6 @@ public class Factorial {
             n--;
         }
         return ans;
-    }
-
-    // A tail recursive function to calculate factorial
-    static int factTR(int n, int a) {
-        if (n <= 0) {
-            return a;
-        }
-        return factTR(n - 1, n * a);
     }
 
 }

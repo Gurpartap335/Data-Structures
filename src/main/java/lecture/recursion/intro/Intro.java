@@ -1,18 +1,16 @@
 package lecture.recursion.intro;
 
-import java.util.Scanner;
 
 public class Intro {
     public static void main(String[] args) {
-//        print1(1);
+        print1(1);
 
-//        int test = 4;
-//        printFun(test);
-
+        int test = 4;
+        printFun(test);
     }
 
     static void printFun(int test) {
-        if (test < 1) { // base condition function will stop when test becomes less than 1.
+        if (test < 1) { // base condition method will stop when test becomes less than 1.
             return;
         } else {
             // this is called tail recursion
@@ -51,7 +49,7 @@ public class Intro {
 
 }
 
-/**
+/*
 Why recursion?
 It helps us in solving bigger/complex problems in a simple way.
 you can convert recursion solution into iteration(loops) and vice versa.
@@ -67,11 +65,11 @@ tail recursion
 
 Recursion uses more memory, because the recursive function adds to the stack with
 each recursive call, keeps the values there until the call is finished.
-LIFO Last In Fast Out.
+LIFO Last In First Out.
 
 Base Condition:
 Condition where our recursion will stop making new calls.
- The base condition is represented by answers we already know
+The base condition is represented by answers we already know
 
 1. identify if you can break down the problem into smaller problems.
 2. Write the recurrence relation if needed
@@ -87,7 +85,7 @@ Use a debugger
  main function.
 
 
- Repeated function call happening in recursion Dynamic programming.
+Repeated function call happening in recursion Dynamic programming.
 
- Do not overthink
+Do not overthink
  */

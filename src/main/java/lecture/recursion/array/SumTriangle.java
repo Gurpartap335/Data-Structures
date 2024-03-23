@@ -5,15 +5,14 @@ import java.util.Arrays;
 // https://www.geeksforgeeks.org/sum-triangle-from-array/
 public class SumTriangle {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4};
-//        sumTrianglePrint(arr);
+        int[] arr = {1, 2};
+//        sumTriangle(arr);
         printTriangle(arr);
 
     }
-
-    // recursive W problem
-    static void sumTrianglePrint(int[] arr) {
-        if (arr.length < 1) {
+    public static void sumTriangle(int[] arr) {
+        if (arr.length < 2) {
+            System.out.println(Arrays.toString(arr));
             return;
         }
 
@@ -21,8 +20,7 @@ public class SumTriangle {
         for (int i = 0; i < temp.length; i++) {
             temp[i] = arr[i] + arr[i + 1];
         }
-
-        sumTrianglePrint(temp);
+        sumTriangle(temp);
 
         System.out.println(Arrays.toString(arr));
     }
@@ -30,7 +28,7 @@ public class SumTriangle {
 
     // recursive approach (without using for loop)
     public static void printTriangle(int[] arr) {
-        if (arr.length == 1) {
+        if (arr.length < 2) {
             System.out.println(Arrays.toString(arr));
             return;
         }
@@ -44,7 +42,7 @@ public class SumTriangle {
         System.out.println(Arrays.toString(arr));
     }
 
-    static int[] helper(int[] temp, int[] arr, int index) {
+    private static int[] helper(int[] temp, int[] arr, int index) {
         if (temp.length == index) {
             return temp;
         }
@@ -53,10 +51,21 @@ public class SumTriangle {
         return helper(temp, arr, index + 1);
     }
 }
-// searchWord
+
 // why primitive data types can not store null values
+// primitives data type have fixed memory size?
+// object data types do not have fixed memory size.
 // https://stackoverflow.com/questions/11047276/why-cant-primitive-data-types-be-null-in-java#:~:text=Because%20null%20is%20a%20reference,Only%20objects%20are%20reference%20types.
 // https://stackoverflow.com/questions/27476845/what-is-the-difference-between-a-null-array-and-an-empty-array
 // https://stackoverflow.com/questions/8790809/whats-the-difference-between-primitive-and-reference-types
 // https://tarunjain07.medium.com/complexity-analysis-for-recursion-notes-cd4930e26683#:~:text=The%20time%20complexity%20of%20recursion,%5EN)%20and%20so%20on.
 // https://www.enjoyalgorithms.com/blog/time-complexity-analysis-of-recursion-in-programming
+
+// power
+// reversing array
+// bs
+// merge sort
+// quick sort
+// recursive tc blog
+// directly flow kk backtracking
+// subset permutations 2d array problems
