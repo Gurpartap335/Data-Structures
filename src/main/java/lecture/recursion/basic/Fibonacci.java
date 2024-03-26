@@ -1,4 +1,4 @@
-package lecture.recursion.intro;
+package lecture.recursion.basic;
 
 
 public class Fibonacci {

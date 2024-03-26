@@ -1,4 +1,4 @@
-package lecture.recursion.intro;
+package lecture.recursion.basic;
 
 // https://www.enjoyalgorithms.com/blog/find-the-minimum-and-maximum-value-in-an-array
 

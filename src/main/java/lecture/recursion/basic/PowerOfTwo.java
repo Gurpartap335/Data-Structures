@@ -1,9 +1,8 @@
-package lecture.recursion.intro;
+package lecture.recursion.basic;
 
 public class PowerOfTwo {
     public static void main(String[] args) {
-
-        System.out.println(isPowerOfTwoR(16));
+        System.out.println(isPowerOfTwo(18));
 
     }
 
@@ -19,8 +18,7 @@ public class PowerOfTwo {
     }
 
     // using recursion
-    // TC : O(log n)
-    // SC : O(log n) recursive stack is counted.
+    // O(log n), O(log n) recursive stack is counted.
     public static boolean isPowerOfTwoR(int n) {
         if (n == 0) {
             return false;
@@ -43,7 +41,6 @@ public class PowerOfTwo {
     // just add all the condition statements in return statement.
 
 }
-/**
- * can learn about constraints, bit manipulation or more shit with these good three question
+/*
  * also draw tree for recursion for this question.
  */

@@ -1,4 +1,4 @@
-package lecture.recursion.intro;
+package lecture.recursion.basic;
 
 // https://www.geeksforgeeks.org/program-for-length-of-a-string-using-recursion/
 public class LengthOfString {
