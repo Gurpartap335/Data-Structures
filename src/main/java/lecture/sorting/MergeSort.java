@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] arr = {7, 9, 3, 2, 1, 5, 4};
+        int[] arr = {6, 5, 3, 1, 8, 7, 2, 4};
         MergeSort sort = new MergeSort();
         System.out.println(Arrays.toString(arr));
         sort.mergeSort(arr);
@@ -14,28 +14,29 @@ public class MergeSort {
 
 
     public void mergeSort(int[] arr) {
-        mergeSort(arr, 0, arr.length - 1);
+        divide(arr, 0, arr.length - 1);
     }
-    public void mergeSort(int[] arr, int low, int high) {
+
+    public void divide(int[] arr, int start, int end) {
         if (arr.length == 0) {
             return;
         }
-        if (low == high) {
+        if (start == end) {
             return;
         }
 
-        int mid = (low + high)/2;
-        mergeSort(arr, low, mid);
-        mergeSort(arr, mid + 1, high);
-        merge(arr, low, mid, high);
+        int mid = (start + end)/2;
+        divide(arr, start, mid);
+        divide(arr, mid + 1, end);
+        merge(arr, start, mid, end);
     }
 
-    public void merge(int[] arr, int low, int mid, int high) {
+    public void merge(int[] arr, int start, int mid, int end) {
         ArrayList<Integer> temp = new ArrayList<>();
-        int left = low; // starting index of left of arr
-        int right = mid + 1; // starting index of right half of arr
+        int left = start;
+        int right = mid + 1;
 
-        while (left <= mid && right <= high) {
+        while (left <= mid && right <= end) {
             if (arr[left] <= arr[right]) {
                 temp.add(arr[left]);
                 left++;
@@ -50,28 +51,27 @@ public class MergeSort {
             left++;
         }
 
-        while (right <= high) {
+        while (right <= end) {
             temp.add(arr[right]);
             right++;
         }
 
-        for (int i = low; i <= high; i++) {
-            arr[i] = temp.get(i - low);
+        for (int i = start; i <= end; i++) {
+            arr[i] = temp.get(i - start);
         }
-        // low give us current index from where our current hypothetical array start
-        // and high where its end.
-        // temp.get(i - low) to start the indexing of temp from zero.
-        // we are directly updating input array.
-
     }
 
-
-
 }
+
+// Base case is when we only when one element left.
+// start give us current index from where our current hypothetical array start
+// and end where its end.
+// temp.get(i - start) to start the indexing of temp arraylist from zero.
+
 /*
 Merge Sort -> Divide and Merge
 
-Time complexity : O(n * log2 n) -> O(n logn)
+Time complexity : O(n * log2 n) -> O(n logn) log 2 base n
 worst time complexity is also same for merge sort as of Quicksort.
 Everytime getting divide by 2 -> log2
 At each step we divide the whole array, for that logn and
@@ -80,3 +80,5 @@ we assume n steps are taken to get a sorted array.
 Space complexity: O(n) temp array we are creating in merge method
 in-place sorting algorithm.
  */
+
+// draw recursion tree
