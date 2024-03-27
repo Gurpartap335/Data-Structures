@@ -2,16 +2,7 @@ package lecture.recursion.basic;
 
 public class NaturalNumbers {
     public static void main(String[] args) {
-        System.out.println(sumOfNaturalNumbersIteration(-10));
-        System.out.println(sumOfNaturalNumbersRecursion(-10));
-        System.out.println(sumOfNaturalNumbersIteration(0));
-        System.out.println(sumOfNaturalNumbersRecursion(0));
-        System.out.println(sumOfNaturalNumbersIteration(1));
-        System.out.println(sumOfNaturalNumbersRecursion(1));
-        System.out.println(sumOfNaturalNumbersIteration(10));
-        System.out.println(sumOfNaturalNumbersRecursion(10));
-        System.out.println(sumOfNaturalNumbersIteration(20));
-        System.out.println(sumOfNaturalNumbersRecursion(20));
+
     }
 
     static int sumOfNaturalNumbersIteration(int n) {

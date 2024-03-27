@@ -1,29 +1,19 @@
 package lecture.sorting;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class QuickSort {
     public static void main(String[] args) {
-        int[] arr = {2,5,3,0,8,22,9,-1,-3,-5};
+        int[] arr = {4, 1, 5, 9, 2, 3};
         quickSort(arr);
         System.out.println(Arrays.toString(arr));
-
-        Map<Integer, Integer> map = new HashMap<>();
-        map.put(1, 3);
-        map.put(2, 5);
-        System.out.println(map.values());
-        for (int e : map.values()) {
-            System.out.println(e);
-        }
     }
 
-    static void quickSort(int[] arr) {
+    public static void quickSort(int[] arr) {
         quickSort(arr, 0, arr.length - 1);
     }
 
-    static void quickSort(int[] arr, int low, int high) {
+    public static void quickSort(int[] arr, int low, int high) {
         if (low >= high) {
             return;
         }
@@ -54,17 +44,16 @@ public class QuickSort {
             quickSort(arr, start, high);
         }
     }
-
-
-    private static void swap(int[] arr, int index1, int index2) {
-        int temp = arr[index1];
-        arr[index1] = arr[index2];
-        arr[index2] = temp;
-    }
 }
 /*
 1. Pick a pivot and place it in its correct position in the sorted array.
 2. Smaller on the left and larger on the right.
+
+Pivot can be:
+first element in the array
+last element in the array
+median element of the array
+random element of the array
 
 TC : O(n log n) in worst case O(n^2)
 SC : O(1)
